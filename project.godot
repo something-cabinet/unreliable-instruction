@@ -25,7 +25,7 @@ config/icon="res://asset/ui/project-icon.png"
 
 EnumAutoload="*res://src/singleton/enum_autoload.gd"
 GameManager="*res://src/singleton/GameManager.tscn"
-SoundManager="*res://addons/sound_manager/sound_manager.gd"
+SoundManager="*uid://bhkiedtfkl0qx"
 
 [debug]
 
