@@ -156,13 +156,13 @@ func _get_next_dialogue_line(resource: DialogueResource, key: String = "", extra
 	if resource == null:
 		assert(false, DMConstants.translate(&"runtime.no_resource"))
 	if resource.lines.size() == 0:
-		assert(false, DMConstants.translate(&"runtime.no_content").format({ file_path = resource.resource_path }))
+		assert(false, DMConstants.translate(&"runtime.no_content").format({file_path = resource.resource_path}))
 
 	# Inject any "using" states into the game_states
 	for state_name: String in resource.using_states:
 		var autoload: Node = (Engine.get_main_loop() as SceneTree).root.get_node_or_null(state_name)
 		if autoload == null:
-			printerr(DMConstants.translate(&"runtime.unknown_autoload").format({ autoload = state_name }))
+			printerr(DMConstants.translate(&"runtime.unknown_autoload").format({autoload = state_name}))
 		else:
 			extra_game_states = [autoload] + extra_game_states
 
@@ -245,7 +245,7 @@ func get_line(resource: DialogueResource, key: String, extra_game_states: Array)
 		passed_cue.emit(resource.cues.find_key(key))
 
 	if not resource.lines.has(key):
-		assert(false, DMConstants.translate(&"errors.key_not_found").format({ key = key }))
+		assert(false, DMConstants.translate(&"errors.key_not_found").format({key = key}))
 
 	var data: Dictionary = resource.lines.get(key)
 
@@ -422,7 +422,7 @@ func _inject_state(key: String, value: Variant, extra_game_states: Array) -> voi
 	if extra_game_states.size() > 0 and typeof(extra_game_states[0]) == TYPE_DICTIONARY and extra_game_states[0].has("self"):
 		extra_game_states[0][key] = value
 	else:
-		extra_game_states.insert(0, { key: value })
+		extra_game_states.insert(0, {key: value})
 
 
 ## Replace any variables, etc in the text.
@@ -436,7 +436,7 @@ func get_resolved_line_data(data: Dictionary, extra_game_states: Array = []) -> 
 	# Resolve variables in tags
 	if data.has("tags"):
 		for i: int in data.tags.size():
-			data.tags[i] = await _resolve_variables_in_text(data.tags[i], [] , extra_game_states)
+			data.tags[i] = await _resolve_variables_in_text(data.tags[i], [], extra_game_states)
 
 	var compilation: DMCompilation = DMCompilation.new()
 
@@ -462,7 +462,7 @@ func get_resolved_line_data(data: Dictionary, extra_game_states: Array = []) -> 
 				body = bits[0]
 				body_else = bits[1]
 			var condition: Dictionary = compilation.extract_condition("if " + condition_raw, false, 0)
-			var condition_passed: bool = await _check_condition({ condition = condition }, extra_game_states)
+			var condition_passed: bool = await _check_condition({condition = condition}, extra_game_states)
 			# If the condition fails then use the else of ""
 			if not condition_passed:
 				body = body_else
@@ -577,13 +577,13 @@ func create_resource_from_text(text: String) -> Resource:
 	var result: DMCompilerResult = DMCompiler.compile_string(text, "")
 
 	if result.errors.size() > 0:
-		printerr(DMConstants.translate(&"runtime.errors").format({ count = result.errors.size() }))
+		printerr(DMConstants.translate(&"runtime.errors").format({count = result.errors.size()}))
 		for error: DMError in result.errors:
 			printerr(DMConstants.translate(&"runtime.error_detail").format({
 				line = error.line_number + 1,
 				message = DMConstants.get_error_message(error.error)
 			}))
-		assert(false, DMConstants.translate(&"runtime.errors_see_details").format({ count = result.errors.size() }))
+		assert(false, DMConstants.translate(&"runtime.errors_see_details").format({count = result.errors.size()}))
 
 	var resource: DialogueResource = DialogueResource.new()
 	resource.using_states = result.using_states
@@ -826,7 +826,7 @@ func create_response(data: Dictionary, extra_game_states: Array) -> DialogueResp
 ## Register a state context. This is handled automatically by [DialogueStateContext] nodes.
 func register_state_context(alias: String, target: Node) -> void:
 	if _registered_contexts.has(alias):
-		push_warning(DMConstants.translate("\"{alias}\" will overwrite already registered context alias.").format({ alias = alias }))
+		push_warning(DMConstants.translate("\"{alias}\" will overwrite already registered context alias.").format({alias = alias}))
 	_registered_contexts[alias] = target
 	_send_state_to_debugger()
 
@@ -1005,7 +1005,7 @@ func _mutate(mutation: Dictionary, extra_game_states: Array, is_inline_mutation:
 		var args: Array = await _resolve_each(expression[0].value, extra_game_states)
 		match expression[0].function:
 			&"wait", &"Wait":
-				mutated.emit(mutation.merged({ is_inline = is_inline_mutation }))
+				mutated.emit(mutation.merged({is_inline = is_inline_mutation}))
 				if [TYPE_FLOAT, TYPE_INT].has(typeof(args[0])):
 					await Engine.get_main_loop().create_timer(float(args[0])).timeout
 				else:
@@ -1020,7 +1020,7 @@ func _mutate(mutation: Dictionary, extra_game_states: Array, is_inline_mutation:
 	# Or pass through to the resolver
 	else:
 		if not _mutation_contains_assignment(mutation.expression):
-			mutated.emit(mutation.merged({ is_inline = is_inline_mutation }))
+			mutated.emit(mutation.merged({is_inline = is_inline_mutation}))
 
 		if mutation.get("is_blocking", true):
 			await _resolve(mutation.expression.duplicate(true), extra_game_states)
@@ -1082,7 +1082,7 @@ func _get_state_value(property: String, extra_game_states: Array) -> Variant:
 
 	var expression: Expression = Expression.new()
 	if expression.parse(property) != OK:
-		assert(false, DMConstants.translate(&"runtime.invalid_expression").format({ expression = property, error = expression.get_error_text() }))
+		assert(false, DMConstants.translate(&"runtime.invalid_expression").format({expression = property, error = expression.get_error_text()}))
 
 	# Warn about possible name collisions
 	_warn_about_state_name_collisions(property, extra_game_states)
@@ -1121,7 +1121,7 @@ func _get_state_value(property: String, extra_game_states: Array) -> Variant:
 				return load(class_data.path)
 
 	show_error_for_missing_state_value(
-		DMConstants.translate(&"runtime.property_not_found").format({ property = property, states = _get_state_shortcut_names(extra_game_states) }),
+		DMConstants.translate(&"runtime.property_not_found").format({property = property, states = _get_state_shortcut_names(extra_game_states)}),
 		extra_game_states
 	)
 	return null
@@ -1174,7 +1174,7 @@ func _warn_about_state_name_collisions(target_key: String, extra_game_states: Ar
 					break
 
 	if states_with_key.size() > 1:
-		push_warning(DMConstants.translate(&"runtime.top_level_states_share_name").format({ states = ", ".join(states_with_key), key = target_key }))
+		push_warning(DMConstants.translate(&"runtime.top_level_states_share_name").format({states = ", ".join(states_with_key), key = target_key}))
 
 
 # Set a value on the current scene or game state
@@ -1194,12 +1194,12 @@ func _set_state_value(property: String, value: Variant, extra_game_states: Array
 
 	if property.to_snake_case() != property:
 		show_error_for_missing_state_value(
-			DMConstants.translate(&"runtime.property_not_found_missing_export").format({ property = property, states = _get_state_shortcut_names(extra_game_states) }),
+			DMConstants.translate(&"runtime.property_not_found_missing_export").format({property = property, states = _get_state_shortcut_names(extra_game_states)}),
 			extra_game_states
 		)
 	else:
 		show_error_for_missing_state_value(
-			DMConstants.translate(&"runtime.property_not_found").format({ property = property, states = _get_state_shortcut_names(extra_game_states) }),
+			DMConstants.translate(&"runtime.property_not_found").format({property = property, states = _get_state_shortcut_names(extra_game_states)}),
 			extra_game_states
 		)
 
@@ -1295,7 +1295,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 					i -= 2
 				else:
 					show_error_for_missing_state_value(
-						DMConstants.translate(&"runtime.method_not_callable").format({ method = function_name, object = str(caller.value) }),
+						DMConstants.translate(&"runtime.method_not_callable").format({method = function_name, object = str(caller.value)}),
 						extra_game_states
 					)
 			else:
@@ -1437,7 +1437,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 						token.value = value[index]
 					else:
 						show_error_for_missing_state_value(
-							DMConstants.translate(&"runtime.key_not_found").format({ key = str(index), dictionary = token.variable }),
+							DMConstants.translate(&"runtime.key_not_found").format({key = str(index), dictionary = token.variable}),
 							extra_game_states
 						)
 			elif typeof(value) in [TYPE_ARRAY, TYPE_PACKED_STRING_ARRAY, TYPE_PACKED_INT32_ARRAY, TYPE_PACKED_INT64_ARRAY, TYPE_PACKED_BYTE_ARRAY, TYPE_PACKED_COLOR_ARRAY, TYPE_PACKED_FLOAT32_ARRAY, TYPE_PACKED_FLOAT64_ARRAY]:
@@ -1453,7 +1453,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 						token.value = value[index]
 					else:
 						show_error_for_missing_state_value(
-							DMConstants.translate(&"runtime.array_index_out_of_bounds").format({ index = index, array = token.variable }),
+							DMConstants.translate(&"runtime.array_index_out_of_bounds").format({index = index, array = token.variable}),
 							extra_game_states
 						)
 
@@ -1477,7 +1477,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 						i -= 1
 					else:
 						show_error_for_missing_state_value(
-							DMConstants.translate(&"runtime.key_not_found").format({ key = str(index), dictionary = value }),
+							DMConstants.translate(&"runtime.key_not_found").format({key = str(index), dictionary = value}),
 							extra_game_states
 						)
 			elif typeof(value) == TYPE_ARRAY:
@@ -1496,7 +1496,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 						i -= 1
 					else:
 						show_error_for_missing_state_value(
-							DMConstants.translate(&"runtime.array_index_out_of_bounds").format({ index = index, array = value }),
+							DMConstants.translate(&"runtime.array_index_out_of_bounds").format({index = index, array = value}),
 							extra_game_states
 						)
 			elif (index is String or index is StringName) and is_instance_valid(value):
@@ -1679,7 +1679,7 @@ func _resolve(tokens: Array, extra_game_states: Array) -> Variant:
 					lhs.value[lhs.key] = value
 				&"array":
 					show_error_for_missing_state_value(
-						DMConstants.translate(&"runtime.array_index_out_of_bounds").format({ index = lhs.key, array = lhs.value }),
+						DMConstants.translate(&"runtime.array_index_out_of_bounds").format({index = lhs.key, array = lhs.value}),
 						extra_game_states,
 						lhs.key >= lhs.value.size()
 					)
@@ -1871,7 +1871,7 @@ func _get_method_info_for(thing: Variant, method: String, args: Array) -> Dictio
 
 
 func _get_method_info_key(method: String, args: Array) -> String:
-	return "%s:%s" % [method, ",".join(args.map(func (arg: Variant) -> String:
+	return "%s:%s" % [method, ",".join(args.map(func(arg: Variant) -> String:
 		if typeof(arg) == TYPE_DICTIONARY:
 			if arg.has("class_name") and not arg.class_name.is_empty(): return arg.class_name
 			if arg.has("type") and typeof(arg.type) == TYPE_INT: return str(arg.type)
@@ -1899,7 +1899,7 @@ func _resolve_thing_method(thing: Variant, method: String, args: Array) -> Varia
 		var method_info: Dictionary = _get_method_info_for(thing, method, args)
 		var method_args: Array = method_info.args
 		if method_info.flags & METHOD_FLAG_VARARG == 0 and method_args.size() < args.size():
-			assert(false, DMConstants.translate(&"runtime.expected_n_got_n_args").format({ expected = method_args.size(), method = method, received = args.size()}))
+			assert(false, DMConstants.translate(&"runtime.expected_n_got_n_args").format({expected = method_args.size(), method = method, received = args.size()}))
 		for i: int in range(0, min(method_args.size(), args.size())):
 			var m: Dictionary = method_args[i]
 			var to_type: int = typeof(args[i])
@@ -1918,7 +1918,7 @@ func _resolve_thing_method(thing: Variant, method: String, args: Array) -> Varia
 						to_type = TYPE_PACKED_VECTOR3_ARRAY
 					_:
 						if m.hint_string != "":
-							assert(false, DMConstants.translate(&"runtime.unsupported_array_type").format({ type = m.hint_string}))
+							assert(false, DMConstants.translate(&"runtime.unsupported_array_type").format({type = m.hint_string}))
 			if typeof(args[i]) != to_type:
 				args[i] = type_convert(args[i], to_type)
 
