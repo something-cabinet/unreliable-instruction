@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cnuglobw5ctj7"]
+[gd_scene format=3 uid="uid://cnuglobw5ctj7"]
 
-[ext_resource type="Script" path="res://src/ui/keybind_button.gd" id="1_4qnba"]
+[ext_resource type="Script" uid="uid://cnvanus0m8sj5" path="res://src/ui/menu/keybind_button.gd" id="1_4qnba"]
 
 [node name="KeybindButton" type="HBoxContainer"]
 script = ExtResource("1_4qnba")

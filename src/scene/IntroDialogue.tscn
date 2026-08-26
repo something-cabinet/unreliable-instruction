@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cqmjic6pcka70"]
+
+[ext_resource type="Script" uid="uid://dlj7y2u1y1t64" path="res://src/scene/intro_dialogue.gd" id="1_ym60t"]
+[ext_resource type="Resource" uid="uid://utagvjcp3mns" path="res://src/dialogue/intro.dialogue" id="2_kna0s"]
+[ext_resource type="Texture2D" uid="uid://ddxlwqy0suhq8" path="res://asset/sprite/background/office_background.png" id="3_2g2fx"]
+
+[node name="IntroDialogue" type="Control" unique_id=59274801]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ym60t")
+dialogue_resource = ExtResource("2_kna0s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=321074955]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2g2fx")
+
+[node name="TopBlackBar" type="ColorRect" parent="." unique_id=422297480]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BotBlackBar" type="ColorRect" parent="." unique_id=516249208]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://byj1y3wrwtdtq"]
 
-[ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/SettingUI.tscn" id="1_oj67h"]
-[ext_resource type="Script" uid="uid://bo58fdmr1pa7f" path="res://src/ui/pause_ui.gd" id="1_y22bm"]
+[ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="1_oj67h"]
+[ext_resource type="Script" uid="uid://bo58fdmr1pa7f" path="res://src/ui/menu/pause_ui.gd" id="1_y22bm"]
 
 [node name="PauseUI" type="Control" unique_id=819244490]
 process_mode = 3

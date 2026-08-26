@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://dbnq56m6ymgoy"]
+
+[ext_resource type="Texture2D" uid="uid://vhrtng0exi0r" path="res://asset/sprite/background/paper.png" id="1_bdm0w"]
+[ext_resource type="Texture2D" uid="uid://cgbopgle5ywu1" path="res://asset/sprite/background/taped_note.png" id="2_x55ki"]
+[ext_resource type="PackedScene" uid="uid://dik7k853s20n1" path="res://src/ui/item/RulePaper.tscn" id="3_6kkkm"]
+[ext_resource type="Texture2D" uid="uid://bf1l7fii8rfc8" path="res://asset/sprite/item/paperclip.png" id="4_x55ki"]
+
+[node name="PsyProfile" type="TextureRect" unique_id=1572016999]
+self_modulate = Color(0.99981505, 0.97206324, 0.81026155, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1038.0
+offset_bottom = -272.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bdm0w")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="." unique_id=1855604207]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 16.0
+offset_right = 92.0
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Psychology Report"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="." unique_id=1396083958]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_top = 88.0
+offset_right = -60.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Name:"
+vertical_alignment = 1
+
+[node name="LyingPattern" type="Label" parent="." unique_id=1476866325]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -148.0
+offset_top = 136.0
+offset_right = -45.0
+offset_bottom = 176.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Lying Pattern"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=437720945]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 184.0
+offset_right = 288.0
+offset_bottom = 408.0
+
+[node name="Pattern" type="Label" parent="VBoxContainer" unique_id=1322039618]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "- When smile"
+vertical_alignment = 1
+
+[node name="Pattern2" type="Label" parent="VBoxContainer" unique_id=1798749314]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "- When point finger up"
+vertical_alignment = 1
+
+[node name="NameNote" type="TextureRect" parent="." unique_id=504416751]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 48.0
+offset_right = 336.0
+offset_bottom = 208.0
+texture = ExtResource("2_x55ki")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Name" type="Label" parent="NameNote" unique_id=576966222]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -19.604057
+offset_right = 43.0
+offset_bottom = 19.604057
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.12264667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Brother Do"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RulePaper" parent="." unique_id=794856530 instance=ExtResource("3_6kkkm")]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 232.0
+offset_right = 354.35294
+offset_bottom = 496.0
+
+[node name="Paperclip" type="TextureRect" parent="." unique_id=1611935430]
+layout_mode = 0
+offset_left = 351.99997
+offset_top = 296.0
+offset_right = 398.99997
+offset_bottom = 400.0
+rotation = 0.91919607
+texture = ExtResource("4_x55ki")
+flip_h = true

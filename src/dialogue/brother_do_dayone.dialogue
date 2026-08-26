@@ -1,0 +1,24 @@
+~ start
+Brother Do: [#portrait=brother_do_call_phone]Wait a bit, someone talking to me.
+Brother Do: [#portrait=brother_do_smile]Wassup brother, come to play my carnival game?
+- Can I ask about the rules first?
+	Brother Do: [#portrait=brother_do_smile]Sure, here are the rules.
+	~ explain_rule
+	Brother Do: [#portrait=brother_do_smile]Rule 1: ...
+	Brother Do: [#portrait=brother_do_smile]Rule 2: ...
+	Brother Do: [#portrait=brother_do_smile]Rule 3: ...
+	Brother Do: [#portrait=brother_do_smile]You got it? Wanna play now?
+	- Can you repeat again?
+		Brother Do: [#portrait=brother_do_smile]Haizzz.. Ok listen carefully now!
+		=> explain_rule
+	- I got the rule, let me play.
+		=> play_game
+	- Yeah, but I dont wanna play anymore.
+		Brother Do: [#portrait=brother_do_smile]Ok bro.
+		Brother Do: [#portrait=brother_do_call_phone]Anyway my dude, there is this guy come here and waste my time...
+		=> END
+- Yes, please!
+	~ play_game
+	Brother Do: [#portrait=brother_do_smile]Ok i will setup the game now. Let's play!
+	
+=> END

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://biqm56x6ewbmo"]
+[gd_scene format=3 uid="uid://biqm56x6ewbmo"]
 
-[ext_resource type="Script" path="res://src/ui/setting_ui.gd" id="1_05qbb"]
-[ext_resource type="PackedScene" uid="uid://cnuglobw5ctj7" path="res://src/ui/KeybindButton.tscn" id="2_b71wb"]
+[ext_resource type="Script" uid="uid://bxnygel87s1id" path="res://src/ui/menu/setting_ui.gd" id="1_05qbb"]
+[ext_resource type="PackedScene" uid="uid://cnuglobw5ctj7" path="res://src/ui/menu/KeybindButton.tscn" id="2_b71wb"]
 
 [node name="SettingUI" type="Control"]
 custom_minimum_size = Vector2(400, 400)

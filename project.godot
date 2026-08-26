@@ -26,10 +26,15 @@ config/icon="res://asset/ui/project-icon.png"
 EnumAutoload="*res://src/singleton/enum_autoload.gd"
 GameManager="*res://src/singleton/GameManager.tscn"
 SoundManager="*uid://banokm23tjqmc"
+DialogueManager="*uid://c3rodes2l3gxb"
 
 [debug]
 
 gdscript/warnings/unused_signal=0
+
+[dialogue_manager]
+
+runtime/balloon_path="res://src/ui/dialogue/Balloon.tscn"
 
 [display]
 
@@ -39,7 +44,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sound_manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [gui]
 
@@ -72,14 +77,24 @@ pause_menu={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"location":0,"echo":false,"script":null)
+]
+}
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://src/dialogue/intro.dialogue", "res://src/dialogue/brother_do_dayone.dialogue")
 
 [layer_names]
 
 2d_physics/layer_1="Building"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Enemies"
+2d_physics/layer_3="NPC"
 2d_physics/layer_4="Projectiles"
 2d_physics/layer_5="Loot"
+2d_physics/layer_6="InteractArea"
 2d_physics/layer_7="EnemyHurtboxes"
 
 [rendering]
