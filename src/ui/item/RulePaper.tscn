@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://dik7k853s20n1"]
+
+[ext_resource type="Texture2D" uid="uid://cj4tadgduqqud" path="res://asset/sprite/background/squared_note.png" id="1_vw8a8"]
+
+[node name="RulePaper" type="TextureRect" unique_id=794856530]
+offset_right = 274.35294
+offset_bottom = 264.0
+texture = ExtResource("1_vw8a8")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Title" type="Label" parent="." unique_id=1378440681]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.17647
+offset_top = 32.0
+offset_right = 78.82353
+offset_bottom = 72.0
+grow_horizontal = 2
+rotation = -0.079747796
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Game rules"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="." unique_id=1591842313]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.176476
+offset_top = 55.999996
+offset_right = 40.823532
+offset_bottom = 96.0
+grow_horizontal = 2
+rotation = -0.071709275
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Racing Pro"
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=864308054]
+layout_mode = 0
+offset_left = 49.737194
+offset_top = 114.2113
+offset_right = 222.2132
+offset_bottom = 235.26492
+rotation = -0.06617968
+
+[node name="Rule" type="Label" parent="VBoxContainer" unique_id=612037884]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "- Use WASD to move
+- Race fast to win
+- etc..."
+vertical_alignment = 1
