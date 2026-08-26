@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Unreliable Instruction"
 config/version="0.1"
 config/tags=PackedStringArray("template")
-run/main_scene="res://src/scene/TitleScreen.tscn"
+run/main_scene="uid://d4boapy8sbdqp"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://asset/ui/project-icon.png"
 
@@ -25,7 +25,7 @@ config/icon="res://asset/ui/project-icon.png"
 
 EnumAutoload="*res://src/singleton/enum_autoload.gd"
 GameManager="*res://src/singleton/GameManager.tscn"
-SoundManager="*uid://bhkiedtfkl0qx"
+SoundManager="*uid://banokm23tjqmc"
 
 [debug]
 

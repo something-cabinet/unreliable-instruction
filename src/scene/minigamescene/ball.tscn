@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bt0fhlyo5a5nw"]
+
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="1_c03sv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00rlw"]
+size = Vector2(10.5, 10)
+
+[node name="ball" type="CharacterBody2D" unique_id=776575121]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72746416]
+position = Vector2(47.25, 35)
+scale = Vector2(0.16406247, 0.15624999)
+texture = ExtResource("1_c03sv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2144390311]
+position = Vector2(47.25, 35)
+shape = SubResource("RectangleShape2D_00rlw")
