@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dojq5hpis050i"
+path="res://.godot/imported/brother_do_dayone.dialogue-08f246a6c3ec7f7938c9c935484c932e.tres"
+
+[deps]
+
+source_file="res://src/dialogue/brother_do_dayone.dialogue"
+dest_files=["res://.godot/imported/brother_do_dayone.dialogue-08f246a6c3ec7f7938c9c935484c932e.tres"]
+
+[params]
+
+defaults=true

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://clsdnti10u8oa" path="res://src/ui/CameraFollow.tscn" id="1_7ingd"]
 [ext_resource type="PackedScene" uid="uid://d4ni5778a3406" path="res://src/entity/player/Player.tscn" id="2_173wh"]
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
+[ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/PauseUI.tscn" id="5_23kne"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
@@ -16,6 +17,7 @@ y_sort_enabled = true
 
 [node name="BrotherDo" parent="YSort" unique_id=136133927 instance=ExtResource("3_2rihm")]
 position = Vector2(-200, -184)
+dialogue_resource = ExtResource("4_7ingd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 
