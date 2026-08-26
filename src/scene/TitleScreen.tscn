@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baeg7c16aji2u"]
 
 [ext_resource type="Script" uid="uid://dya2jlcvk37hk" path="res://src/scene/title_screen.gd" id="1_uqkmj"]
-[ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/SettingUI.tscn" id="2_ontx6"]
+[ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="2_ontx6"]
 
 [node name="Titlescreen" type="Control" unique_id=159009918]
 layout_mode = 3

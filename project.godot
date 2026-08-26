@@ -34,7 +34,7 @@ gdscript/warnings/unused_signal=0
 
 [dialogue_manager]
 
-runtime/balloon_path="res://src/ui/Balloon.tscn"
+runtime/balloon_path="res://src/ui/dialogue/Balloon.tscn"
 
 [display]
 
