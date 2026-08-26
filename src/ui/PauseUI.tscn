@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://byj1y3wrwtdtq"]
+[gd_scene format=3 uid="uid://byj1y3wrwtdtq"]
 
 [ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/SettingUI.tscn" id="1_oj67h"]
-[ext_resource type="Script" path="res://src/ui/pause_ui.gd" id="1_y22bm"]
+[ext_resource type="Script" uid="uid://bo58fdmr1pa7f" path="res://src/ui/pause_ui.gd" id="1_y22bm"]
 
-[node name="PauseUI" type="Control"]
+[node name="PauseUI" type="Control" unique_id=819244490]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -13,16 +13,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y22bm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1459133906]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.298039)
 
-[node name="PauseOptionBG" type="ColorRect" parent="."]
+[node name="PauseOptionBG" type="ColorRect" parent="." unique_id=1740743202]
 custom_minimum_size = Vector2(500, 300)
 layout_mode = 1
 anchors_preset = 8
@@ -38,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.478431, 0.478431, 0.478431, 0.533333)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseOptionBG"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOptionBG" unique_id=1999043857]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,25 +55,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
 
-[node name="SettingButton" type="Button" parent="PauseOptionBG/VBoxContainer"]
+[node name="SettingButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1948431359]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Settings"
 
-[node name="TitleScreenButton" type="Button" parent="PauseOptionBG/VBoxContainer"]
+[node name="TitleScreenButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1324121107]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Title screen"
 
-[node name="ExitButton" type="Button" parent="PauseOptionBG/VBoxContainer"]
+[node name="ExitButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=216239623]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Quit game"
 
-[node name="SettingUI" parent="." instance=ExtResource("1_oj67h")]
+[node name="SettingUI" parent="." unique_id=1670046261 instance=ExtResource("1_oj67h")]
 visible = false
 layout_mode = 1
 
