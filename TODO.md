@@ -3,9 +3,8 @@
 High-level steps only. Break each into details when you get there.
 
 ## 1. Lock the puzzle design
-- [ ] Decide owner/profile count for the jam build.
-- [ ] Decide investigation action budget (and whether ask/observe are
-      separate or bundled).
+- [x] Decide owner/profile count for the jam build. -> 3 days: 3 / 4 / 5.
+- [x] Decide investigation action budget (and whether ask/observe are separate or bundled). -> (number of owners x2) + 1.
 - [ ] Write and hand-validate (or script-validate) that the puzzle is
       solvable within the action budget with a unique solution.
 

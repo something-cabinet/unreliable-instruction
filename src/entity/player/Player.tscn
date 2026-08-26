@@ -1,27 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ni5778a3406"]
+[gd_scene format=3 uid="uid://d4ni5778a3406"]
 
-[ext_resource type="Script" path="res://src/entity/player/player.gd" id="1_clqhe"]
+[ext_resource type="Script" uid="uid://87p4fxkdngtx" path="res://src/entity/player/player.gd" id="1_clqhe"]
 [ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="2_aehg4"]
 [ext_resource type="Texture2D" uid="uid://r0wjgu176401" path="res://asset/sprite/placeholder/human.png" id="3_a8pkb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx37b"]
-size = Vector2(32, 32)
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vmqm"]
+radius = 104.0
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hx37b"]
+size = Vector2(56, 64)
+
+[node name="Player" type="CharacterBody2D" unique_id=882848352]
 collision_layer = 2
 script = ExtResource("1_clqhe")
 
-[node name="Shadow" type="Sprite2D" parent="."]
+[node name="InteractArea" type="Area2D" parent="." unique_id=2100016169]
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1510596897]
+shape = SubResource("CircleShape2D_5vmqm")
+debug_color = Color(0.70196074, 0.61977327, 0, 0.41960785)
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1627994604]
 self_modulate = Color(0, 0, 0, 0.482353)
-position = Vector2(5.68434e-14, 23.875)
-scale = Vector2(0.4375, 0.222656)
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(1.25, 0.6359375)
 texture = ExtResource("2_aehg4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704032537]
 self_modulate = Color(0.0784314, 1, 0, 1)
-scale = Vector2(0.25, 0.25)
+position = Vector2(0, -88)
 texture = ExtResource("3_a8pkb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=672627158]
+position = Vector2(-4, -24)
 shape = SubResource("RectangleShape2D_hx37b")
+
+[node name="InteractLabel" type="Label" parent="." unique_id=1440397540]
+visible = false
+offset_left = -96.0
+offset_top = -232.0
+offset_right = 103.0
+offset_bottom = -196.08334
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 20
+text = "Press E to interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

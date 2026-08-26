@@ -141,7 +141,7 @@ func apply_dialogue_line() -> void:
 	# Portrait
 	if dialogue_line.get_tag_value("portrait") != "":
 		var portrait: String = dialogue_line.get_tag_value("portrait")
-		var portrait_path: String = "res://asset/sprite/character/%s.png" % portrait
+		var portrait_path: String = "res://asset/sprite/portrait/%s.png" % portrait
 		if FileAccess.file_exists(portrait_path):
 			portrait_image.texture = load(portrait_path)
 		else:
