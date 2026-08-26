@@ -23,6 +23,8 @@ extends CanvasLayer
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
+@onready var portrait_image: TextureRect = $Balloon/Portrait
+
 ## Temporary game states
 var temporary_game_states: Array = []
 
@@ -88,7 +90,6 @@ func _ready() -> void:
 		start()
 
 
-
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):
 		progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
@@ -136,6 +137,15 @@ func apply_dialogue_line() -> void:
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
+
+	# Portrait
+	if dialogue_line.get_tag_value("portrait") != "":
+		var portrait: String = dialogue_line.get_tag_value("portrait")
+		var portrait_path: String = "res://asset/sprite/character/%s.png" % portrait
+		if FileAccess.file_exists(portrait_path):
+			portrait_image.texture = load(portrait_path)
+		else:
+			portrait_image.texture = null
 
 	responses_menu.hide()
 	responses_menu.responses = dialogue_line.responses
