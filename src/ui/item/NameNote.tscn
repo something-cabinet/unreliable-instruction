@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ce0l460cdfimg"]
+
+[ext_resource type="Texture2D" uid="uid://cgbopgle5ywu1" path="res://asset/sprite/background/taped_note.png" id="1_n2nco"]
+
+[node name="NameNote" type="TextureRect" unique_id=1389529484]
+visible = false
+offset_left = 168.0
+offset_top = 48.0
+offset_right = 336.0
+offset_bottom = 208.0
+texture = ExtResource("1_n2nco")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Name" type="Label" parent="." unique_id=1086007626]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -19.604057
+offset_right = 43.0
+offset_bottom = 19.604057
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.12264667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Brother Do"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://dik7k853s20n1"]
 
+[ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="1_52j0a"]
 [ext_resource type="Texture2D" uid="uid://cj4tadgduqqud" path="res://asset/sprite/background/squared_note.png" id="1_vw8a8"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t276w"]
+shader = ExtResource("1_52j0a")
+shader_parameter/thickness = 2.000000095
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
 [node name="RulePaper" type="TextureRect" unique_id=794856530]
+material = SubResource("ShaderMaterial_t276w")
 offset_right = 274.35294
 offset_bottom = 264.0
 texture = ExtResource("1_vw8a8")

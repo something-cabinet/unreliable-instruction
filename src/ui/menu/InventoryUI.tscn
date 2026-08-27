@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://dh0453bcu7ni5"]
+
+[ext_resource type="PackedScene" uid="uid://dbnq56m6ymgoy" path="res://src/ui/item/PsyProfile.tscn" id="1_ta74w"]
+[ext_resource type="PackedScene" uid="uid://dik7k853s20n1" path="res://src/ui/item/RulePaper.tscn" id="2_2amx0"]
+[ext_resource type="PackedScene" uid="uid://ce0l460cdfimg" path="res://src/ui/item/NameNote.tscn" id="3_h0s44"]
+[ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="4_htvhj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dlfqx"]
+shader = ExtResource("4_htvhj")
+shader_parameter/thickness = 2.000000095
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[node name="InventoryUI" type="Control" unique_id=918527547]
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PsyProfile" parent="." unique_id=1572016999 instance=ExtResource("1_ta74w")]
+layout_mode = 1
+offset_left = 112.0
+offset_top = 56.0
+offset_right = -926.0
+offset_bottom = -216.0
+
+[node name="PsyProfile2" parent="." unique_id=1114353945 instance=ExtResource("1_ta74w")]
+layout_mode = 1
+offset_left = 136.0
+offset_top = 168.0
+offset_right = -902.0
+offset_bottom = -104.0
+
+[node name="PsyProfile3" parent="." unique_id=1600860193 instance=ExtResource("1_ta74w")]
+layout_mode = 1
+offset_left = 88.0
+offset_top = 256.0
+offset_right = -950.0
+offset_bottom = -16.0
+
+[node name="PsyProfile4" parent="." unique_id=2008314742 instance=ExtResource("1_ta74w")]
+layout_mode = 1
+offset_left = 160.0
+offset_top = 344.0
+offset_right = -878.0
+offset_bottom = 72.0
+
+[node name="RulePaper" parent="." unique_id=794856530 instance=ExtResource("2_2amx0")]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 56.0
+offset_right = 1314.3529
+offset_bottom = 320.0
+
+[node name="RulePaper2" parent="." unique_id=1371877519 instance=ExtResource("2_2amx0")]
+layout_mode = 0
+offset_left = 784.0
+offset_top = 48.0
+offset_right = 1058.3529
+offset_bottom = 312.0
+
+[node name="RulePaper3" parent="." unique_id=9124026 instance=ExtResource("2_2amx0")]
+layout_mode = 0
+offset_left = 1072.0
+offset_top = 224.0
+offset_right = 1346.3529
+offset_bottom = 488.0
+
+[node name="RulePaper4" parent="." unique_id=1694106799 instance=ExtResource("2_2amx0")]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 160.0
+offset_right = 1146.3529
+offset_bottom = 424.0
+
+[node name="NameNote" parent="." unique_id=1389529484 instance=ExtResource("3_h0s44")]
+visible = true
+material = SubResource("ShaderMaterial_dlfqx")
+layout_mode = 0
+offset_left = 768.0
+offset_top = 464.0
+offset_right = 936.0
+offset_bottom = 624.0
+
+[node name="NameNote2" parent="." unique_id=1854629525 instance=ExtResource("3_h0s44")]
+visible = true
+material = SubResource("ShaderMaterial_dlfqx")
+layout_mode = 0
+offset_left = 888.0
+offset_top = 448.0
+offset_right = 1056.0
+offset_bottom = 608.0
+
+[node name="NameNote3" parent="." unique_id=2009962055 instance=ExtResource("3_h0s44")]
+visible = true
+material = SubResource("ShaderMaterial_dlfqx")
+layout_mode = 0
+offset_left = 976.0
+offset_top = 488.0
+offset_right = 1144.0
+offset_bottom = 648.0
+
+[node name="NameNote4" parent="." unique_id=1263187409 instance=ExtResource("3_h0s44")]
+visible = true
+material = SubResource("ShaderMaterial_dlfqx")
+layout_mode = 0
+offset_left = 1128.0
+offset_top = 496.0
+offset_right = 1296.0
+offset_bottom = 656.0
