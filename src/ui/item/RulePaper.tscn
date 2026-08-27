@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="1_52j0a"]
 [ext_resource type="Texture2D" uid="uid://cj4tadgduqqud" path="res://asset/sprite/background/squared_note.png" id="1_vw8a8"]
+[ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="3_t276w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t276w"]
 shader = ExtResource("1_52j0a")
@@ -22,6 +23,7 @@ offset_bottom = 264.0
 texture = ExtResource("1_vw8a8")
 expand_mode = 1
 stretch_mode = 4
+script = ExtResource("3_t276w")
 
 [node name="Title" type="Label" parent="." unique_id=1378440681]
 layout_mode = 1

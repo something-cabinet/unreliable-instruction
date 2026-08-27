@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dh0453bcu7ni5"]
 
+[ext_resource type="Script" uid="uid://bv0puypqlnsc7" path="res://src/ui/menu/inventory_ui.gd" id="1_dlfqx"]
 [ext_resource type="PackedScene" uid="uid://dbnq56m6ymgoy" path="res://src/ui/item/PsyProfile.tscn" id="1_ta74w"]
 [ext_resource type="PackedScene" uid="uid://dik7k853s20n1" path="res://src/ui/item/RulePaper.tscn" id="2_2amx0"]
 [ext_resource type="PackedScene" uid="uid://ce0l460cdfimg" path="res://src/ui/item/NameNote.tscn" id="3_h0s44"]
@@ -25,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_dlfqx")
 
 [node name="PsyProfile" parent="." unique_id=1572016999 instance=ExtResource("1_ta74w")]
 layout_mode = 1

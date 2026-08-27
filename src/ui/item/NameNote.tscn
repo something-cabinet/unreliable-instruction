@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://ce0l460cdfimg"]
 
 [ext_resource type="Texture2D" uid="uid://cgbopgle5ywu1" path="res://asset/sprite/background/taped_note.png" id="1_n2nco"]
+[ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="2_nroa7"]
 
 [node name="NameNote" type="TextureRect" unique_id=1389529484]
-visible = false
-offset_left = 168.0
-offset_top = 48.0
-offset_right = 336.0
-offset_bottom = 208.0
+offset_right = 168.0
+offset_bottom = 160.0
 texture = ExtResource("1_n2nco")
 expand_mode = 1
 stretch_mode = 4
+script = ExtResource("2_nroa7")
 
 [node name="Name" type="Label" parent="." unique_id=1086007626]
 layout_mode = 1
