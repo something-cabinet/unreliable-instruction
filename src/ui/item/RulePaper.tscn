@@ -18,13 +18,15 @@ shader_parameter/max_or_add = false
 
 [node name="RulePaper" type="TextureRect" unique_id=794856530]
 material = SubResource("ShaderMaterial_t276w")
-offset_right = 274.35294
-offset_bottom = 264.0
+offset_right = 241.09804
+offset_bottom = 232.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("1_vw8a8")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("3_t276w")
 allow_dragging = true
+item_type = "game_rule"
 
 [node name="Title" type="Label" parent="." unique_id=1378440681]
 layout_mode = 1
@@ -38,7 +40,7 @@ offset_bottom = 72.0
 grow_horizontal = 2
 rotation = -0.079747796
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 20
 text = "Game rules"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -48,22 +50,30 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -57.176476
-offset_top = 55.999996
-offset_right = 40.823532
-offset_bottom = 96.0
+offset_left = -59.54902
+offset_top = 52.999996
+offset_right = 38.450996
+offset_bottom = 93.0
 grow_horizontal = 2
 rotation = -0.071709275
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Racing Pro"
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=864308054]
-layout_mode = 0
-offset_left = 49.737194
-offset_top = 114.2113
-offset_right = 222.2132
-offset_bottom = 235.26492
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.54902
+offset_top = -137.0
+offset_right = 82.92698
+offset_bottom = -15.946381
+grow_horizontal = 2
+grow_vertical = 0
 rotation = -0.06617968
 
 [node name="Rule" type="Label" parent="VBoxContainer" unique_id=612037884]
