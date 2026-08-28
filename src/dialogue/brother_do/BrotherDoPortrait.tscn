@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://2ss5737ooom7"]
+
+[ext_resource type="Texture2D" uid="uid://b1bat5nn1165h" path="res://asset/sprite/portrait/brother_do_smile.png" id="1_lt477"]
+[ext_resource type="Texture2D" uid="uid://qxbha1iu83nb" path="res://asset/sprite/portrait_part/eye_1.png" id="2_oa1lw"]
+[ext_resource type="Script" uid="uid://uusjskdxnib1" path="res://src/dialogue/portrait_with_part.gd" id="2_upa2s"]
+[ext_resource type="Texture2D" uid="uid://b4h10cvtqj55i" path="res://asset/sprite/portrait_part/mouth_1.png" id="3_dcypx"]
+[ext_resource type="Texture2D" uid="uid://wxxyr1087alq" path="res://asset/sprite/portrait_part/eye_2.png" id="4_ynlm0"]
+[ext_resource type="Texture2D" uid="uid://c8607ks1y6t47" path="res://asset/sprite/portrait_part/eye_3.png" id="5_8sbdp"]
+[ext_resource type="Texture2D" uid="uid://cw7smy160kkbd" path="res://asset/sprite/portrait_part/mouth_2.png" id="7_nsiml"]
+[ext_resource type="Texture2D" uid="uid://c4o01a2oa7rdp" path="res://asset/sprite/portrait_part/arm_2.png" id="8_8sbdp"]
+[ext_resource type="Texture2D" uid="uid://b8s0fh81nsvg2" path="res://asset/sprite/portrait_part/arm_1.png" id="8_ynlm0"]
+
+[node name="BrotherDoPortrait" type="TextureRect" unique_id=1877723309]
+custom_minimum_size = Vector2(512, 512)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = -851.0
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lt477")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_upa2s")
+eye_part_truth_list = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp")])
+mouth_part_true_list = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml")])
+
+[node name="EyeL" type="TextureRect" parent="." unique_id=709502522]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 251.0
+offset_right = 256.0
+offset_bottom = 275.0
+texture = ExtResource("2_oa1lw")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyeR" type="TextureRect" parent="." unique_id=615291339]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 248.0
+offset_right = 307.0
+offset_bottom = 272.0
+texture = ExtResource("2_oa1lw")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="Mouth" type="TextureRect" parent="." unique_id=1030734219]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 295.0
+offset_right = 295.0
+offset_bottom = 327.0
+texture = ExtResource("7_nsiml")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArmL" type="TextureRect" parent="." unique_id=1156741473]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 118.0
+offset_right = 192.34557
+offset_bottom = 472.7315
+rotation = -0.03801574
+texture = ExtResource("8_8sbdp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArmR" type="TextureRect" parent="." unique_id=729634303]
+layout_mode = 0
+offset_left = 354.50616
+offset_top = 101.77532
+offset_right = 493.54953
+offset_bottom = 476.23914
+rotation = 0.08593305
+texture = ExtResource("8_ynlm0")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true

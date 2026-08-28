@@ -91,7 +91,7 @@ open_inventory={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://src/dialogue/intro.dialogue", "res://src/dialogue/brother_do_dayone.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/dialogue/intro.dialogue", "res://src/dialogue/brother_do/brother_do_dayone.dialogue")
 
 [layer_names]
 
