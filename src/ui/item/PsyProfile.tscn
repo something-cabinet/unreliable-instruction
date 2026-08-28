@@ -22,13 +22,9 @@ size = Vector2(138, 122)
 
 [node name="PsyProfile" type="TextureRect" unique_id=1572016999]
 material = SubResource("ShaderMaterial_egwik")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -1038.0
-offset_bottom = -272.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(328, 488)
+offset_right = 328.0
+offset_bottom = 488.0
 texture = ExtResource("1_bdm0w")
 expand_mode = 1
 stretch_mode = 4
@@ -79,11 +75,18 @@ text = "Lying Pattern"
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=437720945]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 184.0
-offset_right = 288.0
-offset_bottom = 408.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -52.0
+offset_right = 116.0
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Pattern" type="Label" parent="VBoxContainer" unique_id=1322039618]
 layout_mode = 2
@@ -109,11 +112,15 @@ texture = ExtResource("4_x55ki")
 flip_h = true
 
 [node name="NameNoteSlot" type="ColorRect" parent="." unique_id=1707377390]
-layout_mode = 0
-offset_left = 184.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
 offset_top = 72.0
-offset_right = 304.0
+offset_right = -32.0
 offset_bottom = 176.0
+grow_horizontal = 0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.3529412)
 
@@ -141,11 +148,18 @@ position = Vector2(59, 51)
 shape = SubResource("RectangleShape2D_n3hlg")
 
 [node name="GameRuleSlot" type="ColorRect" parent="." unique_id=820417375]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 296.0
-offset_right = 304.0
-offset_bottom = 464.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -192.0
+offset_right = 140.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.3529412)
 

@@ -125,6 +125,27 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qq3yp")
 
+[node name="TopBlackBar" type="ColorRect" parent="Balloon" unique_id=108972127]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BotBlackBar" type="ColorRect" parent="Balloon" unique_id=1683075078]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
 [node name="Portrait" type="TextureRect" parent="Balloon" unique_id=67726937]
 custom_minimum_size = Vector2(512, 512)
 layout_mode = 1

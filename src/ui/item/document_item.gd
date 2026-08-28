@@ -1,16 +1,15 @@
 extends Control
 class_name DocumentItem
 
+@export var allow_dragging = false
+
 var _dragging := false
 var _drag_offset := Vector2.ZERO
 
 
-func _ready() -> void:
-	# TextureRect ignores mouse input by default, so it never receives _gui_input.
-	mouse_filter = Control.MOUSE_FILTER_STOP
-
-
 func _gui_input(event: InputEvent) -> void:
+	if not allow_dragging:
+		return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			_dragging = true

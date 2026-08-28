@@ -2,6 +2,25 @@
 
 [ext_resource type="Script" uid="uid://dya2jlcvk37hk" path="res://src/scene/title_screen.gd" id="1_uqkmj"]
 [ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="2_ontx6"]
+[ext_resource type="PackedScene" uid="uid://cqmjic6pcka70" path="res://src/scene/IntroDialogue.tscn" id="2_s5n1y"]
+[ext_resource type="Shader" uid="uid://ty765py8vkg7" path="res://src/shader/tiler_psuedo_splatter.gdshader" id="3_s8pgj"]
+[ext_resource type="Texture2D" uid="uid://b3strsxe04wn" path="res://asset/sprite/placeholder/star.png" id="4_v40kx"]
+[ext_resource type="Texture2D" uid="uid://bnglxw6yuxa1r" path="res://asset/sprite/placeholder/border.png" id="5_v40kx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjofw"]
+shader = ExtResource("3_s8pgj")
+shader_parameter/g_random_seed = 0.0
+shader_parameter/g_grid_size = Vector2(16, 9)
+shader_parameter/g_cell_offset = Vector2(0, 0)
+shader_parameter/g_speed = Vector2(0, 0)
+shader_parameter/g_draw_size_min = 0.1
+shader_parameter/g_draw_size_max = 0.4
+shader_parameter/tex_draw = ExtResource("4_v40kx")
+shader_parameter/g_color_a = Color(1, 0.99353004, 0, 0)
+shader_parameter/g_color_b = Color(1, 0.0063661337, 0, 1)
+shader_parameter/g_rot_global_speed = 1.0
+shader_parameter/g_rot_min_speed = 0.1
+shader_parameter/g_rot_max_speed = 1.0
 
 [node name="Titlescreen" type="Control" unique_id=159009918]
 layout_mode = 3
@@ -11,6 +30,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uqkmj")
+next_scene_to_load = ExtResource("2_s5n1y")
+
+[node name="Background" type="ColorRect" parent="." unique_id=360243410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundVFX" type="ColorRect" parent="." unique_id=409204360]
+material = SubResource("ShaderMaterial_fjofw")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="TitleMenu" type="ColorRect" parent="." unique_id=264950592]
 layout_mode = 1
@@ -19,7 +58,7 @@ anchor_bottom = 1.0
 offset_left = 81.0
 offset_right = 460.0
 grow_vertical = 2
-color = Color(0, 0, 0, 0.509804)
+color = Color(0.46875, 0.008844333, 0, 1)
 
 [node name="TitleLabel" type="Label" parent="TitleMenu" unique_id=708698642]
 custom_minimum_size = Vector2(300, 100)
@@ -33,7 +72,7 @@ offset_right = 157.5
 offset_bottom = 168.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-text = "?Unreliable Instruction?"
+text = "Carnival of the Liar?"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -90,6 +129,23 @@ grow_vertical = 0
 text = "v0.1"
 horizontal_alignment = 1
 
+[node name="Border" type="NinePatchRect" parent="TitleMenu" unique_id=2084899186]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v40kx")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
 [node name="CreditPanel" type="ColorRect" parent="." unique_id=1042931684]
 visible = false
 layout_mode = 1
@@ -119,10 +175,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "Made with love by
-Programmer: A
-Musician: B
-Artist: C
-Story: D"
+Tempetus
+MinPNG"
 horizontal_alignment = 1
 vertical_alignment = 1
 

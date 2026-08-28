@@ -2,6 +2,26 @@
 
 [ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="1_oj67h"]
 [ext_resource type="Script" uid="uid://bo58fdmr1pa7f" path="res://src/ui/menu/pause_ui.gd" id="1_y22bm"]
+[ext_resource type="Shader" uid="uid://ty765py8vkg7" path="res://src/shader/tiler_psuedo_splatter.gdshader" id="2_gswph"]
+[ext_resource type="Texture2D" uid="uid://bnglxw6yuxa1r" path="res://asset/sprite/placeholder/border.png" id="3_t05cl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gswph"]
+load_path = "res://.godot/imported/star.png-ea3f1ce4843f26885c7efe9b48b2506e.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t05cl"]
+shader = ExtResource("2_gswph")
+shader_parameter/g_random_seed = 0.0
+shader_parameter/g_grid_size = Vector2(8, 19)
+shader_parameter/g_cell_offset = Vector2(0, 0)
+shader_parameter/g_speed = Vector2(0, 0)
+shader_parameter/g_draw_size_min = 0.1
+shader_parameter/g_draw_size_max = 0.4
+shader_parameter/tex_draw = SubResource("CompressedTexture2D_gswph")
+shader_parameter/g_color_a = Color(1, 0.99353004, 0, 0)
+shader_parameter/g_color_b = Color(1, 0.0063661337, 0, 1)
+shader_parameter/g_rot_global_speed = 1.0
+shader_parameter/g_rot_min_speed = 0.1
+shader_parameter/g_rot_max_speed = 1.0
 
 [node name="PauseUI" type="Control" unique_id=1089314582]
 process_mode = 3
@@ -38,6 +58,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.37899214, 0.037306357, 0, 1)
 
+[node name="VFX" type="ColorRect" parent="PauseOptionBG" unique_id=2014237943]
+material = SubResource("ShaderMaterial_t05cl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseOptionBG" unique_id=37755498]
 layout_mode = 1
 anchors_preset = 7
@@ -69,6 +99,23 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Quit game"
+
+[node name="Border" type="NinePatchRect" parent="PauseOptionBG" unique_id=1515562856]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t05cl")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
 [node name="SettingUI" parent="." unique_id=1712526619 instance=ExtResource("1_oj67h")]
 visible = false

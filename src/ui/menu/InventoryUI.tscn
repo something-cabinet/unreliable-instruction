@@ -3,8 +3,29 @@
 [ext_resource type="Script" uid="uid://bv0puypqlnsc7" path="res://src/ui/menu/inventory_ui.gd" id="1_dlfqx"]
 [ext_resource type="PackedScene" uid="uid://dbnq56m6ymgoy" path="res://src/ui/item/PsyProfile.tscn" id="1_ta74w"]
 [ext_resource type="PackedScene" uid="uid://dik7k853s20n1" path="res://src/ui/item/RulePaper.tscn" id="2_2amx0"]
+[ext_resource type="Shader" uid="uid://cyesttyiqid02" path="res://src/shader/grid_background.gdshader" id="2_mbq0o"]
 [ext_resource type="PackedScene" uid="uid://ce0l460cdfimg" path="res://src/ui/item/NameNote.tscn" id="3_h0s44"]
 [ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="4_htvhj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2hb3"]
+shader = ExtResource("2_mbq0o")
+shader_parameter/grid_color = Color(1, 0.8392157, 0, 0.2627451)
+shader_parameter/grid_spacing = 50.0
+shader_parameter/line_thickness = 1.0
+shader_parameter/grid_visual_world_pos = Vector2(0, 0)
+shader_parameter/grid_visual_world_size = Vector2(1920, 1080)
+shader_parameter/global_time_sec = 0.0
+shader_parameter/active_pulse_count = 0
+shader_parameter/ripple_origin_world = PackedVector2Array(0, 0, 0, 0, 0, 0)
+shader_parameter/ripple_start_time = PackedFloat32Array(0, 0, 0)
+shader_parameter/implosion_origin_world = PackedVector2Array(0, 0, 0, 0, 0, 0)
+shader_parameter/implosion_start_time = PackedFloat32Array(0, 0, 0)
+shader_parameter/ripple_speed = 1200.0
+shader_parameter/ripple_thickness = 70.0
+shader_parameter/ripple_peak_strength = 45.0
+shader_parameter/implosion_speed = 1000.0
+shader_parameter/implosion_thickness = 80.0
+shader_parameter/implosion_peak_strength = 60.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dlfqx"]
 shader = ExtResource("4_htvhj")
@@ -28,33 +49,24 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dlfqx")
 
-[node name="PsyProfile" parent="." unique_id=1572016999 instance=ExtResource("1_ta74w")]
+[node name="Background" type="ColorRect" parent="." unique_id=1625184700]
 layout_mode = 1
-offset_left = 112.0
-offset_top = 56.0
-offset_right = -926.0
-offset_bottom = -216.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0390625, 0.0041585043, 7.0396345e-05, 1)
 
-[node name="PsyProfile2" parent="." unique_id=1114353945 instance=ExtResource("1_ta74w")]
+[node name="Grid" type="ColorRect" parent="." unique_id=1383293537]
+material = SubResource("ShaderMaterial_b2hb3")
 layout_mode = 1
-offset_left = 136.0
-offset_top = 168.0
-offset_right = -902.0
-offset_bottom = -104.0
-
-[node name="PsyProfile3" parent="." unique_id=1600860193 instance=ExtResource("1_ta74w")]
-layout_mode = 1
-offset_left = 88.0
-offset_top = 256.0
-offset_right = -950.0
-offset_bottom = -16.0
-
-[node name="PsyProfile4" parent="." unique_id=2008314742 instance=ExtResource("1_ta74w")]
-layout_mode = 1
-offset_left = 160.0
-offset_top = 344.0
-offset_right = -878.0
-offset_bottom = 72.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="RulePaper" parent="." unique_id=794856530 instance=ExtResource("2_2amx0")]
 layout_mode = 0
@@ -85,7 +97,6 @@ offset_right = 1146.3529
 offset_bottom = 424.0
 
 [node name="NameNote" parent="." unique_id=1389529484 instance=ExtResource("3_h0s44")]
-visible = true
 material = SubResource("ShaderMaterial_dlfqx")
 layout_mode = 0
 offset_left = 768.0
@@ -94,7 +105,6 @@ offset_right = 936.0
 offset_bottom = 624.0
 
 [node name="NameNote2" parent="." unique_id=1854629525 instance=ExtResource("3_h0s44")]
-visible = true
 material = SubResource("ShaderMaterial_dlfqx")
 layout_mode = 0
 offset_left = 888.0
@@ -103,7 +113,6 @@ offset_right = 1056.0
 offset_bottom = 608.0
 
 [node name="NameNote3" parent="." unique_id=2009962055 instance=ExtResource("3_h0s44")]
-visible = true
 material = SubResource("ShaderMaterial_dlfqx")
 layout_mode = 0
 offset_left = 976.0
@@ -112,10 +121,51 @@ offset_right = 1144.0
 offset_bottom = 648.0
 
 [node name="NameNote4" parent="." unique_id=1263187409 instance=ExtResource("3_h0s44")]
-visible = true
 material = SubResource("ShaderMaterial_dlfqx")
 layout_mode = 0
 offset_left = 1128.0
 offset_top = 496.0
 offset_right = 1296.0
 offset_bottom = 656.0
+
+[node name="ScrollContainerBackground" type="ColorRect" parent="." unique_id=935967150]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 400.0
+offset_bottom = 736.0
+color = Color(0, 0, 0, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1923349771]
+clip_children = 2
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 0
+offset_left = 48.0
+offset_top = 104.0
+offset_right = 400.0
+offset_bottom = 736.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1213662568]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PsyProfile" parent="ScrollContainer/VBoxContainer" unique_id=1572016999 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="PsyProfile2" parent="ScrollContainer/VBoxContainer" unique_id=1366959665 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="PsyProfile3" parent="ScrollContainer/VBoxContainer" unique_id=734959159 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1624414907]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 56.0
+offset_right = 312.0
+offset_bottom = 100.66667
+theme_override_font_sizes/font_size = 32
+text = "Report list"
+horizontal_alignment = 1
+vertical_alignment = 1

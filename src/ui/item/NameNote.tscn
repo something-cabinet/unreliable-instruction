@@ -10,6 +10,7 @@ texture = ExtResource("1_n2nco")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("2_nroa7")
+allow_dragging = true
 
 [node name="Name" type="Label" parent="." unique_id=1086007626]
 layout_mode = 1

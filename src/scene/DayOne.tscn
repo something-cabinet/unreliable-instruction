@@ -25,4 +25,5 @@ dialogue_resource = ExtResource("4_7ingd")
 [node name="InventoryUI" parent="CanvasLayer" unique_id=918527547 instance=ExtResource("5_173wh")]
 
 [node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
+visible = false
 metadata/_edit_use_anchors_ = true

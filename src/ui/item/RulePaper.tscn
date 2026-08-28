@@ -24,6 +24,7 @@ texture = ExtResource("1_vw8a8")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("3_t276w")
+allow_dragging = true
 
 [node name="Title" type="Label" parent="." unique_id=1378440681]
 layout_mode = 1
