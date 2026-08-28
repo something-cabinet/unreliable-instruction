@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ce0l460cdfimg"]
+
+[ext_resource type="Texture2D" uid="uid://cgbopgle5ywu1" path="res://asset/sprite/background/taped_note.png" id="1_n2nco"]
+[ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="2_nroa7"]
+
+[sub_resource type="Shader" id="Shader_nroa7"]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float thickness : hint_range(0.0, 100.0);
+uniform int ring_count : hint_range(1,128) = 16;
+uniform float ring_offset : hint_range(0.0, 1.0, 0.01);
+uniform vec4 outline_color : source_color;
+uniform bool border_clipping_fix = true;
+uniform float aspect_ratio : hint_range(0.1, 10.0, 0.01) = 1.0;
+uniform bool square_border = false;
+uniform vec2 offset;
+uniform bool max_or_add = false;
+
+void vertex(){
+	if (border_clipping_fix){
+		vec2 o = (UV * 2.0 - 1.0);
+		VERTEX += o * thickness - offset;
+		VERTEX.x *= 1.0 + (aspect_ratio-1.0) * (thickness * TEXTURE_PIXEL_SIZE.x) * 2.0;
+	}
+}
+
+vec2 square(float i){ // samples a square pattern
+	i *= 2.0;
+	return (vec2(
+		clamp(abs(mod(i,2.0)-1.0),0.25,0.75),
+		clamp(abs(mod(i+0.5,2.0)-1.0),0.25,0.75)
+		)-0.5)*4.0;
+}
+
+vec4 tex(sampler2D sampler, vec2 uv){
+	vec4 clr;
+	if (uv.x > 0.0 && uv.y > 0.0 && uv.x < 1.0 && uv.y < 1.0){ // bleeding texture sampling fix
+		clr = texture(sampler, uv);
+	}else{clr = vec4(0.0);}
+	return clr;
+}
+
+void fragment(){
+	vec2 o = offset / vec2(textureSize(TEXTURE, 0));
+	vec2 uv = UV;
+	uv -= vec2(0.5);
+	if (border_clipping_fix){
+		uv.x *= 1.0 + (aspect_ratio-1.0) * thickness * TEXTURE_PIXEL_SIZE.x * 2.0;
+		uv *= (1.0 + (thickness * TEXTURE_PIXEL_SIZE * 2.0));
+		uv -= o;
+		}
+	uv += vec2(0.5);
+	vec2 size = vec2(thickness) / vec2(textureSize(TEXTURE, 0));
+	
+	vec4 sprite_color = tex(TEXTURE, uv);
+	
+	float alpha = sprite_color.a;
+	if (square_border){
+		for(int i=0;i<ring_count;++i){
+			float r = float(i) / float(ring_count) + ring_offset;
+			alpha = max(alpha,texture(TEXTURE, uv + o + size * square(r) * vec2(aspect_ratio,1.0)).a * outline_color.a);}// texture sampling fix is disabled because both with and without give the same result
+	}else{
+		for(int i=0;i<ring_count;++i){
+			float r = float(i) * 3.14159 / float(ring_count) * 2.0 + ring_offset;
+			if (max_or_add){
+				alpha = alpha+tex(TEXTURE, uv + o +  vec2(size.x * sin(r) * aspect_ratio, size.y * cos(r))).a * outline_color.a;
+			}else{
+				alpha = max(alpha,tex(TEXTURE, uv + o +  vec2(size.x * sin(r) * aspect_ratio, size.y * cos(r))).a * outline_color.a);
+			}
+		}
+	}
+    vec3 final_color = mix(outline_color.rgb, sprite_color.rgb, sprite_color.a);
+    COLOR = vec4(final_color, clamp(alpha, 0.0, 1.0));
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wjjr"]
+shader = SubResource("Shader_nroa7")
+shader_parameter/thickness = 2.000000095
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[node name="NameNote" type="TextureRect" unique_id=1389529484]
+material = SubResource("ShaderMaterial_0wjjr")
+offset_right = 168.0
+offset_bottom = 160.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_n2nco")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_nroa7")
+allow_dragging = true
+item_type = "name_note"
+
+[node name="Name" type="Label" parent="." unique_id=1086007626]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -19.604057
+offset_right = 43.0
+offset_bottom = 19.604057
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.12264667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Brother Do"
+horizontal_alignment = 1
+vertical_alignment = 1

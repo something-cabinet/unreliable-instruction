@@ -1,5 +1,7 @@
 extends Control
 
+@export var next_scene_to_load: PackedScene
+
 @onready var credit_panel: ColorRect = $CreditPanel
 @onready var setting_ui: SettingUI = $SettingUI
 
@@ -9,7 +11,7 @@ func _ready() -> void:
 
 func _on_start_button_pressed() -> void:
 	play_button_click_sfx()
-	GameManager.load_first_level()
+	get_tree().change_scene_to_packed(next_scene_to_load)
 
 func _on_setting_button_pressed() -> void:
 	play_button_click_sfx()

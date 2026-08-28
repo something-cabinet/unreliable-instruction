@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://dh0453bcu7ni5"]
+
+[ext_resource type="Script" uid="uid://bv0puypqlnsc7" path="res://src/ui/menu/inventory_ui.gd" id="1_dlfqx"]
+[ext_resource type="PackedScene" uid="uid://dbnq56m6ymgoy" path="res://src/ui/item/PsyProfile.tscn" id="1_ta74w"]
+[ext_resource type="PackedScene" uid="uid://dik7k853s20n1" path="res://src/ui/item/RulePaper.tscn" id="2_2amx0"]
+[ext_resource type="Texture2D" uid="uid://043s7njip2o3" path="res://asset/sprite/background/pin_board.png" id="2_b2hb3"]
+[ext_resource type="PackedScene" uid="uid://ce0l460cdfimg" path="res://src/ui/item/NameNote.tscn" id="3_h0s44"]
+
+[node name="InventoryUI" type="Control" unique_id=918527547]
+propagate_maximum_size = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlfqx")
+name_note_prefab = ExtResource("3_h0s44")
+rule_paper_prefab = ExtResource("2_2amx0")
+
+[node name="Background" type="TextureRect" parent="." unique_id=302191200]
+self_modulate = Color(0.6894036, 0.6894036, 0.6894036, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_b2hb3")
+
+[node name="ScrollContainerBackground" type="ColorRect" parent="." unique_id=935967150]
+layout_mode = 1
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 432.0
+offset_bottom = 712.0
+color = Color(0, 0, 0, 0.7019608)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1923349771]
+clip_children = 2
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 1
+offset_left = 80.0
+offset_top = 72.0
+offset_right = 424.0
+offset_bottom = 704.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1213662568]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="PsyProfile" parent="ScrollContainer/VBoxContainer" unique_id=1572016999 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="PsyProfile2" parent="ScrollContainer/VBoxContainer" unique_id=1366959665 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="PsyProfile3" parent="ScrollContainer/VBoxContainer" unique_id=734959159 instance=ExtResource("1_ta74w")]
+layout_mode = 2
+
+[node name="HelpBG" type="ColorRect" parent="." unique_id=1378402770]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="HelpText" type="Label" parent="HelpBG" unique_id=779934140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hold mouse LMB to drag and drop notes onto the psychology report"
+vertical_alignment = 1
+
+[node name="NameNoteSpawn" type="Control" parent="." unique_id=1656198358]
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 104.0
+offset_right = 552.0
+offset_bottom = 144.0
+
+[node name="RulePaperSpawn" type="Control" parent="." unique_id=1433476762]
+anchors_preset = 0
+offset_left = 512.0
+offset_top = 392.0
+offset_right = 552.0
+offset_bottom = 432.0

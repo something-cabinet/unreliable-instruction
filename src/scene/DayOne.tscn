@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
 [ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
+[ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 
@@ -21,5 +22,9 @@ dialogue_resource = ExtResource("4_7ingd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 
+[node name="InventoryUI" parent="CanvasLayer" unique_id=918527547 instance=ExtResource("5_173wh")]
+visible = false
+
 [node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
+visible = false
 metadata/_edit_use_anchors_ = true

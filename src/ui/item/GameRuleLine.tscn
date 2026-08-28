@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://camfc5rrooe7t"]
+
+[ext_resource type="Script" uid="uid://du5q01134mgba" path="res://src/ui/item/game_rule_line.gd" id="1_0xr5a"]
+
+[node name="GameRuleLine" type="HBoxContainer" unique_id=1741576380]
+script = ExtResource("1_0xr5a")
+
+[node name="Button" type="Button" parent="." unique_id=2116174059]
+self_modulate = Color(0, 0.9843137, 0.06417242, 1)
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 12
+text = "TRUE"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Rule" type="Label" parent="." unique_id=1629077731]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Use WASD to move, extra long text to test."
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

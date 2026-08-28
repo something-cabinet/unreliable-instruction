@@ -1,6 +1,5 @@
 extends Node
 
-@export var level_list: Array[PackedScene]
 @export var title_screen: PackedScene
 
 var player: Player
@@ -19,9 +18,6 @@ var ui_audio = 100
 func _ready() -> void:
 	pass
 
-
-func load_first_level():
-	get_tree().change_scene_to_packed(level_list[0])
 
 func go_back_to_title_screen():
 	get_tree().paused = false

@@ -2,8 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="1_oj67h"]
 [ext_resource type="Script" uid="uid://bo58fdmr1pa7f" path="res://src/ui/menu/pause_ui.gd" id="1_y22bm"]
+[ext_resource type="Shader" uid="uid://ty765py8vkg7" path="res://src/shader/tiler_psuedo_splatter.gdshader" id="2_gswph"]
+[ext_resource type="Texture2D" uid="uid://bnglxw6yuxa1r" path="res://asset/sprite/placeholder/border.png" id="3_t05cl"]
 
-[node name="PauseUI" type="Control" unique_id=819244490]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gswph"]
+load_path = "res://.godot/imported/star.png-ea3f1ce4843f26885c7efe9b48b2506e.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t05cl"]
+shader = ExtResource("2_gswph")
+shader_parameter/g_random_seed = 0.0
+shader_parameter/g_grid_size = Vector2(8, 19)
+shader_parameter/g_cell_offset = Vector2(0, 0)
+shader_parameter/g_speed = Vector2(0, 0)
+shader_parameter/g_draw_size_min = 0.1
+shader_parameter/g_draw_size_max = 0.4
+shader_parameter/tex_draw = SubResource("CompressedTexture2D_gswph")
+shader_parameter/g_color_a = Color(1, 0.99353004, 0, 0)
+shader_parameter/g_color_b = Color(1, 0.0063661337, 0, 1)
+shader_parameter/g_rot_global_speed = 1.0
+shader_parameter/g_rot_min_speed = 0.1
+shader_parameter/g_rot_max_speed = 1.0
+
+[node name="PauseUI" type="Control" unique_id=1089314582]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -13,7 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y22bm")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1459133906]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=214209179]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,58 +42,84 @@ offset_left = -2.0
 offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.298039)
+color = Color(0, 0, 0, 0.5764706)
 
-[node name="PauseOptionBG" type="ColorRect" parent="." unique_id=1740743202]
-custom_minimum_size = Vector2(500, 300)
+[node name="PauseOptionBG" type="ColorRect" parent="." unique_id=1239082898]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = -150.0
-offset_right = 250.0
-offset_bottom = 150.0
+offset_left = -619.0
+offset_top = -384.0
+offset_right = -299.0
+offset_bottom = 384.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.478431, 0.478431, 0.478431, 0.533333)
+color = Color(0.37899214, 0.037306357, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseOptionBG" unique_id=1999043857]
+[node name="VFX" type="ColorRect" parent="PauseOptionBG" unique_id=2014237943]
+material = SubResource("ShaderMaterial_t05cl")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -81.0
-offset_top = -105.5
-offset_right = 81.0
-offset_bottom = 105.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+color = Color(0, 0, 0, 1)
 
-[node name="SettingButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1948431359]
-custom_minimum_size = Vector2(300, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOptionBG" unique_id=37755498]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -216.0
+offset_right = 126.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SettingButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1710892136]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 28
 text = "Settings"
 
-[node name="TitleScreenButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1324121107]
-custom_minimum_size = Vector2(300, 0)
+[node name="TitleScreenButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=1045399584]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 28
 text = "Title screen"
 
-[node name="ExitButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=216239623]
-custom_minimum_size = Vector2(300, 0)
+[node name="ExitButton" type="Button" parent="PauseOptionBG/VBoxContainer" unique_id=476864157]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 28
 text = "Quit game"
 
-[node name="SettingUI" parent="." unique_id=1670046261 instance=ExtResource("1_oj67h")]
+[node name="Border" type="NinePatchRect" parent="PauseOptionBG" unique_id=1515562856]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t05cl")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="SettingUI" parent="." unique_id=1712526619 instance=ExtResource("1_oj67h")]
 visible = false
 layout_mode = 1
 
