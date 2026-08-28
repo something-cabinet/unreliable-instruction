@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bcu2ci482yvmu"]
 
 [ext_resource type="Script" uid="uid://d0rsn76nn7xkq" path="res://src/scene/minigamescene/pong.gd" id="1_2kfdo"]
-[ext_resource type="PackedScene" uid="uid://d4ni5778a3406" path="res://src/entity/player/Player.tscn" id="1_44mag"]
 [ext_resource type="PackedScene" uid="uid://bt0fhlyo5a5nw" path="res://src/scene/minigamescene/ball.tscn" id="2_38cra"]
-[ext_resource type="Script" uid="uid://lmv1dcwm6uhw" path="res://src/scene/minigamescene/AI.gd" id="2_tywhg"]
+[ext_resource type="Script" uid="uid://uvybi467xnex" path="res://src/scene/minigamescene/player.gd" id="3_2kfdo"]
 [ext_resource type="Script" uid="uid://bej7lkol43pby" path="res://src/scene/minigamescene/ball.gd" id="3_iliys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwmwa"]
@@ -18,12 +17,9 @@ size = Vector2(158.63123, 758)
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_2kfdo")
 
-[node name="Player" parent="." unique_id=628065600 instance=ExtResource("1_44mag")]
-position = Vector2(48, 348)
-collision_layer = 1
-
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
-script = ExtResource("2_tywhg")
+script = ExtResource("3_2kfdo")
+speed = 200.0
 
 [node name="ColorRect" type="ColorRect" parent="Computer" unique_id=473797757]
 offset_left = 1275.0
@@ -34,6 +30,20 @@ color = Color(0.22745098, 0.101960786, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
 position = Vector2(1293, 541)
+shape = SubResource("RectangleShape2D_dwmwa")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]
+script = ExtResource("3_2kfdo")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=823347268]
+offset_left = 24.0
+offset_top = 418.0
+offset_right = 60.0
+offset_bottom = 546.0
+color = Color(0.22745098, 0.101960786, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=879769585]
+position = Vector2(43, 481)
 shape = SubResource("RectangleShape2D_dwmwa")
 
 [node name="Wall" type="StaticBody2D" parent="." unique_id=630299814]
@@ -63,7 +73,7 @@ shape = SubResource("RectangleShape2D_y5ami")
 position = Vector2(-36, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose" unique_id=1254567795]
-position = Vector2(1486, 305)
+position = Vector2(1486, 309)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [connection signal="body_entered" from="Win" to="." method="_on_left_body_entered"]
