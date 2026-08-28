@@ -23,6 +23,7 @@ dialogue_resource = ExtResource("4_7ingd")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 
 [node name="InventoryUI" parent="CanvasLayer" unique_id=918527547 instance=ExtResource("5_173wh")]
+visible = false
 
 [node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
 visible = false

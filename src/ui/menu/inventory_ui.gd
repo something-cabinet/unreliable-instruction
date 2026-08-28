@@ -20,7 +20,7 @@ func _input(event: InputEvent) -> void:
 		visible = not visible
 
 func spawn_item_test() -> void:
-	for i in range(10):
+	for i in range(4):
 		add_name_note()
 		add_rule_paper()
 

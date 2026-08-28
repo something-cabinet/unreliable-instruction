@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="1_52j0a"]
 [ext_resource type="Texture2D" uid="uid://cj4tadgduqqud" path="res://asset/sprite/background/squared_note.png" id="1_vw8a8"]
 [ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="3_t276w"]
+[ext_resource type="PackedScene" uid="uid://camfc5rrooe7t" path="res://src/ui/item/GameRuleLine.tscn" id="4_g4wyt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t276w"]
 shader = ExtResource("1_52j0a")
@@ -18,8 +19,8 @@ shader_parameter/max_or_add = false
 
 [node name="RulePaper" type="TextureRect" unique_id=794856530]
 material = SubResource("ShaderMaterial_t276w")
-offset_right = 241.09804
-offset_bottom = 232.0
+offset_right = 295.0
+offset_bottom = 287.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("1_vw8a8")
 expand_mode = 1
@@ -33,10 +34,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -105.17647
-offset_top = 32.0
-offset_right = 78.82353
-offset_bottom = 72.0
+offset_left = -103.54902
+offset_top = 28.0
+offset_right = 85.45098
+offset_bottom = 68.0
 grow_horizontal = 2
 rotation = -0.079747796
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -68,18 +69,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -89.54902
-offset_top = -137.0
-offset_right = 82.92698
-offset_bottom = -15.946381
+offset_left = -119.5
+offset_top = -192.99998
+offset_right = 108.78079
+offset_bottom = -21.513489
 grow_horizontal = 2
 grow_vertical = 0
 rotation = -0.06617968
 
-[node name="Rule" type="Label" parent="VBoxContainer" unique_id=612037884]
+[node name="HBoxContainer" parent="VBoxContainer" unique_id=1741576380 instance=ExtResource("4_g4wyt")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "- Use WASD to move
-- Race fast to win
-- etc..."
-vertical_alignment = 1
+
+[node name="HBoxContainer2" parent="VBoxContainer" unique_id=1453687507 instance=ExtResource("4_g4wyt")]
+layout_mode = 2
+
+[node name="HBoxContainer3" parent="VBoxContainer" unique_id=1444878179 instance=ExtResource("4_g4wyt")]
+layout_mode = 2
+
+[node name="HBoxContainer4" parent="VBoxContainer" unique_id=1580917568 instance=ExtResource("4_g4wyt")]
+layout_mode = 2
