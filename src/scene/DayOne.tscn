@@ -13,33 +13,49 @@
 [ext_resource type="Texture2D" uid="uid://ol46g2g3gw6w" path="res://asset/sprite/background/carnival.png" id="9_23kne"]
 [ext_resource type="PackedScene" uid="uid://sjcaydsenx33" path="res://src/entity/stall_owners/StallA.tscn" id="11_f6h2i"]
 [ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="11_xji5c"]
+[ext_resource type="Texture2D" uid="uid://500xetjdwj2b" path="res://asset/sprite/entity/stall_3.png" id="12_f6h2i"]
 [ext_resource type="PackedScene" uid="uid://cw06m7ut7i0yl" path="res://src/entity/Dog.tscn" id="12_o0iiv"]
 [ext_resource type="PackedScene" uid="uid://d4xitj7lbpsa" path="res://src/entity/stall_owners/DoNamTrung.tscn" id="13_023iy"]
+[ext_resource type="Texture2D" uid="uid://bamkhm4vhxgoq" path="res://asset/sprite/entity/stall_2.png" id="13_o0iiv"]
+[ext_resource type="Texture2D" uid="uid://dajfaojc3o85e" path="res://asset/sprite/entity/stall_4.png" id="14_023iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0iiv"]
+size = Vector2(733, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_023iy"]
+size = Vector2(733, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40y0r"]
+size = Vector2(360, 161)
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1158490481]
+[node name="Blackscreen" type="Sprite2D" parent="." unique_id=1158490481]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(396, -528)
-scale = Vector2(61.375, 32.25)
+position = Vector2(-1202.9999, -528)
+scale = Vector2(111.34375, 32.25)
 texture = ExtResource("2_ioi8g")
 
 [node name="Ground" type="Sprite2D" parent="." unique_id=78633992]
 self_modulate = Color(0.63671875, 0.63671875, 0.63671875, 1)
 texture_repeat = 2
-position = Vector2(36, 0)
+position = Vector2(-1401, 0)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_low7t")
 region_enabled = true
-region_rect = Rect2(0, 0, 12000, 2000)
+region_rect = Rect2(0, 0, 30000, 2000)
 
-[node name="BG" type="Sprite2D" parent="." unique_id=362139937]
-position = Vector2(32, -896)
+[node name="ParallaxBG" type="Parallax2D" parent="." unique_id=1816701058]
+scroll_scale = Vector2(0.2, 1)
+scroll_offset = Vector2(-816, -1392)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBG" unique_id=362139937]
+position = Vector2(1200, 520)
 scale = Vector2(0.9802377, 0.9474035)
 texture = ExtResource("9_23kne")
 
-[node name="PointLight2D2" type="PointLight2D" parent="BG" unique_id=1530592378]
+[node name="PointLight2D2" type="PointLight2D" parent="ParallaxBG/Background" unique_id=1530592378]
 position = Vector2(-391.74173, -42.220642)
 scale = Vector2(0.48914117, 0.50609344)
 color = Color(1, 0.7008203, 0, 1)
@@ -47,20 +63,33 @@ energy = 1.89
 texture = ExtResource("11_xji5c")
 texture_scale = 7.78
 
-[node name="Fences" type="Node2D" parent="." unique_id=1032302205]
+[node name="ParallaxFence" type="Parallax2D" parent="." unique_id=104319174]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Fences" unique_id=410920851]
-position = Vector2(-616, -296)
+[node name="Fences" type="Node2D" parent="ParallaxFence" unique_id=1032302205]
+
+[node name="Shadow" type="Sprite2D" parent="ParallaxFence/Fences" unique_id=1750119331]
+self_modulate = Color(0, 0, 0, 0.78039217)
+position = Vector2(-688, -224)
+scale = Vector2(71.375, 1)
+texture = ExtResource("2_ioi8g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxFence/Fences" unique_id=410920851]
+position = Vector2(-1272.05, -296)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("4_ihdxw")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Fences" unique_id=1872170970]
-position = Vector2(527.9999, -296)
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxFence/Fences" unique_id=1872170970]
+position = Vector2(-128.05011, -296)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("4_ihdxw")
 
-[node name="Sprite2D4" type="Sprite2D" parent="Fences" unique_id=1773629305]
-position = Vector2(1672, -296)
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxFence/Fences" unique_id=1773629305]
+position = Vector2(1015.95, -296)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("4_ihdxw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxFence/Fences" unique_id=490102162]
+position = Vector2(-2414.0002, -296)
 scale = Vector2(0.62, 0.62)
 texture = ExtResource("4_ihdxw")
 
@@ -81,11 +110,98 @@ dialogue_resource = ExtResource("4_7ingd")
 [node name="StallA" parent="YSort" unique_id=603656411 instance=ExtResource("11_f6h2i")]
 position = Vector2(80, -328)
 
+[node name="StallB" type="StaticBody2D" parent="YSort" unique_id=940004570]
+position = Vector2(-746, -326)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/StallB" unique_id=1689118565]
+scale = Vector2(1.6976048, 1.6976048)
+texture = ExtResource("12_f6h2i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallB" unique_id=338796676]
+position = Vector2(-4.5, 80.5)
+shape = SubResource("RectangleShape2D_o0iiv")
+
+[node name="PointLight2D" type="PointLight2D" parent="YSort/StallB" unique_id=1745281187]
+position = Vector2(-9.499935, 24.000015)
+scale = Vector2(0.42928585, 0.32832584)
+color = Color(1, 0.2980392, 0.3202272, 1)
+energy = 1.09
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
+[node name="StallC" type="StaticBody2D" parent="YSort" unique_id=1901158058]
+position = Vector2(-400, 224)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/StallC" unique_id=1021844709]
+scale = Vector2(1.1265802, 1.1265801)
+texture = ExtResource("13_o0iiv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallC" unique_id=197145893]
+position = Vector2(-4.5, 80.5)
+shape = SubResource("RectangleShape2D_023iy")
+
+[node name="PointLight2D" type="PointLight2D" parent="YSort/StallC" unique_id=2125846745]
+position = Vector2(-15.999995, -47.999977)
+scale = Vector2(0.42928585, 0.32832584)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 1.09
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
+[node name="StallD" type="StaticBody2D" parent="YSort" unique_id=764632797]
+position = Vector2(-1544, -176)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/StallD" unique_id=96029993]
+position = Vector2(0, -120)
+scale = Vector2(0.5632901, 0.56329006)
+texture = ExtResource("14_023iy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="YSort/StallD" unique_id=1220844929]
+position = Vector2(-191.99998, -120)
+scale = Vector2(0.5632901, 0.56329006)
+texture = ExtResource("14_023iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallD" unique_id=656831268]
+position = Vector2(-100, -48)
+shape = SubResource("RectangleShape2D_40y0r")
+
+[node name="PointLight2D" type="PointLight2D" parent="YSort/StallD" unique_id=1439398222]
+position = Vector2(-6.1035156e-05, -56)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 0.5
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
+[node name="PointLight2D2" type="PointLight2D" parent="YSort/StallD" unique_id=285376400]
+position = Vector2(-56.00006, -216)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.91037446, 0.84329456, 0.29712802, 1)
+energy = 1.09
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
+[node name="PointLight2D3" type="PointLight2D" parent="YSort/StallD" unique_id=1349696401]
+position = Vector2(-174.25006, -56)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 0.5
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
+[node name="PointLight2D4" type="PointLight2D" parent="YSort/StallD" unique_id=64329245]
+position = Vector2(-230.25006, -216)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.91037446, 0.84329456, 0.29712802, 1)
+energy = 1.09
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
 [node name="Dog" parent="YSort" unique_id=760569721 instance=ExtResource("12_o0iiv")]
 position = Vector2(456, -200)
 
 [node name="DoNamTrung" parent="YSort" unique_id=1327044927 instance=ExtResource("13_023iy")]
-position = Vector2(-136, -80)
+position = Vector2(-962, -95)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 
@@ -100,7 +216,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=640148876]
 build_mode = 1
-polygon = PackedVector2Array(1232, -200, -1160, -200, -1160, 200, 1232, 192)
+polygon = PackedVector2Array(1232, -200, -2960, -192, -2960, 184, 1232, 192)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1416056684]
 color = Color(0, 0, 0, 1)
