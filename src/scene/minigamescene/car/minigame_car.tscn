@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b47i2lpy4rw6b" path="res://asset/sprite/background/minigame_car_background.png" id="3_ywb4w"]
 [ext_resource type="Texture2D" uid="uid://5il65of3pedw" path="res://asset/sprite/placeholder/red_car_animated.png" id="4_7rts2"]
 [ext_resource type="PackedScene" uid="uid://ckd4y88pcnc4b" path="res://src/scene/minigamescene/car/finish_line.tscn" id="5_7rts2"]
+[ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="6_m2fhp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_00rlw"]
 animations = [{
@@ -86,23 +87,56 @@ position = Vector2(316, 294)
 script = ExtResource("2_p7fk3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1812307520]
-position = Vector2(150, 430)
+texture_filter = 1
 scale = Vector2(4.042, 4)
 sprite_frames = SubResource("SpriteFrames_y5ami")
 autoplay = "default"
 frame_progress = 0.83258164
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=38139569]
-position = Vector2(150, 418)
 scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_y5ami")
+
+[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=947193604]
+position = Vector2(108, 0)
+color = Color(1, 0.7882353, 0, 0.9098039)
+texture = ExtResource("6_m2fhp")
+texture_scale = 2.0
 
 [node name="Timer" type="Timer" parent="." unique_id=1662802269]
 wait_time = 0.5
 autostart = true
 
-[node name="finishLine" parent="." unique_id=201331524 instance=ExtResource("5_7rts2")]
-position = Vector2(5000, 346)
+[node name="FinishLine" parent="." unique_id=201331524 instance=ExtResource("5_7rts2")]
+position = Vector2(5000, 864)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=289164537]
+color = Color(0.11328125, 0.11328125, 0.11328125, 1)
+
+[node name="ResultUI" type="CanvasLayer" parent="." unique_id=770114263]
+process_mode = 3
+visible = false
+
+[node name="Dim" type="ColorRect" parent="ResultUI" unique_id=770114264]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="ResultLabel" type="Label" parent="ResultUI" unique_id=770114265]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 96
+text = "YOU LOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_shape_entered" from="finishLine" to="." method="_on_finish_line_body_shape_entered"]
+[connection signal="body_shape_entered" from="FinishLine" to="." method="_on_finish_line_body_shape_entered"]
