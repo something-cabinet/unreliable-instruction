@@ -59,7 +59,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
 size = Vector2(121, 61.999996)
 
-[node name="minigame_car" type="Node2D" unique_id=1369995219]
+[node name="minigame_crossing" type="Node2D" unique_id=1369995219]
 script = ExtResource("1_n6im0")
 car_scene = ExtResource("2_iu1x0")
 
@@ -94,9 +94,34 @@ wait_time = 0.5
 autostart = true
 
 [node name="finishLine" parent="." unique_id=201331524 instance=ExtResource("6_mcicm")]
-position = Vector2(855, -286)
+position = Vector2(-272, -208)
 rotation = 1.5707964
 scale = Vector2(2, 2)
+
+[node name="ResultUI" type="CanvasLayer" parent="." unique_id=608421551]
+process_mode = 3
+visible = false
+
+[node name="Dim" type="ColorRect" parent="ResultUI" unique_id=608421552]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="ResultLabel" type="Label" parent="ResultUI" unique_id=608421553]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 96
+text = "YOU LOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_shape_entered" from="finishLine" to="." method="_on_finish_line_body_shape_entered"]

@@ -10,13 +10,16 @@ var lose = false
 var win = false
 var finished = false
 
-@onready var result_ui: CanvasLayer = $ResultUI
-@onready var result_label: Label = $ResultUI/ResultLabel
+# Several minigames share this script; a scene without a ResultUI still plays,
+# it just has no banner to show.
+@onready var result_ui: CanvasLayer = get_node_or_null("ResultUI")
+@onready var result_label: Label = get_node_or_null("ResultUI/ResultLabel")
 
 func _ready():
 	# A previous run may have left the tree paused on its result screen.
 	get_tree().paused = false
-	result_ui.visible = false
+	if result_ui:
+		result_ui.visible = false
 	for i in range(6):
 		var car = car_scene.instantiate()
 		randomize()
@@ -62,12 +65,17 @@ func _finish(did_win: bool) -> void:
 	lose = not did_win
 	if win:
 		print("you won")
-		result_label.text = "YOU WIN"
-		result_label.modulate = Color(0.4, 1.0, 0.45)
+		if result_label:
+			result_label.text = "YOU WIN"
+			result_label.modulate = Color(0.4, 1.0, 0.45)
 	else:
 		print("you lost")
-		result_label.text = "YOU LOSE"
-		result_label.modulate = Color(1.0, 0.35, 0.35)
-	result_ui.visible = true
-	$Timer.stop()
+		if result_label:
+			result_label.text = "YOU LOSE"
+			result_label.modulate = Color(1.0, 0.35, 0.35)
+	if result_ui:
+		result_ui.visible = true
+	var timer := get_node_or_null("Timer") as Timer
+	if timer:
+		timer.stop()
 	get_tree().paused = true
