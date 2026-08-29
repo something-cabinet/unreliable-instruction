@@ -19,7 +19,7 @@ config/version="0.1"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://src/scene/TitleScreen.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://asset/ui/project-icon.png"
+config/icon="uid://hwax5jdkwn4b"
 
 [autoload]
 

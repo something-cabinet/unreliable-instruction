@@ -6,9 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://b4h10cvtqj55i" path="res://asset/sprite/portrait_part/mouth_1.png" id="3_dcypx"]
 [ext_resource type="Texture2D" uid="uid://wxxyr1087alq" path="res://asset/sprite/portrait_part/eye_2.png" id="4_ynlm0"]
 [ext_resource type="Texture2D" uid="uid://c8607ks1y6t47" path="res://asset/sprite/portrait_part/eye_3.png" id="5_8sbdp"]
+[ext_resource type="Texture2D" uid="uid://cqgs3yg0lyc0f" path="res://asset/sprite/portrait_part/eye_4.png" id="6_pl4ks"]
+[ext_resource type="Texture2D" uid="uid://ddefv4m3v4hec" path="res://asset/sprite/portrait_part/eye_5.png" id="7_muf0o"]
 [ext_resource type="Texture2D" uid="uid://cw7smy160kkbd" path="res://asset/sprite/portrait_part/mouth_2.png" id="7_nsiml"]
-[ext_resource type="Texture2D" uid="uid://c4o01a2oa7rdp" path="res://asset/sprite/portrait_part/arm_2.png" id="8_8sbdp"]
+[ext_resource type="Texture2D" uid="uid://cf3sdp4yhdybv" path="res://asset/sprite/portrait_part/eye_6.png" id="8_6bp7c"]
 [ext_resource type="Texture2D" uid="uid://b8s0fh81nsvg2" path="res://asset/sprite/portrait_part/arm_1.png" id="8_ynlm0"]
+[ext_resource type="Texture2D" uid="uid://0h2018njhq42" path="res://asset/sprite/portrait_part/mouth_3.png" id="9_4spls"]
+[ext_resource type="Texture2D" uid="uid://corptxym1huor" path="res://asset/sprite/portrait_part/arm_3.png" id="10_nsiml"]
+[ext_resource type="Texture2D" uid="uid://cws0wdq12kdkh" path="res://asset/sprite/portrait_part/mouth_4.png" id="12_qt4rf"]
+[ext_resource type="Texture2D" uid="uid://hra7ahwp6j2m" path="res://asset/sprite/portrait_part/mouth_5.png" id="13_3kj52"]
+[ext_resource type="Texture2D" uid="uid://dvc0occroaghh" path="res://asset/sprite/portrait_part/mouth_6.png" id="14_57764"]
+[ext_resource type="Texture2D" uid="uid://ctmb5px4mftq8" path="res://asset/sprite/portrait_part/arm_7.png" id="17_6bp7c"]
+[ext_resource type="Texture2D" uid="uid://dg2wpulo6dngx" path="res://asset/sprite/portrait_part/arm_6.png" id="20_3kj52"]
 
 [node name="BrotherDoPortrait" type="TextureRect" unique_id=1877723309]
 custom_minimum_size = Vector2(512, 512)
@@ -25,8 +34,9 @@ texture = ExtResource("1_lt477")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("2_upa2s")
-eye_part_truth_list = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp")])
-mouth_part_true_list = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml")])
+eye_part_truth_list = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp"), ExtResource("6_pl4ks"), ExtResource("7_muf0o"), ExtResource("8_6bp7c")])
+mouth_part_truth_list = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), ExtResource("9_4spls"), ExtResource("12_qt4rf"), ExtResource("13_3kj52"), ExtResource("14_57764")])
+arm_part_truth_list = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
 
 [node name="EyeL" type="TextureRect" parent="." unique_id=709502522]
 layout_mode = 0
@@ -61,23 +71,26 @@ stretch_mode = 4
 
 [node name="ArmL" type="TextureRect" parent="." unique_id=1156741473]
 layout_mode = 0
-offset_left = 55.0
-offset_top = 118.0
-offset_right = 192.34557
-offset_bottom = 472.7315
-rotation = -0.03801574
-texture = ExtResource("8_8sbdp")
+offset_left = -126.0
+offset_top = 170.0
+offset_right = 386.0
+offset_bottom = 682.0
+texture = ExtResource("10_nsiml")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="ArmR" type="TextureRect" parent="." unique_id=729634303]
 layout_mode = 0
-offset_left = 354.50616
-offset_top = 101.77532
-offset_right = 493.54953
-offset_bottom = 476.23914
-rotation = 0.08593305
-texture = ExtResource("8_ynlm0")
+offset_left = 168.0
+offset_top = 156.0
+offset_right = 680.0
+offset_bottom = 668.0
+texture = ExtResource("10_nsiml")
 expand_mode = 1
 stretch_mode = 4
 flip_h = true
+
+[node name="Timer" type="Timer" parent="." unique_id=313096728]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
