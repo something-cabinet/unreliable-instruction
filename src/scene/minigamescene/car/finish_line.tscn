@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ckd4y88pcnc4b"]
+
+[ext_resource type="Texture2D" uid="uid://cnrlnf63l60c2" path="res://asset/sprite/item/images.png" id="1_e78ha"]
+[ext_resource type="Script" uid="uid://bmjpqtnxxca5m" path="res://src/scene/minigamescene/car/finish_line.gd" id="1_uhuio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
+size = Vector2(140, 906.5)
+
+[node name="finishLine" type="Area2D" unique_id=201331524]
+script = ExtResource("1_uhuio")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1119576370]
+position = Vector2(0, 108.25)
+scale = Vector2(1, 1.3133141)
+texture = ExtResource("1_e78ha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478640907]
+position = Vector2(-1, 107.75)
+shape = SubResource("RectangleShape2D_y5ami")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

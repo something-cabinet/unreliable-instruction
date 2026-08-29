@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ccnlavgkq6pwg"]
+
+[ext_resource type="Script" uid="uid://cbatfidjvhwbd" path="res://src/scene/minigamescene/car/car.gd" id="1_ss7aw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
+size = Vector2(60, 18)
+
+[node name="car" type="Area2D" unique_id=445988469]
+script = ExtResource("1_ss7aw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1998467244]
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 59.0
+offset_bottom = 17.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1834040335]
+position = Vector2(29, 8)
+shape = SubResource("RectangleShape2D_y5ami")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

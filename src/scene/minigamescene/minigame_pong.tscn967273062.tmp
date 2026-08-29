@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bcu2ci482yvmu"]
+
+[ext_resource type="Script" uid="uid://d0rsn76nn7xkq" path="res://src/scene/minigamescene/pong.gd" id="1_2kfdo"]
+[ext_resource type="PackedScene" uid="uid://bt0fhlyo5a5nw" path="res://src/scene/minigamescene/ball.tscn" id="2_38cra"]
+[ext_resource type="Script" uid="uid://uvybi467xnex" path="res://src/scene/minigamescene/player.gd" id="3_2kfdo"]
+[ext_resource type="Script" uid="uid://bej7lkol43pby" path="res://src/scene/minigamescene/ball.gd" id="3_iliys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwmwa"]
+size = Vector2(35.625, 128.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_00rlw"]
+size = Vector2(1364.75, 170)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
+size = Vector2(158.63123, 758)
+
+[node name="MinigamePong" type="Node2D" unique_id=891308707]
+script = ExtResource("1_2kfdo")
+
+[node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
+script = ExtResource("3_2kfdo")
+speed = 200.0
+
+[node name="ColorRect" type="ColorRect" parent="Computer" unique_id=473797757]
+offset_left = 1275.0
+offset_top = 477.0
+offset_right = 1311.0
+offset_bottom = 605.0
+color = Color(0.22745098, 0.101960786, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
+position = Vector2(1293, 541)
+shape = SubResource("RectangleShape2D_dwmwa")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]
+script = ExtResource("3_2kfdo")
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=823347268]
+offset_left = 24.0
+offset_top = 418.0
+offset_right = 60.0
+offset_bottom = 546.0
+color = Color(0.22745098, 0.101960786, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=879769585]
+position = Vector2(43, 481)
+shape = SubResource("RectangleShape2D_dwmwa")
+
+[node name="Wall" type="StaticBody2D" parent="." unique_id=630299814]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall" unique_id=919153779]
+position = Vector2(681.625, -87)
+shape = SubResource("RectangleShape2D_00rlw")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=62362651]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=544097641]
+position = Vector2(682.5, 859)
+shape = SubResource("RectangleShape2D_00rlw")
+
+[node name="Ball" parent="." unique_id=1271836413 instance=ExtResource("2_38cra")]
+position = Vector2(281, 598)
+script = ExtResource("3_iliys")
+
+[node name="Win" type="Area2D" parent="." unique_id=851608785]
+position = Vector2(-36, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win" unique_id=1330100129]
+position = Vector2(-46, 303)
+shape = SubResource("RectangleShape2D_y5ami")
+
+[node name="Lose" type="Area2D" parent="." unique_id=471565360]
+position = Vector2(-36, 74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lose" unique_id=1254567795]
+position = Vector2(1486, 309)
+shape = SubResource("RectangleShape2D_y5ami")
+
+[connection signal="body_entered" from="Win" to="." method="_on_left_body_entered"]
+[connection signal="body_entered" from="Lose" to="." method="_on_right_body_entered"]
