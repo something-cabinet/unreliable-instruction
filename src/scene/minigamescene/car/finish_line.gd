@@ -1,5 +1,5 @@
 extends Area2D
-@export var speed: float = 250
+@export var speed: float = 400
 
 var lose : bool = false
 

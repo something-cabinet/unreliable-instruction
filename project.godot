@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Unreliable Instruction"
 config/version="0.1"
 config/tags=PackedStringArray("jam")
-run/main_scene="res://src/scene/TitleScreen.tscn"
+run/main_scene="uid://b7igo14mlecb2"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://asset/ui/project-icon.png"
 

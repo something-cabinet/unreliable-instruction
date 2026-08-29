@@ -17,20 +17,22 @@ size = Vector2(158.63123, 758)
 
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_p3ppe")
+false_movement = false
 
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
+position = Vector2(-5, 332)
 script = ExtResource("2_1mlcv")
 speed = 200.0
 
 [node name="ColorRect" type="ColorRect" parent="Computer" unique_id=473797757]
-offset_left = 1280.0
-offset_top = 300.0
-offset_right = 1316.0
-offset_bottom = 428.0
+offset_left = 1287.0
+offset_top = -38.0
+offset_right = 1323.0
+offset_bottom = 90.0
 color = Color(0.22745098, 0.101960786, 1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
-position = Vector2(1300, 361)
+position = Vector2(1307, 25)
 shape = SubResource("RectangleShape2D_dwmwa")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]

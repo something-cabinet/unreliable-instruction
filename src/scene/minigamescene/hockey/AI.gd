@@ -13,13 +13,13 @@ func _process(_delta: float) -> void:
 	pass
 
 func _physics_process(_delta):
-	direction.y = _get_direction()
+	direction.x = _get_direction()
 	velocity = direction * speed
 	move_and_slide()
 
 		
 func _get_direction():
-	var distance = ball.position.y - self.position.y
+	var distance = ball.position.x - self.position.x
 	if distance < 0:
 		if abs(distance) > 50:
 			return -1
