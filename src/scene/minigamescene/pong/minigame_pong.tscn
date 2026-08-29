@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://lmv1dcwm6uhw" path="res://src/scene/minigamescene/pong/AI.gd" id="2_1mlcv"]
 [ext_resource type="Script" uid="uid://uvybi467xnex" path="res://src/scene/minigamescene/pong/player.gd" id="2_p3ppe"]
 [ext_resource type="PackedScene" uid="uid://bt0fhlyo5a5nw" path="res://src/scene/minigamescene/pong/ball.tscn" id="3_3kkxd"]
+[ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="3_tyhsl"]
 [ext_resource type="Script" uid="uid://bej7lkol43pby" path="res://src/scene/minigamescene/pong/ball.gd" id="5_3kkxd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwmwa"]
@@ -13,35 +14,38 @@ size = Vector2(35.625, 128.375)
 size = Vector2(1364.75, 170)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
-size = Vector2(158.63123, 758)
+size = Vector2(158.63123, 892)
 
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_p3ppe")
+false_wincon = true
 
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
+collision_layer = 2
+collision_mask = 1
 script = ExtResource("2_1mlcv")
 speed = 200.0
 
-[node name="ColorRect" type="ColorRect" parent="Computer" unique_id=473797757]
-offset_left = 1280.0
-offset_top = 300.0
-offset_right = 1316.0
-offset_bottom = 428.0
-color = Color(0.22745098, 0.101960786, 1, 1)
+[node name="ColorRect" type="Sprite2D" parent="Computer" unique_id=409486071]
+self_modulate = Color(0, 0.18912959, 1, 1)
+position = Vector2(1300, 360)
+scale = Vector2(0.625, 2)
+texture = ExtResource("3_tyhsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
 position = Vector2(1300, 361)
 shape = SubResource("RectangleShape2D_dwmwa")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]
+collision_layer = 2
+collision_mask = 1
 script = ExtResource("2_p3ppe")
 
-[node name="ColorRect" type="ColorRect" parent="Player" unique_id=823347268]
-offset_left = 23.0
-offset_top = 292.0
-offset_right = 59.0
-offset_bottom = 420.0
-color = Color(0.22745098, 0.101960786, 1, 1)
+[node name="ColorRect" type="Sprite2D" parent="Player" unique_id=1694702208]
+self_modulate = Color(0, 0.18912959, 1, 1)
+position = Vector2(42, 354)
+scale = Vector2(0.625, 2)
+texture = ExtResource("3_tyhsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=879769585]
 position = Vector2(42, 353)
@@ -60,21 +64,28 @@ position = Vector2(682.5, 859)
 shape = SubResource("RectangleShape2D_00rlw")
 
 [node name="Ball" parent="." unique_id=1271836413 instance=ExtResource("3_3kkxd")]
+collision_layer = 8
+collision_mask = 3
 position = Vector2(670, 373)
 script = ExtResource("5_3kkxd")
+speed = 300.0
 
 [node name="Win" type="Area2D" parent="." unique_id=851608785]
+collision_layer = 0
+collision_mask = 8
 position = Vector2(-36, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Win" unique_id=1330100129]
-position = Vector2(-46, 303)
+position = Vector2(-46, 324)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [node name="Lose" type="Area2D" parent="." unique_id=471565360]
+collision_layer = 0
+collision_mask = 8
 position = Vector2(-36, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose" unique_id=1254567795]
-position = Vector2(1486, 309)
+position = Vector2(1486, 321)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [connection signal="body_entered" from="Win" to="." method="_on_left_body_entered"]

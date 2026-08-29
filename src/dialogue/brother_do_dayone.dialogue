@@ -3,9 +3,9 @@ Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my
 - Can I ask about the rules first?
 	Brother Do: Sure, here are the rules.
 	~ explain_rule
-	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 1[/color]: Use WASD to move.
-	Brother Do: [do portrait_with_part.assign_part(false)][color=yellow]Rule 2[/color]: Wrong movement minus point.
-	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 3[/color]: Ball goes right direction.
+	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 1[/color]: Use WASD, not the arrow key, to move.
+	Brother Do: [do portrait_with_part.assign_part(false)][color=yellow]Rule 2[/color]: Defend the ball until opponent missed to win.
+	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 3[/color]: The slider disc move up when you press the up button, and vice versa.
 	Brother Do: You got it? Wanna play now?
 	- Can you repeat it again?
 		Brother Do: [do portrait_with_part.assign_part(true)][tornado]Haizzz..[/tornado] Ok listen carefully now!

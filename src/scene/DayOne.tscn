@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
 [ext_resource type="Texture2D" uid="uid://ol46g2g3gw6w" path="res://asset/sprite/background/carnival.png" id="9_23kne"]
 [ext_resource type="Texture2D" uid="uid://w76nymlg6o5b" path="res://asset/sprite/entity/stall_1.png" id="10_qiqos"]
+[ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="11_xji5c"]
 [ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="12_f6h2i"]
 [ext_resource type="Texture2D" uid="uid://djbukgrr7yci2" path="res://asset/sprite/entity/dog.png" id="12_xji5c"]
 
@@ -23,8 +24,6 @@ radius = 40.0
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2073527884]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1158490481]
 self_modulate = Color(0, 0, 0, 1)
@@ -45,6 +44,14 @@ region_rect = Rect2(0, 0, 12000, 2000)
 position = Vector2(32, -896)
 scale = Vector2(0.9802377, 0.9474035)
 texture = ExtResource("9_23kne")
+
+[node name="PointLight2D2" type="PointLight2D" parent="BG" unique_id=1530592378]
+position = Vector2(-391.74173, -42.220642)
+scale = Vector2(0.48914117, 0.50609344)
+color = Color(1, 0.7008203, 0, 1)
+energy = 1.89
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
 
 [node name="Fences" type="Node2D" parent="." unique_id=1032302205]
 
@@ -88,6 +95,14 @@ texture = ExtResource("10_qiqos")
 position = Vector2(0, 96)
 shape = SubResource("RectangleShape2D_qj0uq")
 
+[node name="PointLight2D" type="PointLight2D" parent="YSort/StallA" unique_id=1096172968]
+position = Vector2(16, 24.000015)
+scale = Vector2(0.32832584, 0.32832584)
+color = Color(1, 0.7980852, 0.29787397, 1)
+energy = 1.09
+texture = ExtResource("11_xji5c")
+texture_scale = 7.78
+
 [node name="Dog" type="StaticBody2D" parent="YSort" unique_id=1264960908]
 position = Vector2(456, -200)
 
@@ -120,3 +135,11 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=640148876]
 build_mode = 1
 polygon = PackedVector2Array(1232, -200, -1160, -200, -1160, 200, 1232, 192)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1416056684]
+color = Color(0, 0, 0, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=34787185]
+position = Vector2(-1632, -1280)
+color = Color(0.40704307, 0.42036355, 0.5843137, 0.95686275)
+energy = 1.5
