@@ -11,16 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
 [ext_resource type="Texture2D" uid="uid://ol46g2g3gw6w" path="res://asset/sprite/background/carnival.png" id="9_23kne"]
-[ext_resource type="Texture2D" uid="uid://w76nymlg6o5b" path="res://asset/sprite/entity/stall_1.png" id="10_qiqos"]
+[ext_resource type="PackedScene" uid="uid://sjcaydsenx33" path="res://src/entity/stall_owners/StallA.tscn" id="11_f6h2i"]
 [ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="11_xji5c"]
-[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="12_f6h2i"]
-[ext_resource type="Texture2D" uid="uid://djbukgrr7yci2" path="res://asset/sprite/entity/dog.png" id="12_xji5c"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj0uq"]
-size = Vector2(656, 192)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ys074"]
-radius = 40.0
+[ext_resource type="PackedScene" uid="uid://cw06m7ut7i0yl" path="res://src/entity/Dog.tscn" id="12_o0iiv"]
+[ext_resource type="PackedScene" uid="uid://d4xitj7lbpsa" path="res://src/entity/stall_owners/DoNamTrung.tscn" id="13_023iy"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
@@ -84,42 +78,14 @@ position = Vector2(928, -80)
 position = Vector2(320, -72)
 dialogue_resource = ExtResource("4_7ingd")
 
-[node name="StallA" type="StaticBody2D" parent="YSort" unique_id=2092558158]
+[node name="StallA" parent="YSort" unique_id=603656411 instance=ExtResource("11_f6h2i")]
 position = Vector2(80, -328)
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/StallA" unique_id=403904384]
-scale = Vector2(1.6976048, 1.6976048)
-texture = ExtResource("10_qiqos")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallA" unique_id=1423930016]
-position = Vector2(0, 96)
-shape = SubResource("RectangleShape2D_qj0uq")
-
-[node name="PointLight2D" type="PointLight2D" parent="YSort/StallA" unique_id=1096172968]
-position = Vector2(16, 24.000015)
-scale = Vector2(0.32832584, 0.32832584)
-color = Color(1, 0.7980852, 0.29787397, 1)
-energy = 1.09
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="Dog" type="StaticBody2D" parent="YSort" unique_id=1264960908]
+[node name="Dog" parent="YSort" unique_id=760569721 instance=ExtResource("12_o0iiv")]
 position = Vector2(456, -200)
 
-[node name="Shadow" type="Sprite2D" parent="YSort/Dog" unique_id=2058250686]
-self_modulate = Color(0, 0, 0, 0.47843137)
-position = Vector2(0, 32)
-scale = Vector2(1.125, 0.5)
-texture = ExtResource("12_f6h2i")
-
-[node name="Sprite2D" type="Sprite2D" parent="YSort/Dog" unique_id=752786769]
-self_modulate = Color(0.66015625, 0.66015625, 0.66015625, 1)
-scale = Vector2(0.34496132, 0.34496135)
-texture = ExtResource("12_xji5c")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Dog" unique_id=1556369257]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_ys074")
+[node name="DoNamTrung" parent="YSort" unique_id=1327044927 instance=ExtResource("13_023iy")]
+position = Vector2(-136, -80)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 

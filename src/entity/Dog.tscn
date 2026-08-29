@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cw06m7ut7i0yl"]
+
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="1_rnk2k"]
+[ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="2_3mh6c"]
+[ext_resource type="Texture2D" uid="uid://djbukgrr7yci2" path="res://asset/sprite/entity/dog.png" id="2_fhnn7"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j81f0"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xytbm"]
+noise = SubResource("FastNoiseLite_j81f0")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cn22p"]
+shader = ExtResource("2_3mh6c")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 3.0
+shader_parameter/noise = SubResource("NoiseTexture2D_xytbm")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ys074"]
+radius = 40.0
+
+[node name="Dog" type="StaticBody2D" unique_id=760569721]
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=738942162]
+self_modulate = Color(0, 0, 0, 0.47843137)
+position = Vector2(0, 32)
+scale = Vector2(1.125, 0.5)
+texture = ExtResource("1_rnk2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2029126412]
+self_modulate = Color(0.66015625, 0.66015625, 0.66015625, 1)
+material = SubResource("ShaderMaterial_cn22p")
+scale = Vector2(0.34496132, 0.34496135)
+texture = ExtResource("2_fhnn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=57772250]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_ys074")

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d4xitj7lbpsa"]
+
+[ext_resource type="Script" uid="uid://drg58o6xcihiu" path="res://src/entity/stall_owners/stall_owner.gd" id="1_207yi"]
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="2_k165p"]
+[ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="2_yapie"]
+[ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="4_k8myl"]
+[ext_resource type="Texture2D" uid="uid://bx0wav7ahkxop" path="res://asset/sprite/entity/do_nam_trung.png" id="5_yapie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_173wh"]
+shader = ExtResource("2_yapie")
+shader_parameter/thickness = 8.00000038
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 0.948822, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_low7t"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cnl5i"]
+noise = SubResource("FastNoiseLite_low7t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ingd"]
+shader = ExtResource("4_k8myl")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 3.0
+shader_parameter/noise = SubResource("NoiseTexture2D_cnl5i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_173wh"]
+size = Vector2(96, 64)
+
+[node name="DoNamTrung" type="CharacterBody2D" unique_id=136133927]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_207yi")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1627834289]
+self_modulate = Color(0, 0, 0, 0.40392157)
+position = Vector2(5, 4)
+scale = Vector2(1.625, 0.625)
+texture = ExtResource("2_k165p")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=1517371995]
+visible = false
+material = SubResource("ShaderMaterial_173wh")
+position = Vector2(0, -104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_yapie")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1377465401]
+material = SubResource("ShaderMaterial_7ingd")
+position = Vector2(0, -104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_yapie")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=294774305]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_173wh")
