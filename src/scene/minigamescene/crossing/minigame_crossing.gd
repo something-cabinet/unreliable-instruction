@@ -23,7 +23,7 @@ func _ready():
 	for i in range(6):
 		var car = car_scene.instantiate()
 		randomize()
-		var x = [-1,1].pick_random()
+		var x = randf_range(1,10) * 250 + $player.position.x
 		var y = randf_range(0,5) * 300
 		if x < $FinishLine.position.x:
 			car.spawn(x,y)
@@ -37,7 +37,7 @@ func _on_timer_timeout() -> void:
 	randomize()
 	var x = randf_range(5,10) * 250 + $player.position.x
 	var y = randf_range(0,5) * 300
-	if x < 1000:
+	if x < 10000:
 		car.spawn(x,y)
 		add_child(car)
 
