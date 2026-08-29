@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Unreliable Instruction"
+config/name="Carnival of the Liar"
 config/version="0.1"
 config/tags=PackedStringArray("jam")
 run/main_scene="res://src/scene/TitleScreen.tscn"

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2ss5737ooom7"]
 
 [ext_resource type="Texture2D" uid="uid://b1bat5nn1165h" path="res://asset/sprite/portrait/brother_do_smile.png" id="1_lt477"]
+[ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="1_qt4rf"]
 [ext_resource type="Texture2D" uid="uid://qxbha1iu83nb" path="res://asset/sprite/portrait_part/eye_1.png" id="2_oa1lw"]
 [ext_resource type="Script" uid="uid://uusjskdxnib1" path="res://src/dialogue/portrait_with_part.gd" id="2_upa2s"]
 [ext_resource type="Texture2D" uid="uid://b4h10cvtqj55i" path="res://asset/sprite/portrait_part/mouth_1.png" id="3_dcypx"]
@@ -16,44 +17,58 @@
 [ext_resource type="Texture2D" uid="uid://cws0wdq12kdkh" path="res://asset/sprite/portrait_part/mouth_4.png" id="12_qt4rf"]
 [ext_resource type="Texture2D" uid="uid://hra7ahwp6j2m" path="res://asset/sprite/portrait_part/mouth_5.png" id="13_3kj52"]
 [ext_resource type="Texture2D" uid="uid://dvc0occroaghh" path="res://asset/sprite/portrait_part/mouth_6.png" id="14_57764"]
-[ext_resource type="Texture2D" uid="uid://ctmb5px4mftq8" path="res://asset/sprite/portrait_part/arm_7.png" id="17_6bp7c"]
-[ext_resource type="Texture2D" uid="uid://dg2wpulo6dngx" path="res://asset/sprite/portrait_part/arm_6.png" id="20_3kj52"]
+[ext_resource type="Texture2D" uid="uid://c4o01a2oa7rdp" path="res://asset/sprite/portrait_part/arm_2.png" id="16_6bp7c"]
+[ext_resource type="Texture2D" uid="uid://cm7emw5w45iln" path="res://asset/sprite/portrait_part/arm_8.png" id="17_qt4rf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qt4rf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6bp7c"]
+noise = SubResource("FastNoiseLite_qt4rf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kj52"]
+shader = ExtResource("1_qt4rf")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 3.0
+shader_parameter/noise = SubResource("NoiseTexture2D_6bp7c")
 
 [node name="BrotherDoPortrait" type="TextureRect" unique_id=1877723309]
+material = SubResource("ShaderMaterial_3kj52")
 custom_minimum_size = Vector2(512, 512)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = -851.0
-offset_bottom = -252.0
+offset_right = -854.0
+offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_lt477")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("2_upa2s")
-eye_part_truth_list = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp"), ExtResource("6_pl4ks"), ExtResource("7_muf0o"), ExtResource("8_6bp7c")])
-mouth_part_truth_list = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), ExtResource("9_4spls"), ExtResource("12_qt4rf"), ExtResource("13_3kj52"), ExtResource("14_57764")])
-arm_part_truth_list = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
+eye_truth = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp"), ExtResource("6_pl4ks"), ExtResource("7_muf0o"), ExtResource("8_6bp7c")])
+mouth_truth = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), ExtResource("9_4spls"), ExtResource("12_qt4rf"), ExtResource("13_3kj52"), ExtResource("14_57764")])
+arm_truth = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("16_6bp7c")])
+arm_lie_right_only = Array[Texture2D]([ExtResource("17_qt4rf")])
 
-[node name="EyeL" type="TextureRect" parent="." unique_id=709502522]
+[node name="EyeR" type="TextureRect" parent="." unique_id=709502522]
 layout_mode = 0
 offset_left = 216.0
 offset_top = 251.0
 offset_right = 256.0
 offset_bottom = 275.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_oa1lw")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="EyeR" type="TextureRect" parent="." unique_id=615291339]
+[node name="EyeL" type="TextureRect" parent="." unique_id=615291339]
 layout_mode = 0
 offset_left = 267.0
 offset_top = 248.0
 offset_right = 307.0
 offset_bottom = 272.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("2_oa1lw")
 expand_mode = 1
 stretch_mode = 4
@@ -65,26 +80,29 @@ offset_left = 232.0
 offset_top = 295.0
 offset_right = 295.0
 offset_bottom = 327.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("7_nsiml")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ArmL" type="TextureRect" parent="." unique_id=1156741473]
+[node name="ArmR" type="TextureRect" parent="." unique_id=1156741473]
 layout_mode = 0
 offset_left = -126.0
 offset_top = 170.0
 offset_right = 386.0
 offset_bottom = 682.0
-texture = ExtResource("10_nsiml")
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("17_qt4rf")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="ArmR" type="TextureRect" parent="." unique_id=729634303]
+[node name="ArmL" type="TextureRect" parent="." unique_id=729634303]
 layout_mode = 0
 offset_left = 168.0
 offset_top = 156.0
 offset_right = 680.0
 offset_bottom = 668.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 texture = ExtResource("10_nsiml")
 expand_mode = 1
 stretch_mode = 4
