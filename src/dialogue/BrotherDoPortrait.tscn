@@ -18,7 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://hra7ahwp6j2m" path="res://asset/sprite/portrait_part/mouth_5.png" id="13_3kj52"]
 [ext_resource type="Texture2D" uid="uid://dvc0occroaghh" path="res://asset/sprite/portrait_part/mouth_6.png" id="14_57764"]
 [ext_resource type="Texture2D" uid="uid://c4o01a2oa7rdp" path="res://asset/sprite/portrait_part/arm_2.png" id="16_6bp7c"]
+[ext_resource type="Texture2D" uid="uid://ctmb5px4mftq8" path="res://asset/sprite/portrait_part/arm_7.png" id="17_6bp7c"]
 [ext_resource type="Texture2D" uid="uid://cm7emw5w45iln" path="res://asset/sprite/portrait_part/arm_8.png" id="17_qt4rf"]
+[ext_resource type="Texture2D" uid="uid://d2pegj325bfwy" path="res://asset/sprite/portrait_part/arm_4.png" id="19_rowt7"]
+[ext_resource type="Texture2D" uid="uid://dg2wpulo6dngx" path="res://asset/sprite/portrait_part/arm_6.png" id="20_3kj52"]
+[ext_resource type="Texture2D" uid="uid://gqoblotdqy3l" path="res://asset/sprite/portrait_part/arm_5.png" id="20_x1yfw"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="22_8k1pn"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qt4rf"]
 
@@ -35,11 +40,15 @@ shader_parameter/noise = SubResource("NoiseTexture2D_6bp7c")
 [node name="BrotherDoPortrait" type="TextureRect" unique_id=1877723309]
 material = SubResource("ShaderMaterial_3kj52")
 custom_minimum_size = Vector2(512, 512)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -854.0
-offset_bottom = -256.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_lt477")
@@ -47,9 +56,13 @@ expand_mode = 1
 stretch_mode = 4
 script = ExtResource("2_upa2s")
 eye_truth = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp"), ExtResource("6_pl4ks"), ExtResource("7_muf0o"), ExtResource("8_6bp7c")])
+eye_lie = Array[Texture2D]([ExtResource("2_oa1lw"), ExtResource("4_ynlm0"), ExtResource("5_8sbdp"), ExtResource("6_pl4ks"), ExtResource("7_muf0o"), ExtResource("8_6bp7c")])
 mouth_truth = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), ExtResource("9_4spls"), ExtResource("12_qt4rf"), ExtResource("13_3kj52"), ExtResource("14_57764")])
-arm_truth = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("16_6bp7c")])
-arm_lie_right_only = Array[Texture2D]([ExtResource("17_qt4rf")])
+mouth_lie = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), ExtResource("9_4spls"), ExtResource("12_qt4rf"), ExtResource("13_3kj52"), ExtResource("14_57764")])
+arm_truth = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("10_nsiml"), ExtResource("19_rowt7"), ExtResource("20_x1yfw")])
+arm_truth_left_only = Array[Texture2D]([ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
+arm_lie_left_only = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("10_nsiml"), ExtResource("19_rowt7"), ExtResource("20_x1yfw"), ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
+arm_lie_right_only = Array[Texture2D]([ExtResource("17_qt4rf"), ExtResource("16_6bp7c")])
 
 [node name="EyeR" type="TextureRect" parent="." unique_id=709502522]
 layout_mode = 0
@@ -108,7 +121,8 @@ expand_mode = 1
 stretch_mode = 4
 flip_h = true
 
-[node name="Timer" type="Timer" parent="." unique_id=313096728]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="DialogueStateContext" type="Node" parent="." unique_id=1150514039 node_paths=PackedStringArray("target")]
+script = ExtResource("22_8k1pn")
+alias = "portrait_with_part"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

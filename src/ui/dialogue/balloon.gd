@@ -24,6 +24,7 @@ extends CanvasLayer
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 @onready var portrait_image: TextureRect = $Balloon/Portrait
+@onready var dynamic_portrait_container: Control = $Balloon/DynamicPortraitContainer
 
 ## Temporary game states
 var temporary_game_states: Array = []
@@ -140,12 +141,28 @@ func apply_dialogue_line() -> void:
 
 	# Portrait
 	if dialogue_line.get_tag_value("portrait") != "":
-		var portrait: String = dialogue_line.get_tag_value("portrait")
-		var portrait_path: String = "res://asset/sprite/portrait/%s.png" % portrait
+		var portrait_name: String = dialogue_line.get_tag_value("portrait")
+		var portrait_path: String = "res://asset/sprite/portrait/%s.png" % portrait_name
 		if FileAccess.file_exists(portrait_path):
 			portrait_image.texture = load(portrait_path)
 		else:
 			portrait_image.texture = null
+
+	# Dynamic portrailt
+	if dialogue_line.get_tag_value("dynamic_portrait") != "":
+		var portrait_name: String = dialogue_line.get_tag_value("dynamic_portrait")
+		if portrait_name == "null":
+			for child in dynamic_portrait_container.get_children():
+				child.queue_free()
+				return
+		var portrait_path: String = "res://src/dialogue/%s.tscn" % portrait_name
+		print("portrait_path ", portrait_path)
+		if FileAccess.file_exists(portrait_path):
+			print("portrait_path ", portrait_path)
+			var new_inst = load(portrait_path).instantiate()
+			for child in dynamic_portrait_container.get_children():
+				child.queue_free()
+			dynamic_portrait_container.add_child(new_inst)
 
 	responses_menu.hide()
 	responses_menu.responses = dialogue_line.responses

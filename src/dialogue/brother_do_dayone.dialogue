@@ -1,0 +1,23 @@
+~ start
+Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my carnival game?
+- Can I ask about the rules first?
+	Brother Do: Sure, here are the rules.
+	~ explain_rule
+	Brother Do: [do portrait_with_part.assign_part(true)] Rule 1: Use WASD to move.
+	Brother Do: [do portrait_with_part.assign_part(false)] Rule 2:  Wrong movement minus point.
+	Brother Do: [do portrait_with_part.assign_part(true)] Rule 3: Ball goes right direction.
+	Brother Do: You got it? Wanna play now?
+	- Can you repeat again?
+		Brother Do: Haizzz.. Ok listen carefully now!
+		=> explain_rule
+	- I got the rule, let me play.
+		=> play_game
+	- Yeah, but I dont wanna play anymore.
+		Brother Do: Ok bro.
+		Brother Do: Anyway my dude, there is this guy come here and waste my time...
+		=> END
+- Yes, please!
+	~ play_game
+	Brother Do: Ok i will setup the game now. Let's play!
+	
+=> END

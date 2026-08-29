@@ -39,12 +39,12 @@ class_name PortraitWithPart
 ## Mouth squeeze cycles per second.
 @export var mouth_squash_speed: float = 0.7
 
-var is_telling_lie = false
+var is_telling_truth = false
 
 var _sway_time: float = 0.0
 
 func _ready() -> void:
-	assign_part()
+	assign_part(true)
 
 
 func _process(delta: float) -> void:
@@ -60,9 +60,9 @@ func _process(delta: float) -> void:
 
 	mouth.scale.x = 1.0 + mouth_squash_amount * sin(_sway_time * mouth_squash_speed * TAU)
 
-func assign_part(_is_telling_lie: bool = false) -> void:
-	is_telling_lie = _is_telling_lie
-	if is_telling_lie:
+func assign_part(_is_telling_truth: bool = true) -> void:
+	is_telling_truth = _is_telling_truth
+	if not is_telling_truth:
 		eye_l.texture = eye_lie.pick_random()
 		eye_r.texture = eye_l.texture
 		mouth.texture = mouth_lie.pick_random()

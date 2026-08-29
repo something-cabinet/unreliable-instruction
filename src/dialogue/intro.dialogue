@@ -4,11 +4,11 @@ The Carnival Manager: [#portrait=manager_default]We about to have a carnival soo
 The Carnival Manager: [#portrait=manager_default]As you can guess from the name, the game stall owners at the carnival wont be truthfully with us. That why I have these psychology reports.
 The Carnival Manager: [#portrait=manager_default]These reports is to know each stall owners preference when it come to lying.
 The Carnival Manager: [#portrait=manager_happy]The thing is, I must have dropped the name label somewhere. Tee hee!
-The Carnival Manager: [#portrait=manager_default]So, can you go overthere, ask or observe them, and attach a name for each paper?
-
+The Carnival Manager: [#portrait=manager_default]So, can you go overthere, ask or observe them, and [color=yellow]attach a name to each paper[/color]?
 - Sure boss
-	The Carnival Manager[#portrait=manager_default]: Thanks. Now go, bye bye.
+	The Carnival Manager[#portrait=manager_default]: Thanks. Now go. [wave]Bye bye~[/wave]
 - No boss
-	The Carnival Manager[#portrait=manager_happy]: Ah ha, so you know how to lie too. Now go, bye bye.
-The Carnival Manager[#portrait=manager_default]: Im looking forward to your result.
+	The Carnival Manager[#portrait=manager_happy]: Ah ha! So you know how to lie too! Ok very funny, now go! bye bye.
+	The Carnival Manager[#portrait=manager_happy]: Ok very funny. Now go. [wave]Bye bye~[/wave]
+The Carnival Manager[#portrait=manager_default]: I'm looking forward to your result.
 => END
