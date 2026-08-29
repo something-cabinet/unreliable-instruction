@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://wjqaum14li2k" path="res://src/scene/minigamescene/car/player.gd" id="4_jy1hb"]
 [ext_resource type="Texture2D" uid="uid://cksdpe7gsbrwi" path="res://asset/sprite/placeholder/walking_duck.png" id="5_t0yak"]
 [ext_resource type="PackedScene" uid="uid://ckd4y88pcnc4b" path="res://src/scene/minigamescene/car/finish_line.tscn" id="6_mcicm"]
+[ext_resource type="Script" uid="uid://dkd6gr70mwl27" path="res://src/scene/minigamescene/crossing/finish_line.gd" id="7_iu1x0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_00rlw"]
 animations = [{
@@ -97,6 +98,7 @@ autostart = true
 position = Vector2(-272, -208)
 rotation = 1.5707964
 scale = Vector2(2, 2)
+script = ExtResource("7_iu1x0")
 
 [node name="ResultUI" type="CanvasLayer" parent="." unique_id=608421551]
 process_mode = 3

@@ -1,0 +1,11 @@
+extends Area2D
+@export var speed: float = 400
+
+var lose : bool = false
+
+func _ready() -> void:
+	pass
+
+func _on_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	lose = true
+	
