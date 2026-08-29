@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c0uvk1m01hr0p"]
+
+[ext_resource type="Texture2D" uid="uid://bamkhm4vhxgoq" path="res://asset/sprite/entity/stall_2.png" id="1_7mkhr"]
+[ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="2_8jduu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_023iy"]
+size = Vector2(733, 161)
+
+[node name="StallC" type="StaticBody2D" unique_id=885165800]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=556314569]
+scale = Vector2(1.1265802, 1.1265801)
+texture = ExtResource("1_7mkhr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=135473557]
+position = Vector2(-4.5, 80.5)
+shape = SubResource("RectangleShape2D_023iy")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1101024136]
+position = Vector2(-15.999995, -47.999977)
+scale = Vector2(0.42928585, 0.32832584)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 1.09
+texture = ExtResource("2_8jduu")
+texture_scale = 7.78
