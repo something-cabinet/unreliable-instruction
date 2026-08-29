@@ -79,14 +79,14 @@ frame_progress = 0.47393167
 script = ExtResource("4_jy1hb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1812307520]
-position = Vector2(150, 430)
+position = Vector2(440, 699)
 scale = Vector2(4.042, 4)
 sprite_frames = SubResource("SpriteFrames_y5ami")
 animation = &"duck"
 autoplay = "duck"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=38139569]
-position = Vector2(151.5, 418)
+position = Vector2(455, 710)
 scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_y5ami")
 
