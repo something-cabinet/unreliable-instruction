@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b4dg35sn4b6ho"]
+
+[ext_resource type="Texture2D" uid="uid://dajfaojc3o85e" path="res://asset/sprite/entity/stall_4.png" id="1_o563a"]
+[ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="2_duey6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40y0r"]
+size = Vector2(360, 161)
+
+[node name="StallD" type="StaticBody2D" unique_id=345126286]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=579288419]
+position = Vector2(0, -120)
+scale = Vector2(0.5632901, 0.56329006)
+texture = ExtResource("1_o563a")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=725691315]
+position = Vector2(-191.99998, -120)
+scale = Vector2(0.5632901, 0.56329006)
+texture = ExtResource("1_o563a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004028878]
+position = Vector2(-100, -48)
+shape = SubResource("RectangleShape2D_40y0r")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=686257809]
+position = Vector2(-6.1035156e-05, -56)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 0.5
+texture = ExtResource("2_duey6")
+texture_scale = 7.78
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1201434885]
+position = Vector2(-56.00006, -216)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.91037446, 0.84329456, 0.29712802, 1)
+energy = 1.09
+texture = ExtResource("2_duey6")
+texture_scale = 7.78
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=1115213873]
+position = Vector2(-174.25006, -56)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.76832175, 0.76832175, 0.76832175, 1)
+energy = 0.5
+texture = ExtResource("2_duey6")
+texture_scale = 7.78
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=529680196]
+position = Vector2(-230.25006, -216)
+scale = Vector2(0.13029201, 0.13958646)
+color = Color(0.91037446, 0.84329456, 0.29712802, 1)
+energy = 1.09
+texture = ExtResource("2_duey6")
+texture_scale = 7.78

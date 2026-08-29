@@ -156,9 +156,7 @@ func apply_dialogue_line() -> void:
 				child.queue_free()
 				return
 		var portrait_path: String = "res://src/dialogue/%s.tscn" % portrait_name
-		print("portrait_path ", portrait_path)
 		if FileAccess.file_exists(portrait_path):
-			print("portrait_path ", portrait_path)
 			var new_inst = load(portrait_path).instantiate()
 			for child in dynamic_portrait_container.get_children():
 				child.queue_free()

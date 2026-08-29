@@ -3,33 +3,30 @@
 [ext_resource type="PackedScene" uid="uid://clsdnti10u8oa" path="res://src/ui/CameraFollow.tscn" id="1_7ingd"]
 [ext_resource type="Script" uid="uid://dlqct6unc6cwi" path="res://src/scene/map_manager.gd" id="1_cnl5i"]
 [ext_resource type="PackedScene" uid="uid://d4ni5778a3406" path="res://src/entity/player/Player.tscn" id="2_173wh"]
+[ext_resource type="PackedScene" path="res://src/scene/minigamescene/MinigameHost.tscn" id="2_dko18"]
 [ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="2_ioi8g"]
 [ext_resource type="Texture2D" uid="uid://drnyb73xsb50e" path="res://asset/sprite/background/pavement_seamless.png" id="2_low7t"]
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
+[ext_resource type="PackedScene" uid="uid://bcu2ci482yvmu" path="res://src/scene/minigamescene/pong/minigame_pong.tscn" id="3_6m304"]
 [ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
+[ext_resource type="PackedScene" uid="uid://hg0rsw341hsq" path="res://src/scene/minigamescene/car/minigame_car.tscn" id="4_erbea"]
 [ext_resource type="Texture2D" uid="uid://bf1r0i8vf76ch" path="res://asset/sprite/background/wood_fence.png" id="4_ihdxw"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
 [ext_resource type="Texture2D" uid="uid://ol46g2g3gw6w" path="res://asset/sprite/background/carnival.png" id="9_23kne"]
 [ext_resource type="PackedScene" uid="uid://sjcaydsenx33" path="res://src/entity/stall_owners/StallA.tscn" id="11_f6h2i"]
 [ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="11_xji5c"]
-[ext_resource type="Texture2D" uid="uid://500xetjdwj2b" path="res://asset/sprite/entity/stall_3.png" id="12_f6h2i"]
+[ext_resource type="PackedScene" uid="uid://bd342wfaaychx" path="res://src/entity/stall_owners/StallB.tscn" id="12_023iy"]
 [ext_resource type="PackedScene" uid="uid://cw06m7ut7i0yl" path="res://src/entity/Dog.tscn" id="12_o0iiv"]
 [ext_resource type="PackedScene" uid="uid://d4xitj7lbpsa" path="res://src/entity/stall_owners/DoNamTrung.tscn" id="13_023iy"]
-[ext_resource type="Texture2D" uid="uid://bamkhm4vhxgoq" path="res://asset/sprite/entity/stall_2.png" id="13_o0iiv"]
-[ext_resource type="Texture2D" uid="uid://dajfaojc3o85e" path="res://asset/sprite/entity/stall_4.png" id="14_023iy"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0iiv"]
-size = Vector2(733, 161)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_023iy"]
-size = Vector2(733, 161)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_40y0r"]
-size = Vector2(360, 161)
+[ext_resource type="PackedScene" uid="uid://c0uvk1m01hr0p" path="res://src/entity/stall_owners/StallC.tscn" id="13_40y0r"]
+[ext_resource type="PackedScene" uid="uid://b4dg35sn4b6ho" path="res://src/entity/stall_owners/StallD.tscn" id="14_y1vfj"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
+minigame_host = ExtResource("2_dko18")
+minigame_pong = ExtResource("3_6m304")
+minigame_car = ExtResource("4_erbea")
 
 [node name="Blackscreen" type="Sprite2D" parent="." unique_id=1158490481]
 self_modulate = Color(0, 0, 0, 1)
@@ -110,92 +107,14 @@ dialogue_resource = ExtResource("4_7ingd")
 [node name="StallA" parent="YSort" unique_id=603656411 instance=ExtResource("11_f6h2i")]
 position = Vector2(80, -328)
 
-[node name="StallB" type="StaticBody2D" parent="YSort" unique_id=940004570]
+[node name="StallB" parent="YSort" unique_id=1383571278 instance=ExtResource("12_023iy")]
 position = Vector2(-746, -326)
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/StallB" unique_id=1689118565]
-scale = Vector2(1.6976048, 1.6976048)
-texture = ExtResource("12_f6h2i")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallB" unique_id=338796676]
-position = Vector2(-4.5, 80.5)
-shape = SubResource("RectangleShape2D_o0iiv")
-
-[node name="PointLight2D" type="PointLight2D" parent="YSort/StallB" unique_id=1745281187]
-position = Vector2(-9.499935, 24.000015)
-scale = Vector2(0.42928585, 0.32832584)
-color = Color(1, 0.2980392, 0.3202272, 1)
-energy = 1.09
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="StallC" type="StaticBody2D" parent="YSort" unique_id=1901158058]
+[node name="StallC" parent="YSort" unique_id=885165800 instance=ExtResource("13_40y0r")]
 position = Vector2(-400, 224)
 
-[node name="Sprite2D" type="Sprite2D" parent="YSort/StallC" unique_id=1021844709]
-scale = Vector2(1.1265802, 1.1265801)
-texture = ExtResource("13_o0iiv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallC" unique_id=197145893]
-position = Vector2(-4.5, 80.5)
-shape = SubResource("RectangleShape2D_023iy")
-
-[node name="PointLight2D" type="PointLight2D" parent="YSort/StallC" unique_id=2125846745]
-position = Vector2(-15.999995, -47.999977)
-scale = Vector2(0.42928585, 0.32832584)
-color = Color(0.76832175, 0.76832175, 0.76832175, 1)
-energy = 1.09
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="StallD" type="StaticBody2D" parent="YSort" unique_id=764632797]
+[node name="StallD" parent="YSort" unique_id=345126286 instance=ExtResource("14_y1vfj")]
 position = Vector2(-1544, -176)
-
-[node name="Sprite2D" type="Sprite2D" parent="YSort/StallD" unique_id=96029993]
-position = Vector2(0, -120)
-scale = Vector2(0.5632901, 0.56329006)
-texture = ExtResource("14_023iy")
-
-[node name="Sprite2D2" type="Sprite2D" parent="YSort/StallD" unique_id=1220844929]
-position = Vector2(-191.99998, -120)
-scale = Vector2(0.5632901, 0.56329006)
-texture = ExtResource("14_023iy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallD" unique_id=656831268]
-position = Vector2(-100, -48)
-shape = SubResource("RectangleShape2D_40y0r")
-
-[node name="PointLight2D" type="PointLight2D" parent="YSort/StallD" unique_id=1439398222]
-position = Vector2(-6.1035156e-05, -56)
-scale = Vector2(0.13029201, 0.13958646)
-color = Color(0.76832175, 0.76832175, 0.76832175, 1)
-energy = 0.5
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="PointLight2D2" type="PointLight2D" parent="YSort/StallD" unique_id=285376400]
-position = Vector2(-56.00006, -216)
-scale = Vector2(0.13029201, 0.13958646)
-color = Color(0.91037446, 0.84329456, 0.29712802, 1)
-energy = 1.09
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="PointLight2D3" type="PointLight2D" parent="YSort/StallD" unique_id=1349696401]
-position = Vector2(-174.25006, -56)
-scale = Vector2(0.13029201, 0.13958646)
-color = Color(0.76832175, 0.76832175, 0.76832175, 1)
-energy = 0.5
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
-
-[node name="PointLight2D4" type="PointLight2D" parent="YSort/StallD" unique_id=64329245]
-position = Vector2(-230.25006, -216)
-scale = Vector2(0.13029201, 0.13958646)
-color = Color(0.91037446, 0.84329456, 0.29712802, 1)
-energy = 1.09
-texture = ExtResource("11_xji5c")
-texture_scale = 7.78
 
 [node name="Dog" parent="YSort" unique_id=760569721 instance=ExtResource("12_o0iiv")]
 position = Vector2(456, -200)

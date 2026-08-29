@@ -13,4 +13,6 @@ func show_outline(is_show = false):
 
 func interact():
 	GameManager.player.is_busy = true
-	DialogueManager.show_dialogue_balloon(dialogue_resource, "start")
+	# Kept on GameManager so a `do` mutation can reach the balloon to hide it
+	# while a minigame is running.
+	GameManager.dialogue_balloon = DialogueManager.show_dialogue_balloon(dialogue_resource, "start")

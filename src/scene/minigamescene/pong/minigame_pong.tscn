@@ -22,9 +22,8 @@ false_wincon = true
 false_movement = false
 
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
-collision_layer = 2
-collision_mask = 1
 position = Vector2(-5, 332)
+collision_layer = 2
 script = ExtResource("2_1mlcv")
 speed = 200.0
 
@@ -40,7 +39,6 @@ shape = SubResource("RectangleShape2D_dwmwa")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]
 collision_layer = 2
-collision_mask = 1
 script = ExtResource("2_p3ppe")
 
 [node name="ColorRect" type="Sprite2D" parent="Player" unique_id=1694702208]
@@ -66,25 +64,25 @@ position = Vector2(682.5, 859)
 shape = SubResource("RectangleShape2D_00rlw")
 
 [node name="Ball" parent="." unique_id=1271836413 instance=ExtResource("3_3kkxd")]
+position = Vector2(670, 373)
 collision_layer = 8
 collision_mask = 3
-position = Vector2(670, 373)
 script = ExtResource("5_3kkxd")
 speed = 300.0
 
 [node name="Win" type="Area2D" parent="." unique_id=851608785]
+position = Vector2(-36, 74)
 collision_layer = 0
 collision_mask = 8
-position = Vector2(-36, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Win" unique_id=1330100129]
 position = Vector2(-46, 324)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [node name="Lose" type="Area2D" parent="." unique_id=471565360]
+position = Vector2(-36, 74)
 collision_layer = 0
 collision_mask = 8
-position = Vector2(-36, 74)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose" unique_id=1254567795]
 position = Vector2(1486, 321)

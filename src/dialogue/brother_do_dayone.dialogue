@@ -19,6 +19,12 @@ Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my
 - Yes, please!
 	~ play_game
 	Brother Do: [do portrait_with_part.assign_part(true)]Ok brother, I will setup the game now. Let's play!
+	do GameManager.map_manager.start_minigame("pong")
+	if GameManager.last_minigame_won
+		Brother Do: [do portrait_with_part.assign_part(false)]Alright brother, you got me. Fair and square.
+	else
+		Brother Do: [do portrait_with_part.assign_part(true)]Better luck next time, brother!
+	=> END
 - No
 	=> END
 => END
