@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dg2wpulo6dngx" path="res://asset/sprite/portrait_part/arm_6.png" id="20_3kj52"]
 [ext_resource type="Texture2D" uid="uid://gqoblotdqy3l" path="res://asset/sprite/portrait_part/arm_5.png" id="20_x1yfw"]
 [ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="22_8k1pn"]
+[ext_resource type="Texture2D" uid="uid://bhb4kede4mqic" path="res://asset/sprite/portrait_part/arm_9.png" id="24_x1yfw"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_qt4rf"]
 
@@ -62,7 +63,7 @@ mouth_lie = Array[Texture2D]([ExtResource("3_dcypx"), ExtResource("7_nsiml"), Ex
 arm_truth = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("10_nsiml"), ExtResource("19_rowt7"), ExtResource("20_x1yfw")])
 arm_truth_left_only = Array[Texture2D]([ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
 arm_lie_left_only = Array[Texture2D]([ExtResource("8_ynlm0"), ExtResource("10_nsiml"), ExtResource("19_rowt7"), ExtResource("20_x1yfw"), ExtResource("20_3kj52"), ExtResource("17_6bp7c")])
-arm_lie_right_only = Array[Texture2D]([ExtResource("17_qt4rf"), ExtResource("16_6bp7c")])
+arm_lie_right_only = Array[Texture2D]([ExtResource("17_qt4rf"), ExtResource("16_6bp7c"), ExtResource("24_x1yfw")])
 
 [node name="EyeR" type="TextureRect" parent="." unique_id=709502522]
 layout_mode = 0
@@ -105,7 +106,7 @@ offset_top = 170.0
 offset_right = 386.0
 offset_bottom = 682.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-texture = ExtResource("17_qt4rf")
+texture = ExtResource("24_x1yfw")
 expand_mode = 1
 stretch_mode = 4
 

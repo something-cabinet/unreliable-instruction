@@ -1,24 +1,110 @@
 [gd_scene format=3 uid="uid://dbcnufwleeymm"]
 
 [ext_resource type="PackedScene" uid="uid://clsdnti10u8oa" path="res://src/ui/CameraFollow.tscn" id="1_7ingd"]
+[ext_resource type="Script" uid="uid://dlqct6unc6cwi" path="res://src/scene/map_manager.gd" id="1_cnl5i"]
 [ext_resource type="PackedScene" uid="uid://d4ni5778a3406" path="res://src/entity/player/Player.tscn" id="2_173wh"]
+[ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="2_ioi8g"]
+[ext_resource type="Texture2D" uid="uid://drnyb73xsb50e" path="res://asset/sprite/background/pavement_seamless.png" id="2_low7t"]
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
 [ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
+[ext_resource type="Texture2D" uid="uid://bf1r0i8vf76ch" path="res://asset/sprite/background/wood_fence.png" id="4_ihdxw"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
+[ext_resource type="Texture2D" uid="uid://ol46g2g3gw6w" path="res://asset/sprite/background/carnival.png" id="9_23kne"]
+[ext_resource type="Texture2D" uid="uid://w76nymlg6o5b" path="res://asset/sprite/entity/stall_1.png" id="10_qiqos"]
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="12_f6h2i"]
+[ext_resource type="Texture2D" uid="uid://djbukgrr7yci2" path="res://asset/sprite/entity/dog.png" id="12_xji5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qj0uq"]
+size = Vector2(656, 192)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ys074"]
+radius = 40.0
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
+script = ExtResource("1_cnl5i")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2073527884]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1158490481]
+self_modulate = Color(0, 0, 0, 1)
+position = Vector2(396, -528)
+scale = Vector2(61.375, 32.25)
+texture = ExtResource("2_ioi8g")
+
+[node name="Ground" type="Sprite2D" parent="." unique_id=78633992]
+self_modulate = Color(0.63671875, 0.63671875, 0.63671875, 1)
+texture_repeat = 2
+position = Vector2(36, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_low7t")
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 2000)
+
+[node name="BG" type="Sprite2D" parent="." unique_id=362139937]
+position = Vector2(32, -896)
+scale = Vector2(0.9802377, 0.9474035)
+texture = ExtResource("9_23kne")
+
+[node name="Fences" type="Node2D" parent="." unique_id=1032302205]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Fences" unique_id=410920851]
+position = Vector2(-616, -296)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("4_ihdxw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Fences" unique_id=1872170970]
+position = Vector2(527.9999, -296)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("4_ihdxw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Fences" unique_id=1773629305]
+position = Vector2(1672, -296)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("4_ihdxw")
 
 [node name="CameraFollow" parent="." unique_id=1076657867 instance=ExtResource("1_7ingd")]
+position = Vector2(520, -48)
+offset = Vector2(0, -200)
 
 [node name="YSort" type="Node2D" parent="." unique_id=593207082]
 y_sort_enabled = true
 
 [node name="Player" parent="YSort" unique_id=679921324 instance=ExtResource("2_173wh")]
+position = Vector2(928, -80)
 
 [node name="BrotherDo" parent="YSort" unique_id=136133927 instance=ExtResource("3_2rihm")]
-position = Vector2(-200, -184)
+position = Vector2(320, -72)
 dialogue_resource = ExtResource("4_7ingd")
+
+[node name="StallA" type="StaticBody2D" parent="YSort" unique_id=2092558158]
+position = Vector2(80, -328)
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/StallA" unique_id=403904384]
+scale = Vector2(1.6976048, 1.6976048)
+texture = ExtResource("10_qiqos")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/StallA" unique_id=1423930016]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_qj0uq")
+
+[node name="Dog" type="StaticBody2D" parent="YSort" unique_id=1264960908]
+position = Vector2(456, -200)
+
+[node name="Shadow" type="Sprite2D" parent="YSort/Dog" unique_id=2058250686]
+self_modulate = Color(0, 0, 0, 0.47843137)
+position = Vector2(0, 32)
+scale = Vector2(1.125, 0.5)
+texture = ExtResource("12_f6h2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="YSort/Dog" unique_id=752786769]
+self_modulate = Color(0.66015625, 0.66015625, 0.66015625, 1)
+scale = Vector2(0.34496132, 0.34496135)
+texture = ExtResource("12_xji5c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Dog" unique_id=1556369257]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_ys074")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
 
@@ -28,3 +114,9 @@ visible = false
 [node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
 visible = false
 metadata/_edit_use_anchors_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1761014428]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=640148876]
+build_mode = 1
+polygon = PackedVector2Array(1232, -200, -1160, -200, -1160, 200, 1232, 192)
