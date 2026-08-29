@@ -10,12 +10,12 @@ size = Vector2(140, 906.5)
 script = ExtResource("1_uhuio")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1119576370]
-position = Vector2(0, 108.25)
+position = Vector2(71, 108.25)
 scale = Vector2(1, 1.3133141)
 texture = ExtResource("1_e78ha")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=478640907]
-position = Vector2(-1, 107.75)
+position = Vector2(72, 107.75)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

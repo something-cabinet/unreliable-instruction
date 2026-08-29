@@ -19,21 +19,23 @@ size = Vector2(158.63123, 892)
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_p3ppe")
 false_wincon = true
+false_movement = false
 
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
 collision_layer = 2
 collision_mask = 1
+position = Vector2(-5, 332)
 script = ExtResource("2_1mlcv")
 speed = 200.0
 
 [node name="ColorRect" type="Sprite2D" parent="Computer" unique_id=409486071]
 self_modulate = Color(0, 0.18912959, 1, 1)
-position = Vector2(1300, 360)
+position = Vector2(1307, 24)
 scale = Vector2(0.625, 2)
 texture = ExtResource("3_tyhsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
-position = Vector2(1300, 361)
+position = Vector2(1307, 25)
 shape = SubResource("RectangleShape2D_dwmwa")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1075358201]

@@ -1,36 +1,108 @@
 [gd_scene format=3 uid="uid://hg0rsw341hsq"]
 
-[ext_resource type="Texture2D" uid="uid://cyob24jconqrf" path="res://icon.svg" id="1_8mh1w"]
 [ext_resource type="Script" uid="uid://hrl166u61lya" path="res://src/scene/minigamescene/car/minigame_car.gd" id="1_77dh3"]
 [ext_resource type="PackedScene" uid="uid://ccnlavgkq6pwg" path="res://src/scene/minigamescene/car/car.tscn" id="2_7rts2"]
 [ext_resource type="Script" uid="uid://wjqaum14li2k" path="res://src/scene/minigamescene/car/player.gd" id="2_p7fk3"]
+[ext_resource type="Texture2D" uid="uid://b47i2lpy4rw6b" path="res://asset/sprite/background/minigame_car_background.png" id="3_ywb4w"]
+[ext_resource type="Texture2D" uid="uid://5il65of3pedw" path="res://asset/sprite/placeholder/red_car_animated.png" id="4_7rts2"]
 [ext_resource type="PackedScene" uid="uid://ckd4y88pcnc4b" path="res://src/scene/minigamescene/car/finish_line.tscn" id="5_7rts2"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_00rlw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ywb4w")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 1,
+"name": &"background",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywb4w"]
+atlas = ExtResource("4_7rts2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2fhp"]
+atlas = ExtResource("4_7rts2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o74mg"]
+atlas = ExtResource("4_7rts2")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c080"]
+atlas = ExtResource("4_7rts2")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y5ami"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywb4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2fhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o74mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c080")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 16.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
-size = Vector2(126.625, 125)
+size = Vector2(121, 61.999996)
 
 [node name="minigame_car" type="Node2D" unique_id=1369995219]
 script = ExtResource("1_77dh3")
 car_scene = ExtResource("2_7rts2")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253944797]
+position = Vector2(605, 514)
+texture = ExtResource("3_ywb4w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=928415119]
+position = Vector2(679, 514)
+sprite_frames = SubResource("SpriteFrames_00rlw")
+animation = &"background"
+autoplay = "background"
+frame_progress = 0.47393167
+
 [node name="player" type="CharacterBody2D" parent="." unique_id=1345975412]
+position = Vector2(316, 294)
 script = ExtResource("2_p7fk3")
 
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=738079601]
-position = Vector2(194, 696)
-scale = Vector2(1.016, 1)
-texture = ExtResource("1_8mh1w")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player" unique_id=1812307520]
+position = Vector2(150, 430)
+scale = Vector2(4.042, 4)
+sprite_frames = SubResource("SpriteFrames_y5ami")
+autoplay = "default"
+frame_progress = 0.83258164
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=38139569]
-position = Vector2(194, 695)
+position = Vector2(150, 418)
+scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_y5ami")
 
 [node name="Timer" type="Timer" parent="." unique_id=1662802269]
-wait_time = 1.5
+wait_time = 0.5
 autostart = true
 
 [node name="finishLine" parent="." unique_id=201331524 instance=ExtResource("5_7rts2")]
-position = Vector2(3020, 346)
+position = Vector2(5000, 346)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_shape_entered" from="finishLine" to="." method="_on_finish_line_body_shape_entered"]

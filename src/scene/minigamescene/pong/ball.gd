@@ -10,7 +10,9 @@ var direction: Vector2 = Vector2.ONE
 var dead = false
 
 func _ready():
-	direction = Vector2(-1.0, 1.0).normalized()
+	randomize()
+	position.x = position.x + randf_range(400, 600)
+	direction = Vector2(-1.0, -1.0).normalized()
 
 func _process(_delta: float) -> void:
 	pass
