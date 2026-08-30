@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="1_52j0a"]
 [ext_resource type="Texture2D" uid="uid://cj4tadgduqqud" path="res://asset/sprite/background/squared_note.png" id="1_vw8a8"]
-[ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="3_t276w"]
+[ext_resource type="Script" uid="uid://b1fve6oh5ewpi" path="res://src/ui/item/rule_paper.gd" id="3_t276w"]
 [ext_resource type="PackedScene" uid="uid://camfc5rrooe7t" path="res://src/ui/item/GameRuleLine.tscn" id="4_g4wyt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t276w"]
@@ -26,8 +26,9 @@ texture = ExtResource("1_vw8a8")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("3_t276w")
+rule_line_prefab = ExtResource("4_g4wyt")
 allow_dragging = true
-item_type = "game_rule"
+item_type = "rule_paper"
 
 [node name="Title" type="Label" parent="." unique_id=1378440681]
 layout_mode = 1
@@ -76,15 +77,3 @@ offset_bottom = -21.513489
 grow_horizontal = 2
 grow_vertical = 0
 rotation = -0.06617968
-
-[node name="HBoxContainer" parent="VBoxContainer" unique_id=1741576380 instance=ExtResource("4_g4wyt")]
-layout_mode = 2
-
-[node name="HBoxContainer2" parent="VBoxContainer" unique_id=1453687507 instance=ExtResource("4_g4wyt")]
-layout_mode = 2
-
-[node name="HBoxContainer3" parent="VBoxContainer" unique_id=1444878179 instance=ExtResource("4_g4wyt")]
-layout_mode = 2
-
-[node name="HBoxContainer4" parent="VBoxContainer" unique_id=1580917568 instance=ExtResource("4_g4wyt")]
-layout_mode = 2

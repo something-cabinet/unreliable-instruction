@@ -123,7 +123,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 0.3529412)
 script = ExtResource("5_slot")
 accepted_type = "name_note"
-padding = 0.0
 
 [node name="Label" type="Label" parent="NameNoteSlot" unique_id=312486182]
 layout_mode = 1
@@ -142,7 +141,7 @@ text = "Name Note"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameRuleSlot" type="ColorRect" parent="." unique_id=820417375]
+[node name="RulePaperSlot" type="ColorRect" parent="." unique_id=820417375]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -158,10 +157,9 @@ grow_vertical = 0
 mouse_filter = 2
 color = Color(0, 0, 0, 0.3529412)
 script = ExtResource("5_slot")
-accepted_type = "game_rule"
-padding = 0.0
+accepted_type = "rule_paper"
 
-[node name="Label" type="Label" parent="GameRuleSlot" unique_id=850378082]
+[node name="Label" type="Label" parent="RulePaperSlot" unique_id=850378082]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

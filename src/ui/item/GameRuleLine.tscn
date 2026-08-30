@@ -15,7 +15,7 @@ text = "TRUE"
 icon_alignment = 1
 expand_icon = true
 
-[node name="Rule" type="Label" parent="." unique_id=1629077731]
+[node name="Label" type="Label" parent="." unique_id=1629077731]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)

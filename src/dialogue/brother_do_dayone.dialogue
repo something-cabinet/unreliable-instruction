@@ -1,11 +1,13 @@
 ~ start
 Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my carnival game?
+do GameManager.give_name_note("brother_do")
 - Can I ask about the rules first?
 	Brother Do: Sure, here are the rules.
 	~ explain_rule
 	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 1[/color]: Use WASD, not the arrow key, to move.
-	Brother Do: [do portrait_with_part.assign_part(false)][color=yellow]Rule 2[/color]: Defend the ball until opponent missed to win.
+	Brother Do: [do portrait_with_part.assign_part(false)][color=yellow]Rule 2[/color]: Defend the ball until opponent missed to win. Let the ball through and you lose.
 	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 3[/color]: The slider disc move up when you press the up button, and vice versa.
+	do GameManager.give_rule_paper("brother_do")
 	Brother Do: You got it? Wanna play now?
 	- Can you repeat it again?
 		Brother Do: [do portrait_with_part.assign_part(true)][tornado]Haizzz..[/tornado] Ok listen carefully now!
@@ -21,7 +23,7 @@ Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my
 	Brother Do: [do portrait_with_part.assign_part(true)]Ok brother, I will setup the game now. Let's play!
 	do GameManager.map_manager.start_minigame("pong")
 	if GameManager.last_minigame_won
-		Brother Do: [do portrait_with_part.assign_part(false)]Alright brother, you got me. Fair and square.
+		Brother Do: [do portrait_with_part.assign_part(true)]Alright brother, you got me. Fair and square.
 	else
 		Brother Do: [do portrait_with_part.assign_part(true)]Better luck next time, brother!
 	=> END

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ce0l460cdfimg"]
 
 [ext_resource type="Texture2D" uid="uid://cgbopgle5ywu1" path="res://asset/sprite/background/taped_note.png" id="1_n2nco"]
-[ext_resource type="Script" uid="uid://w1fxg5dja0ee" path="res://src/ui/item/document_item.gd" id="2_nroa7"]
+[ext_resource type="Script" uid="uid://cytvdk061onsd" path="res://src/ui/item/name_note.gd" id="2_nroa7"]
 
 [sub_resource type="Shader" id="Shader_nroa7"]
 code = "shader_type canvas_item;
@@ -98,7 +98,8 @@ script = ExtResource("2_nroa7")
 allow_dragging = true
 item_type = "name_note"
 
-[node name="Name" type="Label" parent="." unique_id=1086007626]
+[node name="Label" type="Label" parent="." unique_id=1086007626]
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,6 +114,6 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.12264667
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Brother Do"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2

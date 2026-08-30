@@ -4,6 +4,7 @@ extends Node
 
 var player: Player
 var pause_ui: PauseUI
+var inventory_ui: InventoryUI
 var map_manager: MapManager
 var camera: Camera2D
 ## The balloon for the dialogue currently on screen, if any.
@@ -31,6 +32,21 @@ func go_back_to_title_screen():
 	reset_data()
 	get_tree().change_scene_to_packed(title_screen)
 
+func give_name_note(character: String) -> void:
+	match character:
+		"brother_do":
+			inventory_ui.add_name_note("Brother Do")
+		"do_name_trung":
+			inventory_ui.add_name_note("Do Nam Trung")
+
+func give_rule_paper(character: String) -> void:
+	match character:
+		"brother_do":
+			inventory_ui.add_rule_paper([
+				"Use WASD, not the arrow key, to move.",
+				"Defend the ball until opponent missed to win.",
+				"The slider move up when you press the up button, and vice versa."
+			])
 
 func reset_data():
 	pass

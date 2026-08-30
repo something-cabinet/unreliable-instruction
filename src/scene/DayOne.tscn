@@ -3,13 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://clsdnti10u8oa" path="res://src/ui/CameraFollow.tscn" id="1_7ingd"]
 [ext_resource type="Script" uid="uid://dlqct6unc6cwi" path="res://src/scene/map_manager.gd" id="1_cnl5i"]
 [ext_resource type="PackedScene" uid="uid://d4ni5778a3406" path="res://src/entity/player/Player.tscn" id="2_173wh"]
-[ext_resource type="PackedScene" path="res://src/scene/minigamescene/MinigameHost.tscn" id="2_dko18"]
 [ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="2_ioi8g"]
 [ext_resource type="Texture2D" uid="uid://drnyb73xsb50e" path="res://asset/sprite/background/pavement_seamless.png" id="2_low7t"]
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
-[ext_resource type="PackedScene" uid="uid://bcu2ci482yvmu" path="res://src/scene/minigamescene/pong/minigame_pong.tscn" id="3_6m304"]
 [ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
-[ext_resource type="PackedScene" uid="uid://hg0rsw341hsq" path="res://src/scene/minigamescene/car/minigame_car.tscn" id="4_erbea"]
 [ext_resource type="Texture2D" uid="uid://bf1r0i8vf76ch" path="res://asset/sprite/background/wood_fence.png" id="4_ihdxw"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
@@ -24,9 +21,6 @@
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
-minigame_host = ExtResource("2_dko18")
-minigame_pong = ExtResource("3_6m304")
-minigame_car = ExtResource("4_erbea")
 
 [node name="Blackscreen" type="Sprite2D" parent="." unique_id=1158490481]
 self_modulate = Color(0, 0, 0, 1)
@@ -122,15 +116,6 @@ position = Vector2(456, -200)
 [node name="DoNamTrung" parent="YSort" unique_id=1327044927 instance=ExtResource("13_023iy")]
 position = Vector2(-962, -95)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
-
-[node name="InventoryUI" parent="CanvasLayer" unique_id=918527547 instance=ExtResource("5_173wh")]
-visible = false
-
-[node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
-visible = false
-metadata/_edit_use_anchors_ = true
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1761014428]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=640148876]
@@ -144,3 +129,35 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-1632, -1280)
 color = Color(0.40704307, 0.42036355, 0.5843137, 0.95686275)
 energy = 1.5
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=893683280]
+
+[node name="HelpBG" type="ColorRect" parent="CanvasLayer" unique_id=420949446]
+custom_minimum_size = Vector2(50, 30)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0.4392157)
+
+[node name="HelpText" type="Label" parent="CanvasLayer/HelpBG" unique_id=582081507]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "WASD: Move | E: Interact | Esc: Pause Menu | Tab: Inventory Menu"
+vertical_alignment = 1
+
+[node name="InventoryUI" parent="CanvasLayer" unique_id=918527547 instance=ExtResource("5_173wh")]
+visible = false
+
+[node name="PauseUI" parent="CanvasLayer" unique_id=817930353 instance=ExtResource("5_23kne")]
+visible = false
+metadata/_edit_use_anchors_ = true

@@ -13,28 +13,31 @@ var MAX_COUNT_BEFORE_RESET = 7
 
 func _ready() -> void:
 	visible = false
-	spawn_item_test()
+	GameManager.inventory_ui = self
+	# spawn_item_test()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("open_inventory"):
 		visible = not visible
 
-func spawn_item_test() -> void:
-	for i in range(4):
-		add_name_note()
-		add_rule_paper()
+# func spawn_item_test() -> void:
+# 	for i in range(4):
+# 		add_name_note()
+# 		add_rule_paper()
 
 
-func add_name_note() -> void:
+func add_name_note(content: String) -> void:
 	var item = name_note_prefab.instantiate()
 	add_child(item)
+	item.update_name(content)
 	var offset_pos = Vector2((name_note_count % MAX_COUNT_BEFORE_RESET) * 100, randi_range(-100, 100))
 	item.position = name_note_spawn.position + offset_pos
 	name_note_count += 1
 
-func add_rule_paper() -> void:
+func add_rule_paper(content: Array[String]) -> void:
 	var item = rule_paper_prefab.instantiate()
 	add_child(item)
+	item.update_rule(content)
 	var offset_pos = Vector2((rule_paper_count % MAX_COUNT_BEFORE_RESET) * 100, randi_range(-100, 100))
 	item.position = rule_paper_spawn.position + offset_pos
 	rule_paper_count += 1

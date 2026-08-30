@@ -1,6 +1,8 @@
+@tool
 extends HBoxContainer
 
 @onready var button: Button = $Button
+@onready var label: Label = $Label
 
 var rule_is_true = true
 
@@ -17,3 +19,6 @@ func _on_button_pressed() -> void:
 	else:
 		button.text = "LIE"
 		button.self_modulate = Color.RED
+
+func set_line_text(content: String) -> void:
+	label.text = content
