@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drg58o6xcihiu" path="res://src/entity/stall_owners/stall_owner.gd" id="1_mfo45"]
 [ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="1_teaww"]
+[ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="2_kktaq"]
 [ext_resource type="Texture2D" uid="uid://d2nb3nxu3yhk5" path="res://asset/sprite/entity/brother_do.png" id="2_mfo45"]
 [ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="3_kktaq"]
 
@@ -33,10 +34,12 @@ shader_parameter/noise = SubResource("NoiseTexture2D_cnl5i")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_173wh"]
 size = Vector2(96, 64)
 
-[node name="BrotherDo" type="CharacterBody2D" unique_id=136133927]
+[node name="BrotherDo" type="CharacterBody2D" unique_id=136133927 node_paths=PackedStringArray("outline")]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_mfo45")
+dialogue_resource = ExtResource("2_kktaq")
+outline = NodePath("Outline")
 
 [node name="Outline" type="Sprite2D" parent="." unique_id=1517371995]
 visible = false

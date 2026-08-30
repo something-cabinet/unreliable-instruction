@@ -3,7 +3,7 @@ class_name CameraFollow
 
 
 var min_coord = Vector2(-2268, -352)
-var max_coord = Vector2(560, 16)
+var max_coord = Vector2(890, 16)
 
 
 func _ready() -> void:

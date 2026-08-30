@@ -1,17 +1,14 @@
-extends CharacterBody2D
+extends Interactable
 class_name StallOwner
 
 @export var dialogue_resource: DialogueResource
 
-@onready var outline: Sprite2D = $Outline
-
 func _ready() -> void:
-	outline.visible = false
+	super()
 
-func show_outline(is_show = false):
-		outline.visible = is_show
 
 func interact():
+	super()
 	GameManager.player.is_busy = true
 	# Kept on GameManager so a `do` mutation can reach the balloon to hide it
 	# while a minigame is running.

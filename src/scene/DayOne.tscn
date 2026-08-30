@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="2_ioi8g"]
 [ext_resource type="Texture2D" uid="uid://drnyb73xsb50e" path="res://asset/sprite/background/pavement_seamless.png" id="2_low7t"]
 [ext_resource type="PackedScene" uid="uid://bxairap1m4r26" path="res://src/entity/stall_owners/BrotherDo.tscn" id="3_2rihm"]
-[ext_resource type="Resource" uid="uid://dojq5hpis050i" path="res://src/dialogue/brother_do_dayone.dialogue" id="4_7ingd"]
 [ext_resource type="Texture2D" uid="uid://bf1r0i8vf76ch" path="res://asset/sprite/background/wood_fence.png" id="4_ihdxw"]
 [ext_resource type="PackedScene" uid="uid://byj1y3wrwtdtq" path="res://src/ui/menu/PauseUI.tscn" id="5_23kne"]
 [ext_resource type="PackedScene" uid="uid://dh0453bcu7ni5" path="res://src/ui/menu/InventoryUI.tscn" id="5_173wh"]
@@ -19,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c0uvk1m01hr0p" path="res://src/entity/stall_owners/StallC.tscn" id="13_40y0r"]
 [ext_resource type="PackedScene" uid="uid://b4dg35sn4b6ho" path="res://src/entity/stall_owners/StallD.tscn" id="14_y1vfj"]
 [ext_resource type="PackedScene" uid="uid://ckgttwv36fy5c" path="res://src/ui/menu/PopupContainer.tscn" id="17_40y0r"]
+[ext_resource type="PackedScene" uid="uid://hkeghuxfxpv6" path="res://src/entity/CarReturn.tscn" id="17_y1vfj"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
@@ -86,7 +86,7 @@ scale = Vector2(0.62, 0.62)
 texture = ExtResource("4_ihdxw")
 
 [node name="CameraFollow" parent="." unique_id=1076657867 instance=ExtResource("1_7ingd")]
-position = Vector2(520, -48)
+position = Vector2(888, -96)
 offset = Vector2(0, -200)
 
 [node name="YSort" type="Node2D" parent="." unique_id=593207082]
@@ -97,7 +97,7 @@ position = Vector2(928, -80)
 
 [node name="BrotherDo" parent="YSort" unique_id=136133927 instance=ExtResource("3_2rihm")]
 position = Vector2(320, -72)
-dialogue_resource = ExtResource("4_7ingd")
+collision_mask = 35
 
 [node name="StallA" parent="YSort" unique_id=603656411 instance=ExtResource("11_f6h2i")]
 position = Vector2(80, -328)
@@ -116,12 +116,16 @@ position = Vector2(456, -200)
 
 [node name="DoNamTrung" parent="YSort" unique_id=1327044927 instance=ExtResource("13_023iy")]
 position = Vector2(-962, -95)
+collision_mask = 35
+
+[node name="CarReturn" parent="YSort" unique_id=44416760 instance=ExtResource("17_y1vfj")]
+position = Vector2(1568, -152)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1761014428]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=640148876]
 build_mode = 1
-polygon = PackedVector2Array(1232, -200, -2960, -192, -2960, 184, 1232, 192)
+polygon = PackedVector2Array(1584, -184, -2960, -192, -2960, 184, 1584, 184)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1416056684]
 color = Color(0, 0, 0, 1)

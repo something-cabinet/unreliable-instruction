@@ -1,0 +1,7 @@
+~ start
+Car: Ready to head back and finish the job?
+- Yeah
+	Car: Ok, get in.
+- No, not yet
+	=> END
+=> END

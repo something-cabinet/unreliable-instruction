@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://hkeghuxfxpv6"]
+
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="1_ikn5v"]
+[ext_resource type="Script" uid="uid://prgksiv3s14o" path="res://src/entity/car_return.gd" id="1_yvmt5"]
+[ext_resource type="Resource" uid="uid://bxgxi3i7dopyg" path="res://src/dialogue/car_return.dialogue" id="2_7ceg0"]
+[ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="2_yvmt5"]
+[ext_resource type="Texture2D" uid="uid://bl5qgal7uo4bl" path="res://asset/sprite/entity/car.png" id="3_7ceg0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_erbea"]
+shader = ExtResource("2_yvmt5")
+shader_parameter/thickness = 2.000000095
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 0.6987091, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys074"]
+size = Vector2(576, 122)
+
+[node name="CarReturn" type="CharacterBody2D" unique_id=1964998075 node_paths=PackedStringArray("outline")]
+collision_layer = 5
+collision_mask = 34
+script = ExtResource("1_yvmt5")
+dialogue_resource = ExtResource("2_7ceg0")
+outline = NodePath("Outline")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=151660263]
+self_modulate = Color(0, 0, 0, 0.70980394)
+position = Vector2(0, 96)
+scale = Vector2(10.25, 1.4999999)
+texture = ExtResource("1_ikn5v")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=1640832712]
+visible = false
+material = SubResource("ShaderMaterial_erbea")
+scale = Vector2(1.637931, 1.637931)
+texture = ExtResource("3_7ceg0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=605712532]
+scale = Vector2(1.637931, 1.637931)
+texture = ExtResource("3_7ceg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474928884]
+position = Vector2(24, 51)
+shape = SubResource("RectangleShape2D_ys074")

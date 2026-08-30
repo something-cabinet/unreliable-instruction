@@ -34,10 +34,11 @@ shader_parameter/noise = SubResource("NoiseTexture2D_cnl5i")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_173wh"]
 size = Vector2(96, 64)
 
-[node name="DoNamTrung" type="CharacterBody2D" unique_id=136133927]
+[node name="DoNamTrung" type="CharacterBody2D" unique_id=136133927 node_paths=PackedStringArray("outline")]
 collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_207yi")
+outline = NodePath("Outline")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1627834289]
 self_modulate = Color(0, 0, 0, 0.40392157)

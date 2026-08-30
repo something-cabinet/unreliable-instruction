@@ -8,7 +8,7 @@
 radius = 104.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx37b"]
-size = Vector2(56, 64)
+size = Vector2(48, 40)
 
 [node name="Player" type="CharacterBody2D" unique_id=882848352]
 collision_layer = 2
@@ -34,7 +34,7 @@ position = Vector2(0, -88)
 texture = ExtResource("3_a8pkb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=672627158]
-position = Vector2(-4, -24)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_hx37b")
 
 [node name="InteractLabel" type="Label" parent="." unique_id=1440397540]

@@ -7,7 +7,7 @@ class_name Player
 
 var direction: Vector2 = Vector2.ZERO
 var dead = false
-var current_interactable_npc: StallOwner = null
+var current_interactable: Interactable = null
 var is_busy = false
 
 func _ready():
@@ -37,21 +37,21 @@ func interact():
 	if is_busy:
 		return
 
-	if current_interactable_npc != null:
-		current_interactable_npc.interact()
+	if current_interactable != null:
+		current_interactable.interact()
 
 
 func finish_interaction():
 	is_busy = false
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
-	if body is StallOwner:
+	if body is Interactable:
 		body.show_outline(true)
 		interact_label.visible = true
-		current_interactable_npc = body
+		current_interactable = body
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
-	if body is StallOwner:
+	if body is Interactable:
 		body.show_outline(false)
 		interact_label.visible = false
-		current_interactable_npc = null
+		current_interactable = null
