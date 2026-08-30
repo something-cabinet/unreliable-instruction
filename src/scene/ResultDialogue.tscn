@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cq31eet2duhoe"]
 
 [ext_resource type="Texture2D" uid="uid://ddxlwqy0suhq8" path="res://asset/sprite/background/office_background.png" id="1_pqngo"]
+[ext_resource type="Script" uid="uid://nacmjqskvp16" path="res://src/scene/result_dialogue.gd" id="1_weub5"]
+[ext_resource type="Resource" uid="uid://37x1rg17siuh" path="res://src/dialogue/result.dialogue" id="2_res01"]
+[ext_resource type="PackedScene" path="res://src/scene/GameOverScreen.tscn" id="3_over"]
+[ext_resource type="PackedScene" path="res://src/scene/GameWinScreen.tscn" id="4_win"]
 
 [node name="ResultDialogue" type="Control" unique_id=936417115]
 layout_mode = 3
@@ -9,6 +13,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_weub5")
+dialogue_resource = ExtResource("2_res01")
+game_over_scene = ExtResource("3_over")
+game_win_scene = ExtResource("4_win")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=632873231]
 layout_mode = 1
@@ -18,3 +26,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_pqngo")
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1103458821]
+layer = 128
+
+[node name="FadeOverlay" type="ColorRect" parent="FadeLayer" unique_id=1103458822]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

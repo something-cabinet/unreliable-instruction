@@ -1,7 +1,9 @@
 ~ start
-Car: Ready to head back and finish the job?
+Car: Ready to head back and report the result?
 - Yeah
+	do GameManager.calculate_result()
 	Car: Ok, get in.
+	do GameManager.go_to_result_screen()
 - No, not yet
 	=> END
 => END

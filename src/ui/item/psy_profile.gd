@@ -5,6 +5,9 @@ class_name PsyProfile
 ## Fires whenever an attached document changes, so the report readout can update.
 signal report_changed
 
+## Every live report joins this, so GameManager can tally them all at the end.
+const GROUP := &"psy_profile"
+
 @export var pattern_line_prefab: PackedScene
 ## Tells and expected answers for this profile. Assigning it reprints the
 ## pattern lines, so the editor preview follows the resource.
@@ -31,6 +34,7 @@ func _ready() -> void:
 	_build_pattern_lines()
 	if Engine.is_editor_hint():
 		return
+	add_to_group(GROUP)
 	name_note_slot.occupant_changed.connect(_on_name_note_changed)
 	rule_paper_slot.occupant_changed.connect(_on_rule_paper_changed)
 

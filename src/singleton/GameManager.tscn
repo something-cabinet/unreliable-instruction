@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://dyay8iskwl6c2"]
 
 [ext_resource type="Script" uid="uid://d03os0msc1k6b" path="res://src/singleton/game_manager.gd" id="1_5p7w6"]
+[ext_resource type="PackedScene" uid="uid://cq31eet2duhoe" path="res://src/scene/ResultDialogue.tscn" id="3_k3wxv"]
 [ext_resource type="PackedScene" uid="uid://baeg7c16aji2u" path="res://src/scene/TitleScreen.tscn" id="5_navqj"]
 
 [node name="GameManager" type="Node" unique_id=504992660]
 script = ExtResource("1_5p7w6")
 title_screen = ExtResource("5_navqj")
-
-[node name="PsyProfileStash" type="Control" parent="." unique_id=1709706174]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+result_screen = ExtResource("3_k3wxv")

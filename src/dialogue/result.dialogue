@@ -1,0 +1,58 @@
+~ start
+The Carnival Manager: [#portrait=manager_default]Welcome back, my inspector.
+The Carnival Manager: [#portrait=manager_default]I see you returned from the work. Let me check them.
+
+if not GameManager.is_all_report_complete()
+	=> incomplete_reports
+
+The Carnival Manager: [#portrait=manager_happy]Good. Every stall in my carnival, profiled.
+The Carnival Manager: [#portrait=manager_happy]Tomorrow is the big day, and these tell me exactly who I can trust behind a counter.
+The Carnival Manager: [#portrait=manager_default]I will see you in a few days.
+do GameManager.result_dialogue.fade_out_and_back()
+The Carnival Manager: [#portrait=manager_default](2 days later...)
+The Carnival Manager: [#portrait=manager_default]I used your reports as a guide for yesterday. Let me tell you what I found.
+
+if not GameManager.is_all_name_correct()
+	=> wrong_name
+
+The Carnival Manager: [#portrait=manager_happy]Every name matches the right face. Not one mix-up.
+The Carnival Manager: [#portrait=manager_happy]You actually looked at these people. That is more than the last idiot managed.
+
+if GameManager.is_all_full_correct()
+	=> all_correct
+=> rules_wrong
+
+
+~ incomplete_reports
+The Carnival Manager: [#portrait=manager_default]...
+The Carnival Manager: [#portrait=manager_default]This is it? [shake][color=red]Some of these are still blank![/color][/shake]
+The Carnival Manager: [#portrait=manager_default]The carnival opens tomorrow morning, and you hand me [shake][color=red]homework you did not finish[/color][/shake].
+The Carnival Manager: [#portrait=manager_default]Leave the badge on my desk. You are fired amigo.
+do GameManager.trigger_game_over()
+=> END
+
+
+~ wrong_name
+The Carnival Manager: [#portrait=manager_default]...
+The Carnival Manager: [#portrait=manager_default]Well some name are put on the wrong profile.
+The Carnival Manager: [#portrait=manager_default]It caused me [color=red]a lots of trouble[/color], you know?
+The Carnival Manager: [#portrait=manager_happy]But hey, human can make mistake, [wave]right[/wave]?
+The Carnival Manager: [#portrait=manager_happy]So I won't fire you. I just cut your pay this month instead, [wave]amigo~[/wave]
+do GameManager.trigger_game_over()
+=> END
+
+
+~ rules_wrong
+The Carnival Manager: [#portrait=manager_default]The game rules, though. Some of these rules are wrong, compared to what I played.
+The Carnival Manager: [#portrait=manager_happy]Well, I guess it too [color=red]hard[/color], even for you.
+The Carnival Manager: [#portrait=manager_happy]Hope you can impress me more next time, [wave]amigo~[/wave].
+do GameManager.trigger_game_win()
+=> END
+
+
+~ all_correct
+The Carnival Manager: [#portrait=manager_happy]And every truth or lie rules marked exactly right.
+The Carnival Manager: [#portrait=manager_happy]It's not required to complete [color=yellow]the job[/color] I gave you, but you did anyway~
+The Carnival Manager: [#portrait=manager_happy]There is a [wave][color=yellow]bonus[/color][/wave] in your envelope this month. You earned it, [wave]amigo~[/wave]
+do GameManager.trigger_game_win()
+=> END
