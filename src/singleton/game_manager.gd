@@ -5,6 +5,7 @@ extends Node
 var player: Player
 var pause_ui: PauseUI
 var inventory_ui: InventoryUI
+var popup_container: PopupContainer
 var map_manager: MapManager
 var camera: Camera2D
 ## The balloon for the dialogue currently on screen, if any.
@@ -22,6 +23,9 @@ var bgm_audio = 100
 var sfx_audio = 100
 var ui_audio = 100
 
+var acquired_name_note: Array[String] = []
+var acquired_rule_paper: Array[String] = []
+
 func _ready() -> void:
 	pass
 
@@ -33,13 +37,20 @@ func go_back_to_title_screen():
 	get_tree().change_scene_to_packed(title_screen)
 
 func give_name_note(character: String) -> void:
+	if character in acquired_name_note:
+		return
 	match character:
 		"brother_do":
 			inventory_ui.add_name_note("Brother Do")
+			show_item_popup("You got a new name note")
 		"do_name_trung":
 			inventory_ui.add_name_note("Do Nam Trung")
+			show_item_popup("You got a new name note")
+	acquired_name_note.append(character)
 
 func give_rule_paper(character: String) -> void:
+	if character in acquired_rule_paper:
+		return
 	match character:
 		"brother_do":
 			inventory_ui.add_rule_paper([
@@ -47,6 +58,14 @@ func give_rule_paper(character: String) -> void:
 				"Defend the ball until opponent missed to win.",
 				"The slider move up when you press the up button, and vice versa."
 			])
+			show_item_popup("You got a new rule paper")
+	acquired_rule_paper.append(character)
+
+
+## Show a short "new item" toast, if the current scene has a popup container.
+func show_item_popup(content: String) -> void:
+	if popup_container:
+		popup_container.add_popup(content)
 
 func reset_data():
 	pass
