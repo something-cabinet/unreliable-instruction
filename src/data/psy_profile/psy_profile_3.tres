@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="PsyProfileData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="PsyProfileData" format=3 uid="uid://cyycdr4u6svch"]
 
-[ext_resource type="Script" path="res://src/ui/item/psy_profile_data.gd" id="1_data"]
+[ext_resource type="Script" uid="uid://cghb8bfcx52ks" path="res://src/ui/item/psy_profile_data.gd" id="1_data"]
 
 [resource]
 script = ExtResource("1_data")
-lying_patterns = Array[String]([])
-correct_stall_owner_name = ""
-correct_game_name = ""
-correct_rule_states = Array[bool]([])
+lying_patterns = Array[String](["Closed eyes", "Finger crossing"])
+correct_stall_owner_name = "Mister Dam"
+correct_game_name = "Obstacle Racing"
+correct_rule_states = Array[bool]([false, true, true])

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dya2jlcvk37hk" path="res://src/scene/title_screen.gd" id="1_uqkmj"]
 [ext_resource type="PackedScene" uid="uid://biqm56x6ewbmo" path="res://src/ui/menu/SettingUI.tscn" id="2_ontx6"]
 [ext_resource type="PackedScene" uid="uid://cqmjic6pcka70" path="res://src/scene/IntroDialogue.tscn" id="2_s5n1y"]
+[ext_resource type="Texture2D" uid="uid://ctin5b24uhfwd" path="res://asset/sprite/background/carnival_3.png" id="3_fjofw"]
 [ext_resource type="Shader" uid="uid://ty765py8vkg7" path="res://src/shader/tiler_psuedo_splatter.gdshader" id="3_s8pgj"]
 [ext_resource type="Texture2D" uid="uid://b3strsxe04wn" path="res://asset/sprite/placeholder/star.png" id="4_v40kx"]
 [ext_resource type="Texture2D" uid="uid://bnglxw6yuxa1r" path="res://asset/sprite/placeholder/border.png" id="5_v40kx"]
@@ -12,7 +13,7 @@ shader = ExtResource("3_s8pgj")
 shader_parameter/g_random_seed = 0.0
 shader_parameter/g_grid_size = Vector2(16, 9)
 shader_parameter/g_cell_offset = Vector2(0, 0)
-shader_parameter/g_speed = Vector2(0, 0)
+shader_parameter/g_speed = Vector2(0.5, 0.5)
 shader_parameter/g_draw_size_min = 0.1
 shader_parameter/g_draw_size_max = 0.4
 shader_parameter/tex_draw = ExtResource("4_v40kx")
@@ -40,6 +41,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1192034941]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 69.0
+offset_top = -285.5
+offset_right = 496.0
+offset_bottom = 285.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fjofw")
 
 [node name="BackgroundVFX" type="ColorRect" parent="." unique_id=409204360]
 material = SubResource("ShaderMaterial_fjofw")
@@ -72,8 +88,30 @@ offset_right = 157.5
 offset_bottom = 168.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
-text = "Carnival of the Liar?"
-horizontal_alignment = 1
+text = "Carnival 
+of 
+the 
+Liars"
+autowrap_mode = 3
+
+[node name="TitleLabel2" type="Label" parent="TitleMenu" unique_id=1028575796]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 161.5
+offset_top = 288.0
+offset_right = 477.5
+offset_bottom = 520.3333
+grow_horizontal = 2
+rotation = -3.1415927
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Carnival 
+of 
+the 
+Liars"
 autowrap_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TitleMenu" unique_id=64357345]
@@ -84,11 +122,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -102.5
-offset_top = 64.0
+offset_top = 96.0
 offset_right = 97.5
-offset_bottom = 276.0
+offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 
 [node name="StartButton" type="Button" parent="TitleMenu/VBoxContainer" unique_id=1297304797]
 custom_minimum_size = Vector2(200, 0)
@@ -96,11 +135,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
+[node name="Border" type="NinePatchRect" parent="TitleMenu/VBoxContainer/StartButton" unique_id=671058591]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v40kx")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
 [node name="SettingButton" type="Button" parent="TitleMenu/VBoxContainer" unique_id=1448233860]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Setting"
+
+[node name="Border" type="NinePatchRect" parent="TitleMenu/VBoxContainer/SettingButton" unique_id=1681530954]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v40kx")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
 [node name="CreditButton" type="Button" parent="TitleMenu/VBoxContainer" unique_id=1722514909]
 custom_minimum_size = Vector2(200, 0)
@@ -108,11 +177,41 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Credit"
 
+[node name="Border" type="NinePatchRect" parent="TitleMenu/VBoxContainer/CreditButton" unique_id=772663285]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v40kx")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
 [node name="QuitButton" type="Button" parent="TitleMenu/VBoxContainer" unique_id=1825398004]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="Border" type="NinePatchRect" parent="TitleMenu/VBoxContainer/QuitButton" unique_id=1013138681]
+self_modulate = Color(1, 0.80220777, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_v40kx")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 
 [node name="VersionLabel" type="Label" parent="TitleMenu" unique_id=2063112638]
 layout_mode = 1
@@ -145,6 +244,22 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="TitleMenu" unique_id=793355219]
+self_modulate = Color(1, 0.8135679, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_v40kx")
 
 [node name="CreditPanel" type="ColorRect" parent="." unique_id=1042931684]
 visible = false

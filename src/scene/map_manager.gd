@@ -8,6 +8,7 @@ const MINIGAME_HOST_SCENE := preload("res://src/scene/minigamescene/MinigameHost
 const MINIGAME_SCENES := {
 	"pong": preload("res://src/scene/minigamescene/pong/minigame_pong.tscn"),
 	"shoot_can": preload("res://src/scene/minigamescene/shoot_can/minigame_shoot_can.tscn"),
+	"racing": preload("res://src/scene/minigamescene/car/minigame_car.tscn"),
 }
 
 ## Emitted after a minigame has closed and the map is interactive again.
@@ -28,10 +29,16 @@ func _ready() -> void:
 ## it: the dialogue parks on that line until the minigame is over.
 func start_minigame(minigame: Variant) -> bool:
 	var scene: PackedScene = minigame if minigame is PackedScene else MINIGAME_SCENES.get(minigame)
+	# Both bail-outs await a frame first so this function always returns its
+	# completed-signal to the caller. Returning before any await hands back a
+	# plain bool instead, which a `do` mutation in a .dialogue file then tries
+	# to connect to -- "Nonexistent function 'connect' in base 'bool'".
 	if scene == null:
 		push_error("No minigame registered as '%s'" % minigame)
+		await get_tree().process_frame
 		return false
 	if _minigame_host != null:
+		await get_tree().process_frame
 		return false
 
 	# Dialogue Manager normally hides the balloon by itself during a slow

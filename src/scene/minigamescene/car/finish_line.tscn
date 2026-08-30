@@ -10,6 +10,7 @@ size = Vector2(140, 906.5)
 script = ExtResource("1_uhuio")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1119576370]
+texture_filter = 1
 position = Vector2(71, -456)
 scale = Vector2(1, 1.3133141)
 texture = ExtResource("1_e78ha")

@@ -3,30 +3,9 @@
 [ext_resource type="Script" uid="uid://hrl166u61lya" path="res://src/scene/minigamescene/car/minigame_car.gd" id="1_77dh3"]
 [ext_resource type="PackedScene" uid="uid://ccnlavgkq6pwg" path="res://src/scene/minigamescene/car/car.tscn" id="2_7rts2"]
 [ext_resource type="Script" uid="uid://wjqaum14li2k" path="res://src/scene/minigamescene/car/player.gd" id="2_p7fk3"]
-[ext_resource type="Texture2D" uid="uid://b47i2lpy4rw6b" path="res://asset/sprite/background/minigame_car_background.png" id="3_ywb4w"]
 [ext_resource type="Texture2D" uid="uid://5il65of3pedw" path="res://asset/sprite/placeholder/red_car_animated.png" id="4_7rts2"]
 [ext_resource type="PackedScene" uid="uid://ckd4y88pcnc4b" path="res://src/scene/minigamescene/car/finish_line.tscn" id="5_7rts2"]
-[ext_resource type="Texture2D" uid="uid://bqf3vvx8d2vv6" path="res://asset/sprite/placeholder/light_circle.png" id="6_m2fhp"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_00rlw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_ywb4w")
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}, {
-"duration": 1.0,
-"texture": null
-}],
-"loop": 1,
-"name": &"background",
-"speed": 8.0
-}]
+[ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="6_road"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywb4w"]
 atlas = ExtResource("4_7rts2")
@@ -70,17 +49,59 @@ size = Vector2(121, 61.999996)
 [node name="minigame_car" type="Node2D" unique_id=1369995219]
 script = ExtResource("1_77dh3")
 car_scene = ExtResource("2_7rts2")
+false_input = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=253944797]
-position = Vector2(605, 514)
-texture = ExtResource("3_ywb4w")
+[node name="Asphalt" type="ColorRect" parent="." unique_id=177828402]
+offset_right = 1366.0
+offset_bottom = 768.0
+color = Color(0.19, 0.2, 0.24, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=928415119]
-position = Vector2(679, 514)
-sprite_frames = SubResource("SpriteFrames_00rlw")
-animation = &"background"
-autoplay = "background"
-frame_progress = 0.47393167
+[node name="VergeTop" type="ColorRect" parent="." unique_id=1081208592]
+offset_right = 1366.0
+offset_bottom = 16.0
+color = Color(0.1, 0.1, 0.13, 1)
+
+[node name="VergeBottom" type="ColorRect" parent="." unique_id=1672048538]
+offset_top = 752.0
+offset_right = 1366.0
+offset_bottom = 768.0
+color = Color(0.1, 0.1, 0.13, 1)
+
+[node name="EdgeLineTop" type="ColorRect" parent="." unique_id=1150627751]
+offset_top = 24.0
+offset_right = 1366.0
+offset_bottom = 30.0
+color = Color(0.85, 0.85, 0.88, 0.45)
+
+[node name="EdgeLineBottom" type="ColorRect" parent="." unique_id=17697924]
+offset_top = 738.0
+offset_right = 1366.0
+offset_bottom = 744.0
+color = Color(0.85, 0.85, 0.88, 0.45)
+
+[node name="LaneMarkings" type="Parallax2D" parent="." unique_id=1099750763]
+scroll_scale = Vector2(0, 0)
+repeat_size = Vector2(305, 0)
+autoscroll = Vector2(-400, 0)
+repeat_times = 12
+
+[node name="Lane1" type="Sprite2D" parent="LaneMarkings" unique_id=2052293769]
+self_modulate = Color(0.9, 0.9, 0.93, 0.8)
+position = Vector2(0, 199)
+scale = Vector2(2.03, 0.13)
+texture = ExtResource("6_road")
+
+[node name="Lane2" type="Sprite2D" parent="LaneMarkings" unique_id=769974953]
+self_modulate = Color(0.9, 0.9, 0.93, 0.8)
+position = Vector2(0, 351)
+scale = Vector2(2.03, 0.13)
+texture = ExtResource("6_road")
+
+[node name="Lane3" type="Sprite2D" parent="LaneMarkings" unique_id=1845480796]
+self_modulate = Color(0.9, 0.9, 0.93, 0.8)
+position = Vector2(0, 519)
+scale = Vector2(2.03, 0.13)
+texture = ExtResource("6_road")
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1345975412]
 position = Vector2(316, 294)
@@ -97,12 +118,6 @@ frame_progress = 0.83258164
 scale = Vector2(1, 0.99999994)
 shape = SubResource("RectangleShape2D_y5ami")
 
-[node name="PointLight2D" type="PointLight2D" parent="player" unique_id=947193604]
-position = Vector2(108, 0)
-color = Color(1, 0.7882353, 0, 0.9098039)
-texture = ExtResource("6_m2fhp")
-texture_scale = 2.0
-
 [node name="Timer" type="Timer" parent="." unique_id=1662802269]
 wait_time = 0.5
 autostart = true
@@ -111,7 +126,9 @@ autostart = true
 position = Vector2(5000, 864)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=289164537]
-color = Color(0.11328125, 0.11328125, 0.11328125, 1)
+color = Color(0.66, 0.66, 0.72, 1)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1726149485]
 
 [node name="ResultUI" type="CanvasLayer" parent="." unique_id=770114263]
 process_mode = 3

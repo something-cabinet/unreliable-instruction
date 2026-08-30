@@ -87,6 +87,12 @@ func give_rule_paper(character: String) -> void:
 				"Shoot all cans before time run out to win.",
 				"The crosshair move up when you press the up button, and vice versa."
 			], "Shooting Gallery")
+		"mister_dam":
+			inventory_ui.add_rule_paper([
+				"Use the arrow key, not the WASD, to control your mini car.",
+				"Avoid hitting other cars and reach the finish line to win.",
+				"The car will move down when you press the down button."
+			], "Obstacle Racing")
 	show_item_popup("You got a new rule paper")
 	acquired_rule_paper.append(character)
 

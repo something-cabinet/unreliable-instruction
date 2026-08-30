@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://c21r7w6hkiy45" path="res://src/data/psy_profile/psy_profile_1.tres" id="4_psy1"]
 [ext_resource type="Resource" uid="uid://c2e8ky83oa0m" path="res://src/data/psy_profile/psy_profile_2.tres" id="4_psy2"]
 [ext_resource type="Script" uid="uid://cghb8bfcx52ks" path="res://src/ui/item/psy_profile_data.gd" id="5_pdata"]
+[ext_resource type="Resource" uid="uid://cyycdr4u6svch" path="res://src/data/psy_profile/psy_profile_3.tres" id="8_otcmu"]
 
 [node name="InventoryUI" type="Control" unique_id=918527547]
 propagate_maximum_size = true
@@ -21,7 +22,7 @@ script = ExtResource("1_dlfqx")
 name_note_prefab = ExtResource("3_h0s44")
 rule_paper_prefab = ExtResource("2_2amx0")
 psy_profile_prefab = ExtResource("1_ta74w")
-psy_profile_data = Array[ExtResource("5_pdata")]([ExtResource("4_psy1"), ExtResource("4_psy2")])
+psy_profile_data = Array[ExtResource("5_pdata")]([ExtResource("4_psy1"), ExtResource("4_psy2"), ExtResource("8_otcmu")])
 
 [node name="Background" type="TextureRect" parent="." unique_id=302191200]
 self_modulate = Color(0.6894036, 0.6894036, 0.6894036, 1)

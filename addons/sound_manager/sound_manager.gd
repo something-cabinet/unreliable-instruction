@@ -10,14 +10,8 @@ var ui_sound_effects: SoundEffectsPlayer = SoundEffectsPlayer.new(["UI", "Interf
 var ambient_sounds: AmbientSoundsPlayer = AmbientSoundsPlayer.new(["Sounds", "SFX"], 1)
 var music: MusicPlayer = MusicPlayer.new(["Music"], 2)
 
-# var button_hover_sfx = preload("res://src/ui/common/assets/sfx/gui_hover.ogg")
-
-# var click_sfx_1 = preload("res://src/ui/main_menu/assets/sfx/drumMenu1.mp3")
-# var click_sfx_2 = preload("res://src/ui/main_menu/assets/sfx/drumMenu2.mp3")
-# var click_sfx_3 = preload("res://src/ui/main_menu/assets/sfx/drumMenu3.mp3")
-# var click_sfx_4 = preload("res://src/ui/main_menu/assets/sfx/drumMenu4.mp3")
-# var click_sfx_5 = preload("res://src/ui/main_menu/assets/sfx/drumMenu5.mp3")
-# var button_click_sfx_array = [click_sfx_1, click_sfx_2, click_sfx_3, click_sfx_4, click_sfx_5]
+var button_hover_sfx = preload("res://asset/sfx/ui/gui_hover.ogg")
+var button_click_sfx = preload("res://asset/sfx/ui/gui_click.ogg")
 
 
 var sound_process_mode: ProcessMode:
@@ -266,14 +260,14 @@ func _show_shared_bus_warning() -> void:
 
 func play_button_click_sfx():
 	pass
-# 	var rand_pitch = randf_range(0.8, 1.2)
-# 	play_ui_sound_with_pitch(button_click_sfx_array.pick_random(), rand_pitch, "UI")
+	var rand_pitch = randf_range(0.8, 1.2)
+	play_ui_sound_with_pitch(button_click_sfx, rand_pitch, "UI")
 
 
 func play_button_hover_sfx():
 	pass
-# 	var rand_pitch = randf_range(0.8, 1.2)
-# 	play_ui_sound_with_pitch(button_hover_sfx, rand_pitch, "UI")
+	var rand_pitch = randf_range(0.8, 1.2)
+	play_ui_sound_with_pitch(button_hover_sfx, rand_pitch, "UI")
 
 
 #endregion
