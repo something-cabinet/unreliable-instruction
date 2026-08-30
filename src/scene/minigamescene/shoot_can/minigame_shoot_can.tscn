@@ -1,130 +1,131 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cah6vwu5hnp6b"]
 
-[ext_resource type="Script" path="res://src/scene/minigamescene/shoot_can/minigame_shoot_can.gd" id="1_game"]
-[ext_resource type="Script" path="res://src/scene/minigamescene/shoot_can/crosshair.gd" id="2_cross"]
-[ext_resource type="PackedScene" path="res://src/scene/minigamescene/shoot_can/can.tscn" id="3_can"]
-[ext_resource type="Texture2D" path="res://asset/sprite/placeholder/square.png" id="4_square"]
-[ext_resource type="Texture2D" path="res://asset/sprite/placeholder/circle.png" id="5_circle"]
-[ext_resource type="Texture2D" path="res://asset/sprite/placeholder/border.png" id="6_border"]
-[ext_resource type="Texture2D" path="res://asset/sprite/placeholder/star.png" id="7_star"]
+[ext_resource type="Script" uid="uid://ci0178o7ewr7l" path="res://src/scene/minigamescene/shoot_can/minigame_shoot_can.gd" id="1_game"]
+[ext_resource type="Script" uid="uid://w1h54ucdhulw" path="res://src/scene/minigamescene/shoot_can/crosshair.gd" id="2_cross"]
+[ext_resource type="PackedScene" uid="uid://du3c2yq260w05" path="res://src/scene/minigamescene/shoot_can/can.tscn" id="3_can"]
+[ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="4_square"]
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="5_circle"]
+[ext_resource type="Texture2D" uid="uid://bnglxw6yuxa1r" path="res://asset/sprite/placeholder/border.png" id="6_border"]
+[ext_resource type="Texture2D" uid="uid://b3strsxe04wn" path="res://asset/sprite/placeholder/star.png" id="7_star"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sight"]
 radius = 20.0
 
-[node name="MinigameShootCan" type="Node2D"]
+[node name="MinigameShootCan" type="Node2D" unique_id=1921070685]
 script = ExtResource("1_game")
-round_time = 20.0
+false_input = true
+false_movement = true
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=2103989417]
 offset_right = 1366.0
 offset_bottom = 768.0
 color = Color(0.09, 0.07, 0.14, 1)
 
-[node name="BoothBack" type="ColorRect" parent="."]
+[node name="BoothBack" type="ColorRect" parent="." unique_id=1464914914]
 offset_left = 40.0
 offset_top = 90.0
 offset_right = 1326.0
 offset_bottom = 700.0
 color = Color(0.16, 0.12, 0.23, 1)
 
-[node name="Shelf1" type="Sprite2D" parent="."]
+[node name="Shelf1" type="Sprite2D" parent="." unique_id=1131142161]
 self_modulate = Color(0.45, 0.29, 0.18, 1)
 position = Vector2(683, 315)
 scale = Vector2(18, 0.35)
 texture = ExtResource("4_square")
 
-[node name="Shelf2" type="Sprite2D" parent="."]
+[node name="Shelf2" type="Sprite2D" parent="." unique_id=854098215]
 self_modulate = Color(0.45, 0.29, 0.18, 1)
 position = Vector2(683, 475)
 scale = Vector2(18, 0.35)
 texture = ExtResource("4_square")
 
-[node name="Shelf3" type="Sprite2D" parent="."]
+[node name="Shelf3" type="Sprite2D" parent="." unique_id=770166033]
 self_modulate = Color(0.45, 0.29, 0.18, 1)
 position = Vector2(683, 635)
 scale = Vector2(18, 0.35)
 texture = ExtResource("4_square")
 
-[node name="Can1" parent="." instance=ExtResource("3_can")]
+[node name="Can1" parent="." unique_id=1391549634 instance=ExtResource("3_can")]
 position = Vector2(240, 265)
 
-[node name="Can2" parent="." instance=ExtResource("3_can")]
+[node name="Can2" parent="." unique_id=682944698 instance=ExtResource("3_can")]
 position = Vector2(540, 265)
 
-[node name="Can3" parent="." instance=ExtResource("3_can")]
+[node name="Can3" parent="." unique_id=159260640 instance=ExtResource("3_can")]
 position = Vector2(840, 265)
 
-[node name="Can4" parent="." instance=ExtResource("3_can")]
+[node name="Can4" parent="." unique_id=853035305 instance=ExtResource("3_can")]
 position = Vector2(1140, 265)
 
-[node name="Can5" parent="." instance=ExtResource("3_can")]
+[node name="Can5" parent="." unique_id=1056855498 instance=ExtResource("3_can")]
 position = Vector2(240, 425)
 sway_amplitude = 55.0
 sway_speed = 1.4
 
-[node name="Can6" parent="." instance=ExtResource("3_can")]
+[node name="Can6" parent="." unique_id=25849189 instance=ExtResource("3_can")]
 position = Vector2(540, 425)
 sway_amplitude = 55.0
 sway_speed = 1.4
 
-[node name="Can7" parent="." instance=ExtResource("3_can")]
+[node name="Can7" parent="." unique_id=350968345 instance=ExtResource("3_can")]
 position = Vector2(840, 425)
 sway_amplitude = 55.0
 sway_speed = 1.4
 
-[node name="Can8" parent="." instance=ExtResource("3_can")]
+[node name="Can8" parent="." unique_id=1599301223 instance=ExtResource("3_can")]
 position = Vector2(1140, 425)
 sway_amplitude = 55.0
 sway_speed = 1.4
 
-[node name="Can9" parent="." instance=ExtResource("3_can")]
+[node name="Can9" parent="." unique_id=1374981560 instance=ExtResource("3_can")]
 position = Vector2(240, 585)
 sway_amplitude = 80.0
 sway_speed = 2.1
 
-[node name="Can10" parent="." instance=ExtResource("3_can")]
+[node name="Can10" parent="." unique_id=1031252591 instance=ExtResource("3_can")]
 position = Vector2(540, 585)
 sway_amplitude = 80.0
 sway_speed = 2.1
 
-[node name="Can11" parent="." instance=ExtResource("3_can")]
+[node name="Can11" parent="." unique_id=1577118939 instance=ExtResource("3_can")]
 position = Vector2(840, 585)
 sway_amplitude = 80.0
 sway_speed = 2.1
 
-[node name="Can12" parent="." instance=ExtResource("3_can")]
+[node name="Can12" parent="." unique_id=762021053 instance=ExtResource("3_can")]
 position = Vector2(1140, 585)
 sway_amplitude = 80.0
 sway_speed = 2.1
 
-[node name="Crosshair" type="Area2D" parent="."]
+[node name="Crosshair" type="Area2D" parent="." unique_id=581003318]
 position = Vector2(683, 500)
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("2_cross")
 
-[node name="Ring" type="Sprite2D" parent="Crosshair"]
+[node name="Ring" type="Sprite2D" parent="Crosshair" unique_id=261235283]
 self_modulate = Color(1, 0.25, 0.25, 1)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("6_border")
 
-[node name="Dot" type="Sprite2D" parent="Crosshair"]
+[node name="Dot" type="Sprite2D" parent="Crosshair" unique_id=1253350602]
 self_modulate = Color(1, 0.35, 0.35, 1)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("5_circle")
 
-[node name="Flash" type="Sprite2D" parent="Crosshair"]
-self_modulate = Color(1, 0.93, 0.5, 1)
+[node name="Flash" type="Sprite2D" parent="Crosshair" unique_id=3970372]
 visible = false
+self_modulate = Color(1, 0.93, 0.5, 1)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("7_star")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Crosshair" unique_id=1171274687]
 shape = SubResource("CircleShape2D_sight")
 
-[node name="HUD" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1773289032]
 
-[node name="TimeLabel" type="Label" parent="HUD"]
+[node name="TimeLabel" type="Label" parent="HUD" unique_id=1021955230]
 offset_left = 40.0
 offset_top = 24.0
 offset_right = 440.0
@@ -134,7 +135,7 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 40
 text = "TIME  20.0"
 
-[node name="CansLabel" type="Label" parent="HUD"]
+[node name="CansLabel" type="Label" parent="HUD" unique_id=795157424]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -149,27 +150,11 @@ theme_override_font_sizes/font_size = 40
 text = "CANS  12"
 horizontal_alignment = 2
 
-[node name="HintLabel" type="Label" parent="HUD"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -66.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.85, 0.82, 0.9, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 28
-text = "WASD to aim  -  SPACE to shoot"
-horizontal_alignment = 1
-
-[node name="ResultUI" type="CanvasLayer" parent="."]
+[node name="ResultUI" type="CanvasLayer" parent="." unique_id=2052398050]
 process_mode = 3
 visible = false
 
-[node name="Dim" type="ColorRect" parent="ResultUI"]
+[node name="Dim" type="ColorRect" parent="ResultUI" unique_id=1023602035]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -177,7 +162,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.6)
 
-[node name="ResultLabel" type="Label" parent="ResultUI"]
+[node name="ResultLabel" type="Label" parent="ResultUI" unique_id=868100084]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

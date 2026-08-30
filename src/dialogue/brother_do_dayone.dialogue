@@ -2,7 +2,7 @@
 Brother Do: [#dynamic_portrait=BrotherDoPortrait]Wassup brother, come to play my carnival game?
 do GameManager.give_name_note("brother_do")
 - Can I ask about the rules first?
-	Brother Do: Sure, here are the rules.
+	Brother Do: [do portrait_with_part.assign_part(true)]aSure, here are the rules.
 	~ explain_rule
 	Brother Do: [do portrait_with_part.assign_part(true)][color=yellow]Rule 1[/color]: Use WASD, not the arrow key, to move.
 	Brother Do: [do portrait_with_part.assign_part(false)][color=yellow]Rule 2[/color]: Defend the ball until opponent missed to win. Let the ball through and you lose.

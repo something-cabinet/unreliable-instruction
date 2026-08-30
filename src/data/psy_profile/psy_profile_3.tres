@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PsyProfileData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/ui/item/psy_profile_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+lying_patterns = Array[String]([])
+correct_stall_owner_name = ""
+correct_game_name = ""
+correct_rule_states = Array[bool]([])

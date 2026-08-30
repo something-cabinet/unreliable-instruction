@@ -13,9 +13,9 @@ Note: For the sake of finishing making the game, Manager always tell the truth. 
 
 Day 1:
 
-- Brother Do: Lie when he smile + when he use mic + Thumb up.
+- Brother Do: Lie when he use mic + Thumb up.
 - Do Nam Trung: Lie whenever he point finger up.
-- John Liar: Always tell the truth
+- Mister Dam: When his eye close + cross finger.
 
 Day 2:
 

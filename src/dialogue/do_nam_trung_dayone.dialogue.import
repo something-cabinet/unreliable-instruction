@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://d2i1llknry7l8"
+path="res://.godot/imported/do_nam_trung_dayone.dialogue-f3a74f088b669c55c0fdd6b7bef2d8bf.tres"
+
+[deps]
+
+source_file="res://src/dialogue/do_nam_trung_dayone.dialogue"
+dest_files=["res://.godot/imported/do_nam_trung_dayone.dialogue-f3a74f088b669c55c0fdd6b7bef2d8bf.tres"]
+
+[params]
+
+defaults=true

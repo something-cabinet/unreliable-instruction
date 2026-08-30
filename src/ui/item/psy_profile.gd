@@ -6,11 +6,13 @@ class_name PsyProfile
 signal report_changed
 
 @export var pattern_line_prefab: PackedScene
-@export var lying_patterns: Array[String] = []
-
-@export var correct_stall_owner_name: String
-@export var correct_game_name: String
-@export var correct_rule_states: Array[bool] = []
+## Tells and expected answers for this profile. Assigning it reprints the
+## pattern lines, so the editor preview follows the resource.
+@export var data: PsyProfileData:
+	set(value):
+		data = value
+		if is_node_ready():
+			_build_pattern_lines()
 
 
 ## Copied from the NameNote dropped into NameNoteSlot.
@@ -26,12 +28,7 @@ var rule_states: Array[bool] = []
 @onready var rule_paper_slot: DocumentSlot = $RulePaperSlot
 
 func _ready() -> void:
-	for child in container.get_children():
-		child.queue_free()
-	for item in lying_patterns:
-		var inst: Label = pattern_line_prefab.instantiate()
-		container.add_child(inst)
-		inst.text = item
+	_build_pattern_lines()
 	if Engine.is_editor_hint():
 		return
 	name_note_slot.occupant_changed.connect(_on_name_note_changed)
@@ -58,12 +55,24 @@ func is_complete() -> bool:
 
 
 func is_owner_name_correct() -> bool:
-	return stall_owner_name == correct_stall_owner_name
+	return data != null and stall_owner_name == data.correct_stall_owner_name
 
 
 func is_full_correct() -> bool:
-	if not is_complete():
+	if data == null or not is_complete():
 		return false
-	return stall_owner_name == correct_stall_owner_name and \
-		game_name == correct_game_name and \
-		rule_states == correct_rule_states
+	return stall_owner_name == data.correct_stall_owner_name and \
+		game_name == data.correct_game_name and \
+		rule_states == data.correct_rule_states
+
+
+## Reprints the "Lying Pattern" list from [member data].
+func _build_pattern_lines() -> void:
+	for child in container.get_children():
+		child.queue_free()
+	if data == null or pattern_line_prefab == null:
+		return
+	for item in data.lying_patterns:
+		var inst: Label = pattern_line_prefab.instantiate()
+		container.add_child(inst)
+		inst.text = item

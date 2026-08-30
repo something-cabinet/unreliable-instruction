@@ -1,20 +1,21 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://du3c2yq260w05"]
 
-[ext_resource type="Script" path="res://src/scene/minigamescene/shoot_can/can.gd" id="1_can"]
-[ext_resource type="Texture2D" path="res://asset/sprite/placeholder/crate.png" id="2_can"]
+[ext_resource type="Script" uid="uid://c7ktqqd8a4uj7" path="res://src/scene/minigamescene/shoot_can/can.gd" id="1_can"]
+[ext_resource type="Texture2D" uid="uid://1v0a7elg06rr" path="res://asset/sprite/item/beer_can.png" id="2_xusfk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_can"]
-radius = 26.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpig7"]
+size = Vector2(32, 64)
 
-[node name="Can" type="Area2D"]
+[node name="Can" type="Area2D" unique_id=460310205]
 collision_layer = 8
 collision_mask = 0
 script = ExtResource("1_can")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(0.85, 0.72, 0.25, 1)
-scale = Vector2(0.85, 0.85)
-texture = ExtResource("2_can")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=426107567]
+position = Vector2(0, 10)
+scale = Vector2(0.23484637, 0.23484635)
+texture = ExtResource("2_xusfk")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_can")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=539910508]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_bpig7")

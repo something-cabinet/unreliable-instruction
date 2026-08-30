@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="PsyProfileData" format=3 uid="uid://c2e8ky83oa0m"]
+
+[ext_resource type="Script" uid="uid://cghb8bfcx52ks" path="res://src/ui/item/psy_profile_data.gd" id="1_data"]
+
+[resource]
+script = ExtResource("1_data")
+lying_patterns = Array[String](["Point their index finger up"])
+correct_stall_owner_name = "Do Nam Trung"
+correct_game_name = "Shooting Gallery"
+correct_rule_states = Array[bool]([false, true, true, false])
