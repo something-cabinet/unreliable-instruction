@@ -23,23 +23,24 @@ func _ready():
 	for i in range(6):
 		var car = car_scene.instantiate()
 		randomize()
-		var x = randf_range(1,10) * 250 + $player.position.x
+		var flip = [-1,1].pick_random()
+		car.facing(flip)
+		var x = $player.position.x - flip * randf_range(5,10) * 250
 		var y = randf_range(0,5) * 300
-		if x < $FinishLine.position.x:
-			car.spawn(x,y)
-			add_child(car)
+		car.spawn(x,y)
+		add_child(car)
 
 func _on_timer_timeout() -> void:
 	if finished:
 		return
 	var car = car_scene.instantiate()
-
 	randomize()
-	var x = randf_range(5,10) * 250 + $player.position.x
+	var flip = [-1,1].pick_random()
+	car.facing(flip)
+	var x = $player.position.x - flip * randf_range(5,10) * 250
 	var y = randf_range(0,5) * 300
-	if x < $FinishLine.position.x:
-		car.spawn(x,y)
-		add_child(car)
+	car.spawn(x,y)
+	add_child(car)
 
 func _process(_delta) -> void:
 	if finished:
