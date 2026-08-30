@@ -7,6 +7,7 @@ const MINIGAME_HOST_SCENE := preload("res://src/scene/minigamescene/MinigameHost
 ## without needing a resource path.
 const MINIGAME_SCENES := {
 	"pong": preload("res://src/scene/minigamescene/pong/minigame_pong.tscn"),
+	"shoot_can": preload("res://src/scene/minigamescene/shoot_can/minigame_shoot_can.tscn"),
 }
 
 ## Emitted after a minigame has closed and the map is interactive again.
