@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cmleujqg1o2ft"]
+
+[ext_resource type="Script" uid="uid://drg58o6xcihiu" path="res://src/entity/stall_owners/stall_owner.gd" id="1_wme81"]
+[ext_resource type="Resource" uid="uid://d2i1llknry7l8" path="res://src/dialogue/do_nam_trung_dayone.dialogue" id="2_x2it3"]
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="3_cqros"]
+[ext_resource type="Shader" uid="uid://xrubxduqo407" path="res://src/shader/2d_outline.gdshader" id="4_amqii"]
+[ext_resource type="Texture2D" uid="uid://b5jv6ddelsd1d" path="res://asset/sprite/entity/mister_dam.png" id="5_7uvgg"]
+[ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="6_dsf7x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_173wh"]
+shader = ExtResource("4_amqii")
+shader_parameter/thickness = 8.00000038
+shader_parameter/ring_count = 16
+shader_parameter/ring_offset = 0.0
+shader_parameter/outline_color = Color(1, 0.948822, 0, 1)
+shader_parameter/border_clipping_fix = true
+shader_parameter/aspect_ratio = 1.0
+shader_parameter/square_border = false
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/max_or_add = false
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_low7t"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cnl5i"]
+noise = SubResource("FastNoiseLite_low7t")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ingd"]
+shader = ExtResource("6_dsf7x")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.5
+shader_parameter/fps = 3.0
+shader_parameter/noise = SubResource("NoiseTexture2D_cnl5i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_173wh"]
+size = Vector2(96, 64)
+
+[node name="MisterDam" type="CharacterBody2D" unique_id=1165913706 node_paths=PackedStringArray("outline")]
+collision_layer = 4
+collision_mask = 35
+script = ExtResource("1_wme81")
+dialogue_resource = ExtResource("2_x2it3")
+outline = NodePath("Outline")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1463552689]
+self_modulate = Color(0, 0, 0, 0.40392157)
+position = Vector2(5, 4)
+scale = Vector2(1.625, 0.625)
+texture = ExtResource("3_cqros")
+
+[node name="Outline" type="Sprite2D" parent="." unique_id=2128497850]
+visible = false
+material = SubResource("ShaderMaterial_173wh")
+position = Vector2(0, -104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_7uvgg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1877570822]
+material = SubResource("ShaderMaterial_7ingd")
+position = Vector2(0, -104)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_7uvgg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573048559]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_173wh")

@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://b4dg35sn4b6ho" path="res://src/entity/stall_owners/StallD.tscn" id="14_y1vfj"]
 [ext_resource type="Resource" uid="uid://d2i1llknry7l8" path="res://src/dialogue/do_nam_trung_dayone.dialogue" id="16_y1vfj"]
 [ext_resource type="PackedScene" uid="uid://ckgttwv36fy5c" path="res://src/ui/menu/PopupContainer.tscn" id="17_40y0r"]
+[ext_resource type="PackedScene" uid="uid://cmleujqg1o2ft" path="res://src/entity/stall_owners/MisterDam.tscn" id="17_dko18"]
 [ext_resource type="PackedScene" uid="uid://hkeghuxfxpv6" path="res://src/entity/CarReturn.tscn" id="17_y1vfj"]
+[ext_resource type="Resource" uid="uid://ds4nwimipf7mu" path="res://src/dialogue/mister_dam_dayone.dialogue" id="18_6m304"]
 
 [node name="DayOne" type="Node2D" unique_id=1255127927]
 script = ExtResource("1_cnl5i")
@@ -119,6 +121,10 @@ position = Vector2(456, -200)
 position = Vector2(-962, -95)
 collision_mask = 35
 dialogue_resource = ExtResource("16_y1vfj")
+
+[node name="MisterDam" parent="YSort" unique_id=1165913706 instance=ExtResource("17_dko18")]
+position = Vector2(-1744, -112)
+dialogue_resource = ExtResource("18_6m304")
 
 [node name="CarReturn" parent="YSort" unique_id=44416760 instance=ExtResource("17_y1vfj")]
 position = Vector2(1568, -152)

@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://b1xbi0eaws46v"]
+
+[ext_resource type="Shader" uid="uid://turyq40gvrqx" path="res://src/shader/squigglevision.gdshader" id="1_nhffi"]
+[ext_resource type="Texture2D" uid="uid://dlmk0jk8881hy" path="res://asset/sprite/portrait/mister_dam.png" id="2_nhffi"]
+[ext_resource type="Script" uid="uid://uusjskdxnib1" path="res://src/dialogue/portrait_with_part.gd" id="3_qt3sx"]
+[ext_resource type="Texture2D" uid="uid://qxbha1iu83nb" path="res://asset/sprite/portrait_part/eye_1.png" id="4_7vpvi"]
+[ext_resource type="Texture2D" uid="uid://wxxyr1087alq" path="res://asset/sprite/portrait_part/eye_2.png" id="5_xpth5"]
+[ext_resource type="Texture2D" uid="uid://c8607ks1y6t47" path="res://asset/sprite/portrait_part/eye_3.png" id="6_flgkw"]
+[ext_resource type="Texture2D" uid="uid://cqgs3yg0lyc0f" path="res://asset/sprite/portrait_part/eye_4.png" id="7_mqo1w"]
+[ext_resource type="Texture2D" uid="uid://ddefv4m3v4hec" path="res://asset/sprite/portrait_part/eye_5.png" id="8_jewdf"]
+[ext_resource type="Texture2D" uid="uid://cf3sdp4yhdybv" path="res://asset/sprite/portrait_part/eye_6.png" id="9_7v21f"]
+[ext_resource type="Texture2D" uid="uid://b4h10cvtqj55i" path="res://asset/sprite/portrait_part/mouth_1.png" id="10_c13hr"]
+[ext_resource type="Texture2D" uid="uid://cw7smy160kkbd" path="res://asset/sprite/portrait_part/mouth_2.png" id="11_th3tb"]
+[ext_resource type="Texture2D" uid="uid://0h2018njhq42" path="res://asset/sprite/portrait_part/mouth_3.png" id="12_5hcas"]
+[ext_resource type="Texture2D" uid="uid://cws0wdq12kdkh" path="res://asset/sprite/portrait_part/mouth_4.png" id="13_6tpjb"]
+[ext_resource type="Texture2D" uid="uid://hra7ahwp6j2m" path="res://asset/sprite/portrait_part/mouth_5.png" id="14_nhyhl"]
+[ext_resource type="Texture2D" uid="uid://dvc0occroaghh" path="res://asset/sprite/portrait_part/mouth_6.png" id="15_f3qnx"]
+[ext_resource type="Texture2D" uid="uid://b8s0fh81nsvg2" path="res://asset/sprite/portrait_part/arm_1.png" id="16_1oqac"]
+[ext_resource type="Texture2D" uid="uid://corptxym1huor" path="res://asset/sprite/portrait_part/arm_3.png" id="17_1x4x3"]
+[ext_resource type="Texture2D" uid="uid://d2pegj325bfwy" path="res://asset/sprite/portrait_part/arm_4.png" id="18_88640"]
+[ext_resource type="Texture2D" uid="uid://gqoblotdqy3l" path="res://asset/sprite/portrait_part/arm_5.png" id="19_biw1w"]
+[ext_resource type="Texture2D" uid="uid://cm7emw5w45iln" path="res://asset/sprite/portrait_part/arm_8.png" id="20_ch0cp"]
+[ext_resource type="Texture2D" uid="uid://bhb4kede4mqic" path="res://asset/sprite/portrait_part/arm_9.png" id="21_6gaxg"]
+[ext_resource type="Texture2D" uid="uid://dg2wpulo6dngx" path="res://asset/sprite/portrait_part/arm_6.png" id="22_boaoo"]
+[ext_resource type="Texture2D" uid="uid://ctmb5px4mftq8" path="res://asset/sprite/portrait_part/arm_7.png" id="23_v4jqv"]
+[ext_resource type="Texture2D" uid="uid://c4o01a2oa7rdp" path="res://asset/sprite/portrait_part/arm_2.png" id="24_cdoxh"]
+[ext_resource type="Script" uid="uid://cd3222nx3y3k5" path="res://addons/dialogue_manager/nodes/context/dialogue_state_context.gd" id="25_rbjps"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qt4rf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6bp7c"]
+noise = SubResource("FastNoiseLite_qt4rf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3kj52"]
+shader = ExtResource("1_nhffi")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 0.2
+shader_parameter/fps = 3.0
+shader_parameter/noise = SubResource("NoiseTexture2D_6bp7c")
+
+[node name="MisterDamPortrait" type="TextureRect" unique_id=1877723309]
+material = SubResource("ShaderMaterial_3kj52")
+custom_minimum_size = Vector2(512, 512)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nhffi")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("3_qt3sx")
+eye_truth = Array[Texture2D]([ExtResource("4_7vpvi"), ExtResource("5_xpth5"), ExtResource("6_flgkw"), ExtResource("7_mqo1w"), ExtResource("8_jewdf")])
+eye_lie = Array[Texture2D]([ExtResource("9_7v21f")])
+mouth_truth = Array[Texture2D]([ExtResource("10_c13hr"), ExtResource("11_th3tb"), ExtResource("12_5hcas"), ExtResource("13_6tpjb"), ExtResource("14_nhyhl"), ExtResource("15_f3qnx")])
+mouth_lie = Array[Texture2D]([ExtResource("10_c13hr"), ExtResource("11_th3tb"), ExtResource("12_5hcas"), ExtResource("13_6tpjb"), ExtResource("14_nhyhl"), ExtResource("15_f3qnx")])
+arm_truth = Array[Texture2D]([ExtResource("16_1oqac"), ExtResource("17_1x4x3"), ExtResource("18_88640"), ExtResource("19_biw1w"), ExtResource("20_ch0cp"), ExtResource("21_6gaxg"), ExtResource("22_boaoo"), ExtResource("23_v4jqv")])
+arm_lie_left_only = Array[Texture2D]([ExtResource("23_v4jqv")])
+arm_lie_right_only = Array[Texture2D]([ExtResource("16_1oqac"), ExtResource("24_cdoxh"), ExtResource("17_1x4x3"), ExtResource("18_88640"), ExtResource("19_biw1w"), ExtResource("22_boaoo"), ExtResource("20_ch0cp"), ExtResource("21_6gaxg")])
+
+[node name="EyeR" type="TextureRect" parent="." unique_id=709502522]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 228.0
+offset_right = 245.66667
+offset_bottom = 247.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_7vpvi")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="EyeL" type="TextureRect" parent="." unique_id=615291339]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 225.0
+offset_right = 289.66666
+offset_bottom = 244.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("4_7vpvi")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="Mouth" type="TextureRect" parent="." unique_id=1030734219]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 265.0
+offset_right = 281.25
+offset_bottom = 289.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("11_th3tb")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArmR" type="TextureRect" parent="." unique_id=1156741473]
+layout_mode = 0
+offset_left = -98.0
+offset_top = 186.0
+offset_right = 401.0
+offset_bottom = 685.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("24_cdoxh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ArmL" type="TextureRect" parent="." unique_id=729634303]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 213.0
+offset_right = 642.0
+offset_bottom = 694.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("22_boaoo")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="DialogueStateContext" type="Node" parent="." unique_id=1150514039 node_paths=PackedStringArray("target")]
+script = ExtResource("25_rbjps")
+alias = "portrait_with_part"
+target = NodePath("..")
+metadata/_custom_type_script = "uid://cd3222nx3y3k5"

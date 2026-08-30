@@ -63,10 +63,11 @@ func give_name_note(character: String) -> void:
 	match character:
 		"brother_do":
 			inventory_ui.add_name_note("Brother Do")
-			show_item_popup("You got a new name note")
 		"do_nam_trung":
 			inventory_ui.add_name_note("Do Nam Trung")
-			show_item_popup("You got a new name note")
+		"do_nam_trung":
+			inventory_ui.add_name_note("Mister Dam")
+	show_item_popup("You got a new name note")
 	acquired_name_note.append(character)
 
 func give_rule_paper(character: String) -> void:
@@ -79,7 +80,6 @@ func give_rule_paper(character: String) -> void:
 				"Defend the ball until opponent missed to win.",
 				"The slider move up when you press the up button, and vice versa."
 			], "Pong Game")
-			show_item_popup("You got a new rule paper")
 		"do_nam_trung":
 			inventory_ui.add_rule_paper([
 				"Use WASD, not the arrow key, to move.",
@@ -87,7 +87,7 @@ func give_rule_paper(character: String) -> void:
 				"Shoot all cans before time run out to win.",
 				"The crosshair move up when you press the up button, and vice versa."
 			], "Shooting Gallery")
-			show_item_popup("You got a new rule paper")
+	show_item_popup("You got a new rule paper")
 	acquired_rule_paper.append(character)
 
 

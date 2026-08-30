@@ -143,7 +143,10 @@ func apply_dialogue_line() -> void:
 	if dialogue_line.get_tag_value("portrait") != "":
 		var portrait_name: String = dialogue_line.get_tag_value("portrait")
 		var portrait_path: String = "res://asset/sprite/portrait/%s.png" % portrait_name
-		if FileAccess.file_exists(portrait_path):
+		# ResourceLoader, not FileAccess: an exported build ships the imported
+		# texture and a remap, not the source .png, so file_exists() is false
+		# there even though the portrait loads fine.
+		if ResourceLoader.exists(portrait_path):
 			portrait_image.texture = load(portrait_path)
 		else:
 			portrait_image.texture = null
@@ -154,9 +157,10 @@ func apply_dialogue_line() -> void:
 		if portrait_name == "null":
 			for child in dynamic_portrait_container.get_children():
 				child.queue_free()
-				return
 		var portrait_path: String = "res://src/dialogue/%s.tscn" % portrait_name
-		if FileAccess.file_exists(portrait_path):
+		# Same as above, plus exporting turns .tscn into .scn, so the source
+		# path only resolves through ResourceLoader's remap.
+		if ResourceLoader.exists(portrait_path):
 			var new_inst = load(portrait_path).instantiate()
 			for child in dynamic_portrait_container.get_children():
 				child.queue_free()

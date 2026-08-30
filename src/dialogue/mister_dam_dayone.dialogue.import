@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://ds4nwimipf7mu"
+path="res://.godot/imported/mister_dam_dayone.dialogue-e1c3d2b9931526885d0931e3894d6748.tres"
+
+[deps]
+
+source_file="res://src/dialogue/mister_dam_dayone.dialogue"
+dest_files=["res://.godot/imported/mister_dam_dayone.dialogue-e1c3d2b9931526885d0931e3894d6748.tres"]
+
+[params]
+
+defaults=true

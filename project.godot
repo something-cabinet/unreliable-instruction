@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="Carnival of the Liar"
 config/version="0.1"
 config/tags=PackedStringArray("jam")
-run/main_scene="uid://b7igo14mlecb2"
+run/main_scene="uid://baeg7c16aji2u"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="uid://hwax5jdkwn4b"
 
@@ -111,7 +111,7 @@ open_inventory={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://src/dialogue/intro.dialogue", "res://src/dialogue/brother_do_dayone.dialogue", "res://src/dialogue/car_return.dialogue", "res://src/dialogue/do_nam_trung_dayone.dialogue", "res://src/dialogue/result.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/dialogue/intro.dialogue", "res://src/dialogue/brother_do_dayone.dialogue", "res://src/dialogue/car_return.dialogue", "res://src/dialogue/do_nam_trung_dayone.dialogue", "res://src/dialogue/result.dialogue", "res://src/dialogue/mister_dam_dayone.dialogue")
 
 [layer_names]
 

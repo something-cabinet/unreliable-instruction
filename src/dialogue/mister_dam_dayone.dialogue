@@ -1,0 +1,33 @@
+~ start
+Mister Dam: [#dynamic_portrait=MisterDamPortrait]Hellooooooo. Come to join my gameeeee?
+do GameManager.give_name_note("mister_dam")
+- Can I ask about the rules first?
+	Mister Dam: [do portrait_with_part.assign_part(true)]Rules, rules, rules... Of course you can.
+	~ explain_rule
+	Mister Dam: [do portrait_with_part.assign_part(true)]We will play a shooting game. Here're the rules:
+	Mister Dam: [do portrait_with_part.assign_part(false)][color=yellow]Rule 1[/color]: Use WASD, not the arrow key, to aim your crosshair.
+	Mister Dam: [do portrait_with_part.assign_part(true)][color=yellow]Rule 2[/color]: Use Space button to shoot.
+	Mister Dam: [do portrait_with_part.assign_part(true)][color=yellow]Rule 3[/color]: Shoot all the cans before the time run out to win.
+	Mister Dam: [do portrait_with_part.assign_part(false)][color=yellow]Rule 4[/color]: The crosshair move up when you press the up button, and vice versa.
+	do GameManager.give_rule_paper("mister_dam")
+	Mister Dam: I hope you remember the rules and not ask me again.
+	- I'm not. Care to speak again?
+		Mister Dam: [do portrait_with_part.assign_part(true)][shake]Listen here this sleepy guy[/shake]:
+		=> explain_rule
+	- I got the rule, let me play.
+		=> play_game
+	- Yeah, but I don't wanna play anymore.
+		Mister Dam: [do portrait_with_part.assign_part(true)]Suit yourself.
+		=> END
+- Yes, please!
+	~ play_game
+	Mister Dam: [do portrait_with_part.assign_part(true)]Very good. I will prepare the game for you to play!
+	do GameManager.map_manager.start_minigame("shoot_can")
+	if GameManager.last_minigame_won
+		Mister Dam: [do portrait_with_part.assign_part(true)]Wow, didn't think you would win. Very good!
+	else
+		Mister Dam: [do portrait_with_part.assign_part(true)]Better luck next time!
+	=> END
+- No
+	=> END
+=> END
