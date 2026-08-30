@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1192034941]
+[node name="CarnivalImage" type="TextureRect" parent="." unique_id=1192034941]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

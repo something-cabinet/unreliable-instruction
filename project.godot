@@ -19,7 +19,7 @@ config/version="0.1"
 config/tags=PackedStringArray("jam")
 run/main_scene="uid://baeg7c16aji2u"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="uid://hwax5jdkwn4b"
+config/icon="uid://b6u6ar1a8pyp2"
 
 [autoload]
 

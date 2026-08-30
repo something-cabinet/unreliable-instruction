@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw5kni3og7img"
-path="res://.godot/imported/project-icon.png-8fa1bee7a588a63df97da3adeb82c1dd.ctex"
+uid="uid://cek6bw34t3l6q"
+path="res://.godot/imported/circus_pattern.jpg-b17b03d0548ebf77b23531a5bcf82037.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/ui/project-icon.png"
-dest_files=["res://.godot/imported/project-icon.png-8fa1bee7a588a63df97da3adeb82c1dd.ctex"]
+source_file="res://asset/sprite/background/circus_pattern.jpg"
+dest_files=["res://.godot/imported/circus_pattern.jpg-b17b03d0548ebf77b23531a5bcf82037.ctex"]
 
 [params]
 
