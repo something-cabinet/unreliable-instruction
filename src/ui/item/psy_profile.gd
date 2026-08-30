@@ -56,7 +56,12 @@ func _on_rule_paper_changed(item: DocumentItem) -> void:
 func is_complete() -> bool:
 	return stall_owner_name != "" and game_name != "" and not rule_states.is_empty()
 
-func is_correct() -> bool:
+
+func is_owner_name_correct() -> bool:
+	return stall_owner_name == correct_stall_owner_name
+
+
+func is_full_correct() -> bool:
 	if not is_complete():
 		return false
 	return stall_owner_name == correct_stall_owner_name and \

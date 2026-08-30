@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bt0fhlyo5a5nw" path="res://src/scene/minigamescene/pong/ball.tscn" id="3_3kkxd"]
 [ext_resource type="Texture2D" uid="uid://cjldpcmgkpumj" path="res://asset/sprite/placeholder/square.png" id="3_tyhsl"]
 [ext_resource type="Script" uid="uid://bej7lkol43pby" path="res://src/scene/minigamescene/pong/ball.gd" id="5_3kkxd"]
+[ext_resource type="Texture2D" uid="uid://ct7wyoofghkbl" path="res://asset/sprite/placeholder/circle.png" id="8_circ"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwmwa"]
 size = Vector2(35.625, 128.375)
@@ -13,13 +14,116 @@ size = Vector2(35.625, 128.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00rlw"]
 size = Vector2(1364.75, 170)
 
+[sub_resource type="Gradient" id="Gradient_trail"]
+colors = PackedColorArray(1, 0.85, 0.45, 0.55, 1, 0.45, 0.15, 0)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5ami"]
 size = Vector2(158.63123, 892)
 
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_p3ppe")
+false_input = true
 false_wincon = true
 false_movement = false
+
+[node name="Background" type="ColorRect" parent="." unique_id=826059467]
+offset_right = 1366.0
+offset_bottom = 768.0
+color = Color(0.043, 0.039, 0.086, 1)
+
+[node name="Court" type="ColorRect" parent="." unique_id=367435485]
+offset_left = 26.0
+offset_top = 14.0
+offset_right = 1340.0
+offset_bottom = 754.0
+color = Color(0.082, 0.098, 0.184, 1)
+
+[node name="TopRail" type="Sprite2D" parent="." unique_id=332104845]
+self_modulate = Color(0.22, 0.26, 0.42, 1)
+position = Vector2(683, 12)
+scale = Vector2(21.4, 0.22)
+texture = ExtResource("3_tyhsl")
+
+[node name="BottomRail" type="Sprite2D" parent="." unique_id=604104812]
+self_modulate = Color(0.22, 0.26, 0.42, 1)
+position = Vector2(683, 756)
+scale = Vector2(21.4, 0.22)
+texture = ExtResource("3_tyhsl")
+
+[node name="CenterDot" type="Sprite2D" parent="." unique_id=957383063]
+self_modulate = Color(1, 1, 1, 0.14)
+position = Vector2(683, 384)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("8_circ")
+
+[node name="CenterLine" type="Node2D" parent="." unique_id=1212987852]
+position = Vector2(683, 0)
+
+[node name="Dash1" type="Sprite2D" parent="CenterLine" unique_id=482350329]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 44)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash2" type="Sprite2D" parent="CenterLine" unique_id=256838859]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 110)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash3" type="Sprite2D" parent="CenterLine" unique_id=1003882943]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 176)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash4" type="Sprite2D" parent="CenterLine" unique_id=563366739]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 242)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash5" type="Sprite2D" parent="CenterLine" unique_id=509069751]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 308)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash6" type="Sprite2D" parent="CenterLine" unique_id=1052073342]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 374)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash7" type="Sprite2D" parent="CenterLine" unique_id=842367294]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 440)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash8" type="Sprite2D" parent="CenterLine" unique_id=808882077]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 506)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash9" type="Sprite2D" parent="CenterLine" unique_id=1062153533]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 572)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash10" type="Sprite2D" parent="CenterLine" unique_id=1765122887]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 638)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
+
+[node name="Dash11" type="Sprite2D" parent="CenterLine" unique_id=1411500609]
+self_modulate = Color(1, 1, 1, 0.13)
+position = Vector2(0, 704)
+scale = Vector2(0.14, 0.62)
+texture = ExtResource("3_tyhsl")
 
 [node name="Computer" type="CharacterBody2D" parent="." unique_id=1381278962]
 position = Vector2(-5, 332)
@@ -28,9 +132,15 @@ script = ExtResource("2_1mlcv")
 speed = 200.0
 
 [node name="ColorRect" type="Sprite2D" parent="Computer" unique_id=409486071]
-self_modulate = Color(0, 0.18912959, 1, 1)
+self_modulate = Color(1, 0.42, 0.34, 1)
 position = Vector2(1307, 24)
 scale = Vector2(0.625, 2)
+texture = ExtResource("3_tyhsl")
+
+[node name="Gloss" type="Sprite2D" parent="Computer" unique_id=1242966590]
+self_modulate = Color(1, 1, 1, 0.3)
+position = Vector2(1300, 24)
+scale = Vector2(0.12, 1.75)
 texture = ExtResource("3_tyhsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer" unique_id=1133784097]
@@ -42,9 +152,15 @@ collision_layer = 2
 script = ExtResource("2_p3ppe")
 
 [node name="ColorRect" type="Sprite2D" parent="Player" unique_id=1694702208]
-self_modulate = Color(0, 0.18912959, 1, 1)
+self_modulate = Color(0.3, 0.88, 1, 1)
 position = Vector2(42, 354)
 scale = Vector2(0.625, 2)
+texture = ExtResource("3_tyhsl")
+
+[node name="Gloss" type="Sprite2D" parent="Player" unique_id=1054031093]
+self_modulate = Color(1, 1, 1, 0.3)
+position = Vector2(35, 354)
+scale = Vector2(0.12, 1.75)
 texture = ExtResource("3_tyhsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=879769585]
@@ -70,6 +186,17 @@ collision_mask = 3
 script = ExtResource("5_3kkxd")
 speed = 300.0
 
+[node name="Trail" type="CPUParticles2D" parent="Ball" unique_id=897083022]
+z_index = 1
+amount = 90
+texture = ExtResource("8_circ")
+lifetime = 0.35
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.22
+scale_amount_max = 0.22
+color_ramp = SubResource("Gradient_trail")
+
 [node name="Win" type="Area2D" parent="." unique_id=851608785]
 position = Vector2(-36, 74)
 collision_layer = 0
@@ -87,6 +214,35 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lose" unique_id=1254567795]
 position = Vector2(1486, 321)
 shape = SubResource("RectangleShape2D_y5ami")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1822003168]
+
+[node name="YouLabel" type="Label" parent="HUD" unique_id=1178085722]
+offset_left = 60.0
+offset_top = 26.0
+offset_right = 360.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.3, 0.88, 1, 0.75)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "YOU"
+
+[node name="RivalLabel" type="Label" parent="HUD" unique_id=2056606460]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -360.0
+offset_top = 26.0
+offset_right = -60.0
+offset_bottom = 68.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 0.42, 0.34, 0.75)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 30
+text = "RIVAL"
+horizontal_alignment = 2
 
 [node name="ResultUI" type="CanvasLayer" parent="." unique_id=770224101]
 process_mode = 3
