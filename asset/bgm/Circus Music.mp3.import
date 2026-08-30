@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg536yv2g11oe"
+path="res://.godot/imported/Circus Music.mp3-5aab1eca375c188ada498567b62a08df.mp3str"
+
+[deps]
+
+source_file="res://asset/bgm/Circus Music.mp3"
+dest_files=["res://.godot/imported/Circus Music.mp3-5aab1eca375c188ada498567b62a08df.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

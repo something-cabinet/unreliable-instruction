@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://31aqbkh11x6v"
+path="res://.godot/imported/carnival music (original version).mp3-ac828164213489ed2a8e4a464ba50286.mp3str"
+
+[deps]
+
+source_file="res://asset/bgm/carnival music (original version).mp3"
+dest_files=["res://.godot/imported/carnival music (original version).mp3-ac828164213489ed2a8e4a464ba50286.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

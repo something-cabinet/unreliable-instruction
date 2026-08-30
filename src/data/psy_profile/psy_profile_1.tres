@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_data")
-lying_patterns = Array[String](["- Using a microphone", "- Hand do a thumb up"])
+lying_patterns = Array[String](["- Using a microphone", "- Hand do a thumb up", "- One eye open, one eye closed"])
 correct_stall_owner_name = "Brother Do"
 correct_game_name = "Pong Game"
 correct_rule_states = Array[bool]([true, false, true])

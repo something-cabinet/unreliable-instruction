@@ -14,6 +14,7 @@ class_name ResultDialogue
 
 @onready var fade_overlay: ColorRect = $FadeLayer/FadeOverlay
 
+var bgm = preload("res://asset/bgm/Veruschka - Intervallo II ( Ennio Morricone ).mp3")
 
 func _ready() -> void:
 	GameManager.result_dialogue = self
@@ -21,6 +22,7 @@ func _ready() -> void:
 	fade_overlay.visible = false
 	DialogueManager.dialogue_ended.connect(finish_dialog.unbind(1))
 	DialogueManager.show_dialogue_balloon(dialogue_resource)
+	SoundManager.play_music_at_volume(bgm, 6)
 
 
 ## Fades to black, holds while the manager is off reading the paperwork, then

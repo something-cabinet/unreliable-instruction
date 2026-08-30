@@ -15,10 +15,12 @@ const MINIGAME_SCENES := {
 signal minigame_finished(won: bool)
 
 var _minigame_host: MinigameHost = null
+var bgm = preload("res://asset/bgm/Circus Music.mp3")
 
 
 func _ready() -> void:
 	GameManager.map_manager = self
+	SoundManager.play_music_at_volume(bgm, -9)
 
 
 ## Opens a minigame over this map and waits for it to finish, returning whether

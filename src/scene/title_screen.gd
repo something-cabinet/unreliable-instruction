@@ -5,9 +5,12 @@ extends Control
 @onready var credit_panel: ColorRect = $CreditPanel
 @onready var setting_ui: SettingUI = $SettingUI
 
+var title_bgm = preload("res://asset/bgm/carnival music (original version).mp3")
+
 func _ready() -> void:
 	credit_panel.visible = false
 	setting_ui.visible = false
+	SoundManager.play_music_at_volume(title_bgm, -9)
 
 func _on_start_button_pressed() -> void:
 	play_button_click_sfx()

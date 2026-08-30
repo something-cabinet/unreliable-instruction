@@ -65,7 +65,7 @@ func give_name_note(character: String) -> void:
 			inventory_ui.add_name_note("Brother Do")
 		"do_nam_trung":
 			inventory_ui.add_name_note("Do Nam Trung")
-		"do_nam_trung":
+		"mister_dam":
 			inventory_ui.add_name_note("Mister Dam")
 	show_item_popup("You got a new name note")
 	acquired_name_note.append(character)
