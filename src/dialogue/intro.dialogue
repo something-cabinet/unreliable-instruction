@@ -10,5 +10,6 @@ The Carnival Manager: [#portrait=manager_default]So, can you go overthere, ask o
 - No boss
 	The Carnival Manager[#portrait=manager_happy]: Ah ha! So you know how to lie too! Ok very funny, now go! bye bye.
 	The Carnival Manager[#portrait=manager_happy]: Ok very funny. Now go. [wave]Bye bye~[/wave]
+The Carnival Manager[#portrait=manager_default]: By the way, an optional homework, [color=yellow]check the rules they gave[/color]. Maybe some of them are not correct. Mark them as a [color=red]lie[/color] in that case.
 The Carnival Manager[#portrait=manager_default]: I'm looking forward to your result.
 => END
