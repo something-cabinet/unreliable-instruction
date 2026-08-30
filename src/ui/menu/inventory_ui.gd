@@ -34,10 +34,10 @@ func add_name_note(content: String) -> void:
 	item.position = name_note_spawn.position + offset_pos
 	name_note_count += 1
 
-func add_rule_paper(content: Array[String]) -> void:
+func add_rule_paper(content: Array[String], game_name: String) -> void:
 	var item = rule_paper_prefab.instantiate()
 	add_child(item)
-	item.update_rule(content)
+	item.update_rule(content, game_name)
 	var offset_pos = Vector2((rule_paper_count % MAX_COUNT_BEFORE_RESET) * 100, randi_range(-100, 100))
 	item.position = rule_paper_spawn.position + offset_pos
 	rule_paper_count += 1

@@ -57,7 +57,7 @@ func give_rule_paper(character: String) -> void:
 				"Use WASD, not the arrow key, to move.",
 				"Defend the ball until opponent missed to win.",
 				"The slider move up when you press the up button, and vice versa."
-			])
+			], "Pong game")
 			show_item_popup("You got a new rule paper")
 	acquired_rule_paper.append(character)
 

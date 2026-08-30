@@ -1,6 +1,8 @@
 extends ColorRect
 class_name DocumentSlot
 
+signal occupant_changed(item: DocumentItem)
+
 const GROUP := &"document_slot"
 
 ## Only items whose item_type matches this can be dropped here.
@@ -27,6 +29,7 @@ func attach(item: DocumentItem) -> void:
 	if occupant != null and occupant != item:
 		occupant.return_to_board()
 	occupant = item
+	occupant_changed.emit(occupant)
 	# The slot's own size may not be resolved yet on the frame the item is
 	# dropped, and a layout pass can overwrite position, so centre after both.
 	_recentre.call_deferred()
@@ -34,6 +37,7 @@ func attach(item: DocumentItem) -> void:
 
 func detach() -> void:
 	occupant = null
+	occupant_changed.emit(null)
 
 
 func _recentre() -> void:

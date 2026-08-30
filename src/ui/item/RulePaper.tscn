@@ -27,6 +27,7 @@ expand_mode = 1
 stretch_mode = 4
 script = ExtResource("3_t276w")
 rule_line_prefab = ExtResource("4_g4wyt")
+game_name = "Pong Game"
 allow_dragging = true
 item_type = "rule_paper"
 

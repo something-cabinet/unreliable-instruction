@@ -53,9 +53,11 @@ alignment = 1
 
 [node name="PsyProfile" parent="ScrollContainer/VBoxContainer" unique_id=1572016999 instance=ExtResource("1_ta74w")]
 layout_mode = 2
+lying_patterns = Array[String](["- Using a microphone", "- Hand do a thumb up"])
 
 [node name="PsyProfile2" parent="ScrollContainer/VBoxContainer" unique_id=1366959665 instance=ExtResource("1_ta74w")]
 layout_mode = 2
+lying_patterns = Array[String](["Point their finger up"])
 
 [node name="PsyProfile3" parent="ScrollContainer/VBoxContainer" unique_id=734959159 instance=ExtResource("1_ta74w")]
 layout_mode = 2

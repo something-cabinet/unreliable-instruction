@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://27j1xpr873l1"]
+
+[node name="LyingPattern" type="Label" unique_id=336623613]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "- When smile"
+vertical_alignment = 1
