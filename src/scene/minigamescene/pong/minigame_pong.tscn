@@ -22,7 +22,6 @@ size = Vector2(158.63123, 892)
 
 [node name="MinigamePong" type="Node2D" unique_id=891308707]
 script = ExtResource("1_p3ppe")
-false_input = true
 false_wincon = true
 false_movement = false
 
